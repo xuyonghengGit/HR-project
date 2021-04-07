@@ -14,15 +14,6 @@
           <element id="module-output" name="HR-web-humanFile" />
         </element>
         <element id="directory" name="lib">
-          <element id="archive" name="HR-service-1.0-SNAPSHOT.jar">
-            <element id="module-output" name="HR-service" />
-          </element>
-          <element id="archive" name="HR-dao-1.0-SNAPSHOT.jar">
-            <element id="module-output" name="HR-dao" />
-          </element>
-          <element id="archive" name="HR-entity-1.0-SNAPSHOT.jar">
-            <element id="module-output" name="HR-entity" />
-          </element>
           <element id="library" level="project" name="Maven: mysql:mysql-connector-java:8.0.23" />
           <element id="library" level="project" name="Maven: com.google.protobuf:protobuf-java:3.11.4" />
           <element id="library" level="project" name="Maven: org.mybatis:mybatis:3.5.6" />

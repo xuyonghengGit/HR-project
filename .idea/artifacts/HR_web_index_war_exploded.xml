@@ -64,6 +64,10 @@
         <element id="file-copy" path="$PROJECT_DIR$/HR-web-index/target/HR-web-index/META-INF/MANIFEST.MF" />
       </element>
       <element id="javaee-facet-resources" facet="HR-web-index/web/Web" />
+      <element id="artifact" artifact-name="HR-web-humanFile:war exploded" />
+      <element id="artifact" artifact-name="HR-web-transfer:war exploded" />
+      <element id="artifact" artifact-name="HR-web-position:war exploded" />
+      <element id="artifact" artifact-name="HR-web-recruitment:war exploded" />
     </root>
   </artifact>
 </component>

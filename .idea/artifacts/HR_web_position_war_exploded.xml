@@ -14,6 +14,9 @@
           <element id="module-output" name="HR-web-position" />
         </element>
         <element id="directory" name="lib">
+          <element id="archive" name="HR-web-index-1.0-SNAPSHOT.jar">
+            <element id="module-output" name="HR-web-index" />
+          </element>
           <element id="archive" name="HR-service-1.0-SNAPSHOT.jar">
             <element id="module-output" name="HR-service" />
           </element>
