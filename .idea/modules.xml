@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/HR/HR.iml" filepath="$PROJECT_DIR$/HR/HR.iml" />
+      <module fileurl="file://$PROJECT_DIR$/HR-dao/HR-dao.iml" filepath="$PROJECT_DIR$/HR-dao/HR-dao.iml" />
+      <module fileurl="file://$PROJECT_DIR$/HR-entity/HR-entity.iml" filepath="$PROJECT_DIR$/HR-entity/HR-entity.iml" />
+      <module fileurl="file://$PROJECT_DIR$/HR-project.iml" filepath="$PROJECT_DIR$/HR-project.iml" />
+      <module fileurl="file://$PROJECT_DIR$/HR-service/HR-service.iml" filepath="$PROJECT_DIR$/HR-service/HR-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/HR-web-humanFile/HR-web-humanFile.iml" filepath="$PROJECT_DIR$/HR-web-humanFile/HR-web-humanFile.iml" />
+      <module fileurl="file://$PROJECT_DIR$/HR-web-index/HR-web-index.iml" filepath="$PROJECT_DIR$/HR-web-index/HR-web-index.iml" />
+      <module fileurl="file://$PROJECT_DIR$/HR-web-position/HR-web-position.iml" filepath="$PROJECT_DIR$/HR-web-position/HR-web-position.iml" />
+      <module fileurl="file://$PROJECT_DIR$/HR-web-recruitment/HR-web-recruitment.iml" filepath="$PROJECT_DIR$/HR-web-recruitment/HR-web-recruitment.iml" />
+      <module fileurl="file://$PROJECT_DIR$/HR-web-transfer/HR-web-transfer.iml" filepath="$PROJECT_DIR$/HR-web-transfer/HR-web-transfer.iml" />
+    </modules>
+  </component>
+</project>

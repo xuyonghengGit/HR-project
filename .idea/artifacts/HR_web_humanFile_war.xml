@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="HR-web-humanFile:war">
+    <output-path>$PROJECT_DIR$/HR-web-humanFile/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>HR-web-humanFile</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="HR-web-humanFile.war">
+      <element id="artifact" artifact-name="HR-web-humanFile:war exploded" />
+    </root>
+  </artifact>
+</component>

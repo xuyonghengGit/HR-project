@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="HR-web-transfer:war">
+    <output-path>$PROJECT_DIR$/HR-web-transfer/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>HR-web-transfer</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="HR-web-transfer.war">
+      <element id="artifact" artifact-name="HR-web-transfer:war exploded" />
+    </root>
+  </artifact>
+</component>

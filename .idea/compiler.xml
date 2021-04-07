@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="HR-entity" />
+        <module name="HR-web-position" />
+        <module name="HR-dao" />
+        <module name="HR-service" />
+        <module name="HR-web-recruitment" />
+        <module name="HR-web-transfer" />
+        <module name="HR-web-index" />
+        <module name="HR-web-humanFile" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="HR" target="1.5" />
+      <module name="HR-dao" target="1.7" />
+      <module name="HR-entity" target="1.7" />
+      <module name="HR-index" target="1.7" />
+      <module name="HR-service" target="1.7" />
+      <module name="HR-web-humanFile" target="1.7" />
+      <module name="HR-web-index" target="1.7" />
+      <module name="HR-web-position" target="1.7" />
+      <module name="HR-web-recruitment" target="1.7" />
+      <module name="HR-web-transfer" target="1.7" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

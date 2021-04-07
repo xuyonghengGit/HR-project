@@ -1,0 +1,4 @@
+com\ck\service\Mytestsercice.class
+com\ck\configuration\SpringTransactionConfiguration.class
+com\ck\service\impl\MytestserciceImpl.class
+com\ck\App.class

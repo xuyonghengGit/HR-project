@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/HR-dao/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/HR-dao/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/HR-entity/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/HR-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/HR-service/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/HR-web-index/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/HR-web-index/src/main/resources" charset="UTF-8" />
+  </component>
+</project>

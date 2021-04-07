@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="HR-web-index:war">
+    <output-path>$PROJECT_DIR$/HR-web-index/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>HR-web-index</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="HR-web-index.war">
+      <element id="artifact" artifact-name="HR-web-index:war exploded" />
+    </root>
+  </artifact>
+</component>

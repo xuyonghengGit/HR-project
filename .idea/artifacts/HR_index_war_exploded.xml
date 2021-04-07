@@ -1,0 +1,23 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="HR-index:war exploded">
+    <output-path>$PROJECT_DIR$/HR-index/target/HR-index</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <exploded>true</exploded>
+        <module>HR-index</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="root">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="HR-index" />
+        </element>
+      </element>
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/HR-index/target/HR-index/META-INF/MANIFEST.MF" />
+      </element>
+      <element id="javaee-facet-resources" facet="HR-index/web/Web" />
+    </root>
+  </artifact>
+</component>

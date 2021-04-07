@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="com.ck.AppTest" time="0.031" tests="1" errors="0" skipped="0" failures="0">
+  <properties>
+    <property name="sun.desktop" value="windows"/>
+    <property name="awt.toolkit" value="sun.awt.windows.WToolkit"/>
+    <property name="file.encoding.pkg" value="sun.io"/>
+    <property name="java.specification.version" value="1.8"/>
+    <property name="sun.cpu.isalist" value="amd64"/>
+    <property name="sun.jnu.encoding" value="GBK"/>
+    <property name="java.class.path" value="D:\java\HR-project\HR-service\target\test-classes;D:\java\HR-project\HR-service\target\classes;D:\java\HR-project\HR-dao\target\HR-dao-1.0-SNAPSHOT.jar;D:\java\HR-project\HR-entity\target\HR-entity-1.0-SNAPSHOT.jar;D:\maven_repository\HR\junit\junit\4.11\junit-4.11.jar;D:\maven_repository\HR\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;D:\maven_repository\HR\mysql\mysql-connector-java\8.0.23\mysql-connector-java-8.0.23.jar;D:\maven_repository\HR\com\google\protobuf\protobuf-java\3.11.4\protobuf-java-3.11.4.jar;D:\maven_repository\HR\org\mybatis\mybatis\3.5.6\mybatis-3.5.6.jar;D:\maven_repository\HR\org\springframework\spring-context\5.3.5\spring-context-5.3.5.jar;D:\maven_repository\HR\org\springframework\spring-expression\5.3.5\spring-expression-5.3.5.jar;D:\maven_repository\HR\org\springframework\spring-context-support\5.3.5\spring-context-support-5.3.5.jar;D:\maven_repository\HR\org\springframework\spring-core\5.3.5\spring-core-5.3.5.jar;D:\maven_repository\HR\org\springframework\spring-jcl\5.3.5\spring-jcl-5.3.5.jar;D:\maven_repository\HR\org\springframework\spring-web\5.3.5\spring-web-5.3.5.jar;D:\maven_repository\HR\org\springframework\spring-beans\5.3.5\spring-beans-5.3.5.jar;D:\maven_repository\HR\org\springframework\spring-webmvc\5.3.5\spring-webmvc-5.3.5.jar;D:\maven_repository\HR\org\springframework\spring-aop\5.3.5\spring-aop-5.3.5.jar;D:\maven_repository\HR\org\springframework\spring-orm\5.3.5\spring-orm-5.3.5.jar;D:\maven_repository\HR\org\springframework\spring-jdbc\5.3.5\spring-jdbc-5.3.5.jar;D:\maven_repository\HR\org\springframework\spring-tx\5.3.5\spring-tx-5.3.5.jar;D:\maven_repository\HR\org\aspectj\aspectjweaver\1.9.6\aspectjweaver-1.9.6.jar;D:\maven_repository\HR\org\mybatis\mybatis-spring\2.0.6\mybatis-spring-2.0.6.jar;D:\maven_repository\HR\org\thymeleaf\thymeleaf-spring5\3.0.12.RELEASE\thymeleaf-spring5-3.0.12.RELEASE.jar;D:\maven_repository\HR\org\thymeleaf\thymeleaf\3.0.12.RELEASE\thymeleaf-3.0.12.RELEASE.jar;D:\maven_repository\HR\org\attoparser\attoparser\2.0.5.RELEASE\attoparser-2.0.5.RELEASE.jar;D:\maven_repository\HR\org\unbescape\unbescape\1.1.6.RELEASE\unbescape-1.1.6.RELEASE.jar;D:\maven_repository\HR\org\slf4j\slf4j-api\1.7.25\slf4j-api-1.7.25.jar;D:\maven_repository\HR\com\fasterxml\jackson\core\jackson-databind\2.12.1\jackson-databind-2.12.1.jar;D:\maven_repository\HR\com\fasterxml\jackson\core\jackson-core\2.12.1\jackson-core-2.12.1.jar;D:\maven_repository\HR\com\fasterxml\jackson\core\jackson-annotations\2.12.1\jackson-annotations-2.12.1.jar;D:\maven_repository\HR\com\mchange\c3p0\0.9.5.5\c3p0-0.9.5.5.jar;D:\maven_repository\HR\com\mchange\mchange-commons-java\0.2.19\mchange-commons-java-0.2.19.jar;D:\maven_repository\HR\commons-dbcp\commons-dbcp\1.4\commons-dbcp-1.4.jar;D:\maven_repository\HR\commons-pool\commons-pool\1.5.4\commons-pool-1.5.4.jar;D:\maven_repository\HR\commons-codec\commons-codec\1.15\commons-codec-1.15.jar;D:\maven_repository\HR\javax\mail\mail\1.5.0-b01\mail-1.5.0-b01.jar;D:\maven_repository\HR\javax\activation\activation\1.1\activation-1.1.jar;D:\maven_repository\HR\log4j\log4j\1.2.17\log4j-1.2.17.jar;D:\maven_repository\HR\javax\javaee-api\8.0.1\javaee-api-8.0.1.jar;D:\maven_repository\HR\com\sun\mail\javax.mail\1.6.2\javax.mail-1.6.2.jar;D:\maven_repository\HR\commons-io\commons-io\2.6\commons-io-2.6.jar;D:\maven_repository\HR\commons-fileupload\commons-fileupload\1.4\commons-fileupload-1.4.jar;"/>
+    <property name="java.vm.vendor" value="Oracle Corporation"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="user.variant" value=""/>
+    <property name="java.vendor.url" value="http://java.oracle.com/"/>
+    <property name="user.timezone" value="Asia/Shanghai"/>
+    <property name="java.vm.specification.version" value="1.8"/>
+    <property name="os.name" value="Windows 10"/>
+    <property name="user.country" value="CN"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="sun.boot.library.path" value="D:\jdk1.8\jre\bin"/>
+    <property name="sun.java.command" value="C:\Users\86155\AppData\Local\Temp\surefire3841452772706834618\surefirebooter4927301908527483419.jar C:\Users\86155\AppData\Local\Temp\surefire3841452772706834618 2021-04-07T11-53-17_722-jvmRun1 surefire2954882846909696047tmp surefire_25971578594188674667tmp"/>
+    <property name="surefire.test.class.path" value="D:\java\HR-project\HR-service\target\test-classes;D:\java\HR-project\HR-service\target\classes;D:\java\HR-project\HR-dao\target\HR-dao-1.0-SNAPSHOT.jar;D:\java\HR-project\HR-entity\target\HR-entity-1.0-SNAPSHOT.jar;D:\maven_repository\HR\junit\junit\4.11\junit-4.11.jar;D:\maven_repository\HR\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;D:\maven_repository\HR\mysql\mysql-connector-java\8.0.23\mysql-connector-java-8.0.23.jar;D:\maven_repository\HR\com\google\protobuf\protobuf-java\3.11.4\protobuf-java-3.11.4.jar;D:\maven_repository\HR\org\mybatis\mybatis\3.5.6\mybatis-3.5.6.jar;D:\maven_repository\HR\org\springframework\spring-context\5.3.5\spring-context-5.3.5.jar;D:\maven_repository\HR\org\springframework\spring-expression\5.3.5\spring-expression-5.3.5.jar;D:\maven_repository\HR\org\springframework\spring-context-support\5.3.5\spring-context-support-5.3.5.jar;D:\maven_repository\HR\org\springframework\spring-core\5.3.5\spring-core-5.3.5.jar;D:\maven_repository\HR\org\springframework\spring-jcl\5.3.5\spring-jcl-5.3.5.jar;D:\maven_repository\HR\org\springframework\spring-web\5.3.5\spring-web-5.3.5.jar;D:\maven_repository\HR\org\springframework\spring-beans\5.3.5\spring-beans-5.3.5.jar;D:\maven_repository\HR\org\springframework\spring-webmvc\5.3.5\spring-webmvc-5.3.5.jar;D:\maven_repository\HR\org\springframework\spring-aop\5.3.5\spring-aop-5.3.5.jar;D:\maven_repository\HR\org\springframework\spring-orm\5.3.5\spring-orm-5.3.5.jar;D:\maven_repository\HR\org\springframework\spring-jdbc\5.3.5\spring-jdbc-5.3.5.jar;D:\maven_repository\HR\org\springframework\spring-tx\5.3.5\spring-tx-5.3.5.jar;D:\maven_repository\HR\org\aspectj\aspectjweaver\1.9.6\aspectjweaver-1.9.6.jar;D:\maven_repository\HR\org\mybatis\mybatis-spring\2.0.6\mybatis-spring-2.0.6.jar;D:\maven_repository\HR\org\thymeleaf\thymeleaf-spring5\3.0.12.RELEASE\thymeleaf-spring5-3.0.12.RELEASE.jar;D:\maven_repository\HR\org\thymeleaf\thymeleaf\3.0.12.RELEASE\thymeleaf-3.0.12.RELEASE.jar;D:\maven_repository\HR\org\attoparser\attoparser\2.0.5.RELEASE\attoparser-2.0.5.RELEASE.jar;D:\maven_repository\HR\org\unbescape\unbescape\1.1.6.RELEASE\unbescape-1.1.6.RELEASE.jar;D:\maven_repository\HR\org\slf4j\slf4j-api\1.7.25\slf4j-api-1.7.25.jar;D:\maven_repository\HR\com\fasterxml\jackson\core\jackson-databind\2.12.1\jackson-databind-2.12.1.jar;D:\maven_repository\HR\com\fasterxml\jackson\core\jackson-core\2.12.1\jackson-core-2.12.1.jar;D:\maven_repository\HR\com\fasterxml\jackson\core\jackson-annotations\2.12.1\jackson-annotations-2.12.1.jar;D:\maven_repository\HR\com\mchange\c3p0\0.9.5.5\c3p0-0.9.5.5.jar;D:\maven_repository\HR\com\mchange\mchange-commons-java\0.2.19\mchange-commons-java-0.2.19.jar;D:\maven_repository\HR\commons-dbcp\commons-dbcp\1.4\commons-dbcp-1.4.jar;D:\maven_repository\HR\commons-pool\commons-pool\1.5.4\commons-pool-1.5.4.jar;D:\maven_repository\HR\commons-codec\commons-codec\1.15\commons-codec-1.15.jar;D:\maven_repository\HR\javax\mail\mail\1.5.0-b01\mail-1.5.0-b01.jar;D:\maven_repository\HR\javax\activation\activation\1.1\activation-1.1.jar;D:\maven_repository\HR\log4j\log4j\1.2.17\log4j-1.2.17.jar;D:\maven_repository\HR\javax\javaee-api\8.0.1\javaee-api-8.0.1.jar;D:\maven_repository\HR\com\sun\mail\javax.mail\1.6.2\javax.mail-1.6.2.jar;D:\maven_repository\HR\commons-io\commons-io\2.6\commons-io-2.6.jar;D:\maven_repository\HR\commons-fileupload\commons-fileupload\1.4\commons-fileupload-1.4.jar;"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="user.home" value="C:\Users\86155"/>
+    <property name="user.language" value="zh"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.home" value="D:\jdk1.8\jre"/>
+    <property name="basedir" value="D:\java\HR-project\HR-service"/>
+    <property name="file.separator" value="\"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment"/>
+    <property name="surefire.real.class.path" value="C:\Users\86155\AppData\Local\Temp\surefire3841452772706834618\surefirebooter4927301908527483419.jar"/>
+    <property name="sun.boot.class.path" value="D:\jdk1.8\jre\lib\resources.jar;D:\jdk1.8\jre\lib\rt.jar;D:\jdk1.8\jre\lib\sunrsasign.jar;D:\jdk1.8\jre\lib\jsse.jar;D:\jdk1.8\jre\lib\jce.jar;D:\jdk1.8\jre\lib\charsets.jar;D:\jdk1.8\jre\lib\jfr.jar;D:\jdk1.8\jre\classes"/>
+    <property name="user.script" value=""/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="java.runtime.version" value="1.8.0_271-b09"/>
+    <property name="user.name" value="86155"/>
+    <property name="path.separator" value=";"/>
+    <property name="os.version" value="10.0"/>
+    <property name="java.endorsed.dirs" value="D:\jdk1.8\jre\lib\endorsed"/>
+    <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
+    <property name="file.encoding" value="GBK"/>
+    <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM"/>
+    <property name="idea.version2020.1" value="true"/>
+    <property name="localRepository" value="D:\maven_repository\HR"/>
+    <property name="java.vendor.url.bug" value="http://bugreport.sun.com/bugreport/"/>
+    <property name="java.io.tmpdir" value="C:\Users\86155\AppData\Local\Temp\"/>
+    <property name="java.version" value="1.8.0_271"/>
+    <property name="user.dir" value="D:\java\HR-project\HR-service"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="java.awt.printerjob" value="sun.awt.windows.WPrinterJob"/>
+    <property name="sun.os.patch.level" value=""/>
+    <property name="java.library.path" value="D:\jdk1.8\jre\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;D:\centos\xftp6\;D:\oracle\product\11.2.0\dbhome_1\bin;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;D:\jdk1.8\bin;C:\Windows\system32;C:\Windows;E:\mysql\bin;E:\mysql\bin;C:\Program Files (x86)\Netease\MCLauncher;D:\Program Files\VisualSVN Server\bin;D:\Program Files\TortoiseSVN\bin;D:\centos\xshell\;D:\git\Git\cmd;C:\Users\86155\AppData\Local\Microsoft\WindowsApps;;."/>
+    <property name="java.vm.info" value="mixed mode"/>
+    <property name="java.vendor" value="Oracle Corporation"/>
+    <property name="java.vm.version" value="25.271-b09"/>
+    <property name="java.ext.dirs" value="D:\jdk1.8\jre\lib\ext;C:\Windows\Sun\Java\lib\ext"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="maven.repo.local" value="D:\maven_repository\HR"/>
+    <property name="java.class.version" value="52.0"/>
+  </properties>
+  <testcase name="shouldAnswerWithTrue" classname="com.ck.AppTest" time="0.001"/>
+</testsuite>
