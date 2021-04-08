@@ -8,6 +8,7 @@ public class test {
     @RequestMapping("test")
     public String query(){
         System.out.println("我是你爹");
+        System.out.println("增肌儿子");
         System.out.println("儿子");
         return "test";
     }
