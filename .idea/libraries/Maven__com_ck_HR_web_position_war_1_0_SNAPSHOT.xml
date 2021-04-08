@@ -1,13 +1,13 @@
 <component name="libraryTable">
   <library name="Maven: com.ck:HR-web-position:war:1.0-SNAPSHOT">
     <CLASSES>
-      <root url="jar://$PROJECT_DIR$/../nidiededongxi/com/ck/HR-web-position/1.0-SNAPSHOT/HR-web-position-1.0-SNAPSHOT.war!/" />
+      <root url="jar://D:/maven_repository/HR/com/ck/HR-web-position/1.0-SNAPSHOT/HR-web-position-1.0-SNAPSHOT.war!/" />
     </CLASSES>
     <JAVADOC>
-      <root url="jar://$PROJECT_DIR$/../nidiededongxi/com/ck/HR-web-position/1.0-SNAPSHOT/HR-web-position-1.0-SNAPSHOT-javadoc.jar!/" />
+      <root url="jar://D:/maven_repository/HR/com/ck/HR-web-position/1.0-SNAPSHOT/HR-web-position-1.0-SNAPSHOT-javadoc.jar!/" />
     </JAVADOC>
     <SOURCES>
-      <root url="jar://$PROJECT_DIR$/../nidiededongxi/com/ck/HR-web-position/1.0-SNAPSHOT/HR-web-position-1.0-SNAPSHOT-sources.jar!/" />
+      <root url="jar://D:/maven_repository/HR/com/ck/HR-web-position/1.0-SNAPSHOT/HR-web-position-1.0-SNAPSHOT-sources.jar!/" />
     </SOURCES>
   </library>
 </component>
