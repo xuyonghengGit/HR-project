@@ -11,6 +11,7 @@ public class test {
         System.out.println("增肌儿子");
         System.out.println("儿子");
         System.out.println("1234565789");
+        System.out.println("我是张三");
         return "test";
     }
 }
