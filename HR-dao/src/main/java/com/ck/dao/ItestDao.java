@@ -8,4 +8,6 @@ import java.util.List;
 public interface ItestDao {
     @Select("SELECT * FROM mytest")
     public List<Mytest> QueryAllIndexTest();
+
+
 }
