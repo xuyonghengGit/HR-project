@@ -19,7 +19,7 @@
     </settings>
 
     <plugins>
-        <plugin interceptor="com.github.pagehelper.PageHelper"/>
+        <plugin interceptor="com.github.pagehelper.PageInterceptor"/>
     </plugins>
 
     <mappers>
