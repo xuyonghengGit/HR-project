@@ -5,7 +5,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Service
 public interface Iconfig_majorService {
 
     //根据major_kind_id查询Config_major表

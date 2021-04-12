@@ -24,6 +24,7 @@
 					  url: 'queryBymajorkindid?mfk_id='+mkf_id,
 					  success: function (config_majors) {
 						  let select = $("#selecttwo");
+						  select.text("");
 						  for (let i = 0; i < config_majors.length; i++) {
 							  if(i==0){
 								  select.append("<option selected='selected' value='" + config_majors[i].mak_id+ "'>" + config_majors[i].major_name + "</option>")
@@ -34,6 +35,141 @@
 					  }
 				  });
 			  })
+			  $.ajax({
+				  url: 'queryBychar',
+				  success: function (config_public_chars) {
+					  let select = $("#selectthree");
+					  for (let i = 0; i < config_public_chars.length; i++) {
+					  	if(config_public_chars[i].attribute_kind==3){
+							if(i==0){
+								select.append("<option selected='selected' value='" + config_public_chars[i].pbc_id+ "'>" + config_public_chars[i].attribute_name + "</option>")
+							}else {
+								select.append("<option value='" + config_public_chars[i].pbc_id+ "'>" + config_public_chars[i].attribute_name + "</option>")
+							}
+						}
+					  }
+				  }
+			  });
+			  $.ajax({
+				  url: 'queryBychar',
+				  success: function (config_public_chars) {
+					  let select = $("#selectforu");
+					  for (let i = 0; i < config_public_chars.length; i++) {
+						  if(config_public_chars[i].attribute_kind==15){
+							  if(i==0){
+								  select.append("<option selected='selected' value='" + config_public_chars[i].pbc_id+ "'>" + config_public_chars[i].attribute_name + "</option>")
+							  }else {
+								  select.append("<option value='" + config_public_chars[i].pbc_id+ "'>" + config_public_chars[i].attribute_name + "</option>")
+							  }
+						  }
+					  }
+				  }
+			  });
+			  $.ajax({
+				  url: 'queryBychar',
+				  success: function (config_public_chars) {
+					  let select = $("#selectfive");
+					  for (let i = 0; i < config_public_chars.length; i++) {
+						  if(config_public_chars[i].attribute_kind==4){
+							  if(i==0){
+								  select.append("<option selected='selected' value='" + config_public_chars[i].pbc_id+ "'>" + config_public_chars[i].attribute_name + "</option>")
+							  }else {
+								  select.append("<option value='" + config_public_chars[i].pbc_id+ "'>" + config_public_chars[i].attribute_name + "</option>")
+							  }
+						  }
+					  }
+				  }
+			  });
+			  $.ajax({
+				  url: 'queryBychar',
+				  success: function (config_public_chars) {
+					  let select = $("#selectSex");
+					  for (let i = 0; i < config_public_chars.length; i++) {
+						  if(config_public_chars[i].attribute_kind==5){
+							  if(i==0){
+								  select.append("<option selected='selected' value='" + config_public_chars[i].pbc_id+ "'>" + config_public_chars[i].attribute_name + "</option>")
+							  }else {
+								  select.append("<option value='" + config_public_chars[i].pbc_id+ "'>" + config_public_chars[i].attribute_name + "</option>")
+							  }
+						  }
+					  }
+				  }
+			  });
+			  $.ajax({
+				  url: 'queryBychar',
+				  success: function (config_public_chars) {
+					  let select = $("#selectseven");
+					  for (let i = 0; i < config_public_chars.length; i++) {
+						  if(config_public_chars[i].attribute_kind==7){
+							  if(i==0){
+								  select.append("<option selected='selected' value='" + config_public_chars[i].pbc_id+ "'>" + config_public_chars[i].attribute_name + "</option>")
+							  }else {
+								  select.append("<option value='" + config_public_chars[i].pbc_id+ "'>" + config_public_chars[i].attribute_name + "</option>")
+							  }
+						  }
+					  }
+				  }
+			  });
+			  $.ajax({
+				  url: 'queryBychar',
+				  success: function (config_public_chars) {
+					  let select = $("#selecteight");
+					  for (let i = 0; i < config_public_chars.length; i++) {
+						  if(config_public_chars[i].attribute_kind==6){
+							  if(i==0){
+								  select.append("<option selected='selected' value='" + config_public_chars[i].pbc_id+ "'>" + config_public_chars[i].attribute_name + "</option>")
+							  }else {
+								  select.append("<option value='" + config_public_chars[i].pbc_id+ "'>" + config_public_chars[i].attribute_name + "</option>")
+							  }
+						  }
+					  }
+				  }
+			  });
+			  $.ajax({
+				  url: 'queryBychar',
+				  success: function (config_public_chars) {
+					  let select = $("#selectnine");
+					  for (let i = 0; i < config_public_chars.length; i++) {
+						  if(config_public_chars[i].attribute_kind==8){
+							  if(i==0){
+								  select.append("<option selected='selected' value='" + config_public_chars[i].pbc_id+ "'>" + config_public_chars[i].attribute_name + "</option>")
+							  }else {
+								  select.append("<option value='" + config_public_chars[i].pbc_id+ "'>" + config_public_chars[i].attribute_name + "</option>")
+							  }
+						  }
+					  }
+				  }
+			  });
+			  $.ajax({
+				  url: 'queryBychar',
+				  success: function (config_public_chars) {
+					  let select = $("#selectten");
+					  for (let i = 0; i < config_public_chars.length; i++) {
+						  if(config_public_chars[i].attribute_kind==11){
+							  if(i==0){
+								  select.append("<option selected='selected' value='" + config_public_chars[i].pbc_id+ "'>" + config_public_chars[i].attribute_name + "</option>")
+							  }else {
+								  select.append("<option value='" + config_public_chars[i].pbc_id+ "'>" + config_public_chars[i].attribute_name + "</option>")
+							  }
+						  }
+					  }
+				  }
+			  });
+			  $.ajax({
+				  url: 'queryBychar',
+				  success: function (config_public_chars) {
+					  let select = $("#selecteleven");
+					  for (let i = 0; i < config_public_chars.length; i++) {
+						  if(config_public_chars[i].attribute_kind==10){
+							  if(i==0){
+								  select.append("<option selected='selected' value='" + config_public_chars[i].pbc_id+ "'>" + config_public_chars[i].attribute_name + "</option>")
+							  }else {
+								  select.append("<option value='" + config_public_chars[i].pbc_id+ "'>" + config_public_chars[i].attribute_name + "</option>")
+							  }
+						  }
+					  }
+				  }
+			  });
 		  })
 	  </script>
 
@@ -189,7 +325,7 @@
 					<td class="TD_STYLE2">  
 						 <input type="hidden" value="01" id="humanMajorKindId" name="engageResume.humanMajorKindId" />
 					<select name="engageResume.humanMajorKindName" class="SELECT_STYLE1" id ="selectone">
-<!--						<option value="销售">销售</option>-->
+<!--						<option value="">请选择</option>-->
 					</select>		
 					</td>
 					<td class="TD_STYLE1">
@@ -199,7 +335,7 @@
 				  
 					 <input type="hidden" value="02" name="engageResume.humanMajorId" />
 					<select name="engageResume.humanMajorName" class="SELECT_STYLE1" id="selecttwo">
-<!--						<option value="总经理">总经理</option>-->
+						<option value="">请选择职位分部</option>
 					</select>
 					</td>
 					<td width="11%" class="TD_STYLE1">
@@ -208,6 +344,7 @@
 					<td class="TD_STYLE2" colspan="2"> 
 					<select name="engageResume.engageType" class="SELECT_STYLE1">
 						<option value="社会招聘">社会招聘</option>
+						<option value="学校招聘">学校招聘</option>
 					</select>
 					</td>
 					<td rowspan="6" >
@@ -276,12 +413,12 @@
 						国籍
 					</td>
 					<td class="TD_STYLE2">
-					 <select name="engageResume.humanNationality"   class="SELECT_STYLE1">
+					 <select name="engageResume.humanNationality"   class="SELECT_STYLE1" id="selectthree">
 							<option value="">--请选择--</option> 
-							
-							<option value="中国">中国</option> 
-							
-							<option value="美国">美国</option> 
+<!--							-->
+<!--							<option value="中国">中国</option> -->
+<!--							-->
+<!--							<option value="美国">美国</option> -->
 							
 					 </select> 
 					</td>
@@ -304,12 +441,12 @@
 						民族
 					</td>
 					<td class="TD_STYLE2" width="14%">
-				 	 <select name="engageResume.humanRace"   class="SELECT_STYLE1">
+				 	 <select name="engageResume.humanRace"   class="SELECT_STYLE1" id="selectforu">
 							<option value="">--请选择--</option> 
-							
-							<option value="汉族">汉族</option> 
-							
-							<option value="回族">回族</option> 
+<!--							-->
+<!--							<option value="汉族">汉族</option> -->
+<!--							-->
+<!--							<option value="回族">回族</option> -->
 							
 					 </select>  
 					</td>
@@ -317,11 +454,11 @@
 						宗教信仰
 					</td>
 					<td class="TD_STYLE2">
-					   <select name="engageResume.humanReligion"   class="SELECT_STYLE1"> 
+					   <select name="engageResume.humanReligion"   class="SELECT_STYLE1" id="selectfive">
 							
-							<option value="无">无</option> 
-							
-							<option value="佛教">佛教</option> 
+<!--							<option value="无">无</option> -->
+<!--							-->
+<!--							<option value="佛教">佛教</option> -->
 							
 					 </select>  
 					</td>
@@ -329,12 +466,12 @@
 						政治面貌
 					</td>
 					<td class="TD_STYLE2" colspan="2">
-					   <select name="engageResume.humanParty"   class="SELECT_STYLE1">
+					   <select name="engageResume.humanParty"   class="SELECT_STYLE1" id="selectSex">
 							<option value="">--请选择--</option> 
 							
-							<option value="党员">党员</option> 
-							
-							<option value="群众">群众</option> 
+<!--							<option value="党员">党员</option> -->
+<!--							-->
+<!--							<option value="群众">群众</option> -->
 							
 					 </select>  	  
 					</td>
@@ -365,12 +502,12 @@
 						学历
 					</td>
 					<td class="TD_STYLE2">
-					  <select name="engageResume.humanEducatedDegree"   class="SELECT_STYLE1">
+					  <select name="engageResume.humanEducatedDegree"   class="SELECT_STYLE1" id="selectseven">
 							<option value="">--请选择--</option> 
 							
-							<option value="本科">本科</option> 
-							
-							<option value="大专">大专</option> 
+<!--							<option value="本科">本科</option> -->
+<!--							-->
+<!--							<option value="大专">大专</option> -->
 							
 					 </select> 
 					</td>
@@ -381,12 +518,12 @@
 						教育年限
 					</td>
 					<td class="TD_STYLE2">
-					   <select name="engageResume.humanEducatedYears"   class="SELECT_STYLE1">
+					   <select name="engageResume.humanEducatedYears"   class="SELECT_STYLE1" id="selecteight">
 							<option value="">--请选择--</option> 
 							
-							<option value="12">12</option> 
-							
-							<option value="16">16</option> 
+<!--							<option value="12">12</option> -->
+<!--							-->
+<!--							<option value="16">16</option> -->
 							
 					 </select> 
 					</td>
@@ -394,12 +531,12 @@
 						学历专业
 					</td>
 					<td class="TD_STYLE2">
-					   <select name="engageResume.humanEducatedMajor"   class="SELECT_STYLE1">
+					   <select name="engageResume.humanEducatedMajor"   class="SELECT_STYLE1" id="selectnine">
 							<option value="">--请选择--</option> 
 							
-							<option value="生物工程">生物工程</option> 
-							
-							<option value="计算机">计算机</option> 
+<!--							<option value="生物工程">生物工程</option> -->
+<!--							-->
+<!--							<option value="计算机">计算机</option> -->
 							
 					 </select>  
 					</td>
@@ -426,12 +563,12 @@
 						特长
 					</td>
 					<td class="TD_STYLE2">
-					   <select name="engageResume.humanSpecility"   class="SELECT_STYLE1">
+					   <select name="engageResume.humanSpecility"   class="SELECT_STYLE1" id="selectten">
 							<option value="">--请选择--</option> 
 							
-							<option value="数据库">数据库</option> 
-							
-							<option value="java">java</option> 
+<!--							<option value="数据库">数据库</option> -->
+<!--							-->
+<!--							<option value="java">java</option> -->
 							
 					 </select> 
 						 
@@ -440,12 +577,12 @@
 						爱好
 					</td>
 					<td class="TD_STYLE2">
-				     <select name="engageResume.humanHobby"   class="SELECT_STYLE1">
+				     <select name="engageResume.humanHobby"   class="SELECT_STYLE1" id="selecteleven">
 							<option value="">--请选择--</option> 
 							
-							<option value="篮球">篮球</option> 
-							
-							<option value="舞蹈">舞蹈</option> 
+<!--							<option value="篮球">篮球</option> -->
+<!--							-->
+<!--							<option value="舞蹈">舞蹈</option> -->
 							
 					 </select> 
 						  
