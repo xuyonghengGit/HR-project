@@ -19,11 +19,13 @@
     </settings>
 
     <plugins>
-        <plugin interceptor="com.github.pagehelper.PageInterceptor"/>
+        <plugin interceptor="com.github.pagehelper.PageHelper"/>
     </plugins>
 
     <mappers>
         <mapper resource="mappers/MytestMapper.xml"/>
         <mapper resource="mappers/IMajor_changeDaoMapper.xml"/>
+        <mapper resource="mappers/Config_majorDaoMapper.xml"/>
+        <mapper resource="mappers/Config_major_kindDaoMapper.xml"/>
     </mappers>
 </configuration>
