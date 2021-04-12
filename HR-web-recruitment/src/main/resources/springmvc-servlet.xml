@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd 
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.1.xsd 
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.1.xsd 
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd 
+		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.1.xsd">
+
+
+
+	<!--扫描controller包中的注解，让包中的注解生效-->
+	<context:component-scan base-package="com.ck.controller"/>
+	<!--开启springmvc默认的servlet，解决静态资源的访问问题-->
+	<!--但是这个标签会让部分注解失效(RequestMapping)-->
+	<mvc:default-servlet-handler/>
+	<!--开启springmvc的注解驱动，让失效的注解重新生效-->
+	<mvc:annotation-driven></mvc:annotation-driven>
+
+	<!--配置springmvc的视图解析器，让springmvc在我们返回的视图名称前后添加东西-->
+	<!--InternalResourceViewResolver是spring提供的一种支持jsp的视图解析器-->
+	<!--<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		&lt;!&ndash;指定在视图名的前面添加什么值（前缀）&ndash;&gt;
+		<property name="prefix" value="/WEB-INF/page/"/>
+		&lt;!&ndash;指定在视图名的后面添加什么值（后缀）&ndash;&gt;
+		<property name="suffix" value=".jsp"/>
+	</bean>-->
+
+	<!--配置thymeleaf的视图解析器-->
+	<bean id="templateResolver" class="org.thymeleaf.spring5.templateresolver.SpringResourceTemplateResolver">
+		<property name="prefix" value="/WEB-INF/templates/"/>
+		<property name="suffix" value=".html"/>
+		<property name="templateMode" value="HTML5"/>
+		<property name="characterEncoding" value="UTF-8"/>
+	</bean>
+	<bean id="engine" class="org.thymeleaf.spring5.SpringTemplateEngine">
+		<property name="templateResolver" ref="templateResolver"/>
+	</bean>
+	<bean class="org.thymeleaf.spring5.view.ThymeleafViewResolver">
+		<property name="templateEngine" ref="engine"/>
+		<property name="characterEncoding" value="UTF-8"/>
+	</bean>
+
+	<!--配置springmvc发送电子邮件的发送者对象-JavaMailSenderImpl-->
+	<!--这个对象能帮助我们发送电子邮件-->
+	<context:property-placeholder location="classpath:email.properties"/>
+	<bean class="org.springframework.mail.javamail.JavaMailSenderImpl">
+		<!--1、指定发送电子邮件的服务器主机,我这里使用的是163邮箱，你们使用qq就可以了-->
+		<!--qq服务器主机：smtp.qq.com-->
+		<!--163网易服务器主机：smtp.163.com-->
+		<property name="host" value="${email_host}"/>
+		<!--2、指定发送电子邮件的相关属性-->
+		<property name="javaMailProperties">
+			<props>
+				<!--mail.smtp.auth指定要经过身份验证-->
+				<prop key="mail.smtp.auth">${email_auth}</prop>
+				<!--指定连接服务器主机的超时时间,时间单位为毫秒-->
+				<prop key="mail.smtp.timeout">${email_timeout}</prop>
+			</props>
+		</property>
+		<!--3、username指定邮件的发件人，现在写自己的邮箱，工作中写公司的共用邮箱-->
+		<property name="username" value="${email_from}"/>
+		<!--4、电子邮件默认是不能在程序中使用的，需要开启这个服务获取授权码-->
+		<!--这个授权码就是这里的密码-->
+		<property name="password" value="${email_pwd}"/>
+		<!--5、指定发送数据的编码格式为utf-8-->
+		<property name="defaultEncoding" value="UTF-8"/>
+	</bean>
+
+	<!--配置springmvc文件上传解析器-->
+	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver"></bean>
+
+</beans>

@@ -2,28 +2,64 @@
 <!--suppress ALL-->
 <html xmlns:th="http://www.thymeleaf.org">
   <head>
+	  <script src="javascript/jquery-1.7.2.js"></script>
+	  <script>
+		  $(function () {
+			  $.ajax({
+				  url: 'queryBymfk',
+				  success: function (config_major_kinds) {
+					  let select = $("#selectone");
+					  for (let i = 0; i < config_major_kinds.length; i++) {
+					  		if(i==0){
+								select.append("<option selected='selected' value='" + config_major_kinds[i].mfk_id+ "'>" + config_major_kinds[i].major_kind_name + "</option>")
+							}else {
+								select.append("<option value='" + config_major_kinds[i].mfk_id+ "'>" + config_major_kinds[i].major_name + "</option>")
+							}
+					  }
+				  }
+			  });
+			  $("#selectone").change(function () {
+				  let mkf_id = $("#selectone").val()
+				  alert(mkf_id)
+				  $.ajax({
+					  url: 'queryBymajorkindid?mfk_id='+mkf_id,
+					  success: function (config_majors) {
+						  let select = $("#selecttwo");
+						  for (let i = 0; i < config_majors.length; i++) {
+							  if(i==0){
+								  select.append("<option selected='selected' value='" + config_majors[i].mak_id+ "'>" + config_majors[i].major_kind_name + "</option>")
+							  }else {
+								  select.append("<option value='" + config_majors[i].mak_id+ "'>" + config_majors[i].major_kind_name + "</option>")
+							  }
+						  }
+					  }
+				  });
+			  })
+		  })
+	  </script>
+
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
        <link rel="stylesheet"
-			href="../../../css/table.css" type="text/css">
+			href="css/table.css" type="text/css">
 		<link rel="stylesheet"
-			href="../../../css/cwcalendar.css" type="text/css">
+			href="css/cwcalendar.css" type="text/css">
 		<script type="text/javascript"
-			src="../../../javascript/comm/comm.js">
+			src="javascript/comm/comm.js">
 		</script>
 		<script type="text/javascript"
-			src="../../../javascript/comm/list.js">
+			src="javascript/comm/list.js">
 		</script>
 		<script type="text/javascript"
-			src="../../../javascript/calendar-ch.js">
+			src="javascript/calendar-ch.js">
 		</script>
 		<script type="text/javascript"
-			src="../../../javascript/jquery-1.7.2.js">
+			src="javascript/jquery-1.7.2.js">
 		</script>
 		<script type="text/javascript"
-			src="../../../javascript/locate.js">
+			src="javascript/locate.js">
 		</script>
 		<script type="text/javascript"
-			src="../../../javascript/select.js">
+			src="javascript/select.js">
 		</script>
 			<script type="text/javascript">
  			window.onload=check;
@@ -153,8 +189,8 @@
 					</td>
 					<td class="TD_STYLE2">  
 						 <input type="hidden" value="01" id="humanMajorKindId" name="engageResume.humanMajorKindId" />
-					<select name="engageResume.humanMajorKindName" class="SELECT_STYLE1">
-						<option value="销售">销售</option>
+					<select name="engageResume.humanMajorKindName" class="SELECT_STYLE1" id ="selectone">
+<!--						<option value="销售">销售</option>-->
 					</select>		
 					</td>
 					<td class="TD_STYLE1">
@@ -163,8 +199,8 @@
 					<td class="TD_STYLE2" width="20%"> 
 				  
 					 <input type="hidden" value="02" name="engageResume.humanMajorId" />
-					<select name="engageResume.humanMajorName" class="SELECT_STYLE1">
-						<option value="总经理">总经理</option>
+					<select name="engageResume.humanMajorName" class="SELECT_STYLE1" id="selecttwo">
+<!--						<option value="总经理">总经理</option>-->
 					</select>
 					</td>
 					<td width="11%" class="TD_STYLE1">

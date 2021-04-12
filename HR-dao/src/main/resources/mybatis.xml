@@ -18,6 +18,10 @@
         <!--<setting name="cacheEnabled" value="true"/>-->
     </settings>
 
+    <plugins>
+        <plugin interceptor="com.github.pagehelper.PageHelper"/>
+    </plugins>
+
     <mappers>
         <mapper resource="mappers/MytestMapper.xml"/>
     </mappers>
