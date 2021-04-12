@@ -24,5 +24,7 @@
 
     <mappers>
         <mapper resource="mappers/MytestMapper.xml"/>
+        <mapper resource="mappers/Config_majorDaoMapper.xml"/>
+        <mapper resource="mappers/Config_major_kindDaoMapper.xml"/>
     </mappers>
 </configuration>
