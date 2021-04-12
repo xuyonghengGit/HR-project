@@ -20,7 +20,11 @@
   </properties>
 
   <dependencies>
-
+    <dependency>
+      <groupId>com.ck</groupId>
+      <artifactId>HR-service</artifactId>
+      <version>1.0-SNAPSHOT</version>
+    </dependency>
   </dependencies>
 
   <build>

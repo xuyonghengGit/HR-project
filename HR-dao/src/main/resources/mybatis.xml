@@ -19,7 +19,7 @@
     </settings>
 
     <plugins>
-        <plugin interceptor="com.github.pagehelper.PageHelper"/>
+        <plugin interceptor="com.github.pagehelper.PageInterceptor"/>
     </plugins>
 
     <mappers>
@@ -27,5 +27,6 @@
         <mapper resource="mappers/IMajor_changeDaoMapper.xml"/>
         <mapper resource="mappers/Config_majorDaoMapper.xml"/>
         <mapper resource="mappers/Config_major_kindDaoMapper.xml"/>
+        <mapper class="com.ck.dao.Iconfig_file_first_kindDao"></mapper>
     </mappers>
 </configuration>
