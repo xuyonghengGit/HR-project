@@ -12,10 +12,10 @@
     <module>../HR-dao</module>
     <module>../HR-service</module>
     <module>../HR-web-index</module>
-      <module>../HR-web-recruitment</module>
+    <module>../HR-web-recruitment</module>
     <module>../HR-web-transfer</module>
     <module>../HR-web-humanFile</module>
-      <module>../HR-web-position</module>
+    <module>../HR-web-position</module>
   </modules>
   <packaging>pom</packaging>
 

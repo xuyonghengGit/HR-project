@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class test {
     @RequestMapping("test")
     public String query(){
+
         return "test";
     }
 }
+
