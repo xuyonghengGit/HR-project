@@ -39,7 +39,7 @@
     <orderEntry type="module" module-name="HR-entity" />
     <orderEntry type="module" module-name="HR-web-humanFile" />
     <orderEntry type="module" module-name="HR-web-transfer" />
-    <orderEntry type="library" name="Maven: com.ck:HR-web-position:war:1.0-SNAPSHOT" level="project" />
+    <orderEntry type="module" module-name="HR-web-position" />
     <orderEntry type="module" module-name="HR-web-recruitment" />
     <orderEntry type="library" scope="TEST" name="Maven: junit:junit:4.11" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.hamcrest:hamcrest-core:1.3" level="project" />
@@ -80,5 +80,7 @@
     <orderEntry type="library" scope="PROVIDED" name="Maven: com.sun.mail:javax.mail:1.6.2" level="project" />
     <orderEntry type="library" name="Maven: commons-io:commons-io:2.6" level="project" />
     <orderEntry type="library" name="Maven: commons-fileupload:commons-fileupload:1.4" level="project" />
+    <orderEntry type="library" name="Maven: com.github.pagehelper:pagehelper:5.2.0" level="project" />
+    <orderEntry type="library" name="Maven: com.github.jsqlparser:jsqlparser:3.2" level="project" />
   </component>
 </module>

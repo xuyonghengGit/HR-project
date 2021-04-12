@@ -1,5 +1,10 @@
 package com.ck.entity;
 
+/**
+ * @author xuyh
+ * @version 1.0
+ * 测试实体类
+ */
 public class Mytest {
     private int id;
     private String name;
