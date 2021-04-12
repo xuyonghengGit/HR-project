@@ -13,23 +13,22 @@
 					  		if(i==0){
 								select.append("<option selected='selected' value='" + config_major_kinds[i].mfk_id+ "'>" + config_major_kinds[i].major_kind_name + "</option>")
 							}else {
-								select.append("<option value='" + config_major_kinds[i].mfk_id+ "'>" + config_major_kinds[i].major_name + "</option>")
+								select.append("<option value='" + config_major_kinds[i].mfk_id+ "'>" + config_major_kinds[i].major_kind_name + "</option>")
 							}
 					  }
 				  }
 			  });
 			  $("#selectone").change(function () {
-				  let mkf_id = $("#selectone").val()
-				  alert(mkf_id)
+				  let mkf_id = $("#selectone").val();
 				  $.ajax({
 					  url: 'queryBymajorkindid?mfk_id='+mkf_id,
 					  success: function (config_majors) {
 						  let select = $("#selecttwo");
 						  for (let i = 0; i < config_majors.length; i++) {
 							  if(i==0){
-								  select.append("<option selected='selected' value='" + config_majors[i].mak_id+ "'>" + config_majors[i].major_kind_name + "</option>")
+								  select.append("<option selected='selected' value='" + config_majors[i].mak_id+ "'>" + config_majors[i].major_name + "</option>")
 							  }else {
-								  select.append("<option value='" + config_majors[i].mak_id+ "'>" + config_majors[i].major_kind_name + "</option>")
+								  select.append("<option value='" + config_majors[i].mak_id+ "'>" + config_majors[i].major_name + "</option>")
 							  }
 						  }
 					  }
