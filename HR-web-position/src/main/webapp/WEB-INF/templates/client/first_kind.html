@@ -50,7 +50,7 @@
 				</tr>
 
 				
-				<tr>
+				<tr th:remove="all">
 					<td class="TD_STYLE2">
 						1353318953319
 					</td>
@@ -71,7 +71,7 @@
 					</td>
 				</tr>
 				
-				<tr>
+				<tr th:remove="all">
 					<td class="TD_STYLE2">
 						1353318929919
 					</td>
@@ -92,7 +92,7 @@
 					</td>
 				</tr>
 				
-				<tr>
+				<tr th:remove="all">
 					<td class="TD_STYLE2">
 						1353318937391
 					</td>
@@ -112,7 +112,27 @@
 						<a href="first_delete_success.html">删除</a>
 					</td>
 				</tr>
-				
+
+				<tr th:each="list:${Config_file_first_kindlistQueryAll}">
+					<td class="TD_STYLE2" th:text="${list.first_kind_id}">
+						0
+					</td>
+					<td class="TD_STYLE2" th:text="${list.first_kind_name}">
+						总部
+					</td>
+					<td class="TD_STYLE2" th:text="${list.first_kind_salary_id}">
+						2
+					</td>
+					<td class="TD_STYLE2" th:text="${list.first_kind_sale_id}">
+						2
+					</td>
+					<td class="TD_STYLE2">
+						<a href="first_kind_change.html">变更</a>
+					</td>
+					<td class="TD_STYLE2">
+						<a href="first_delete_success.html">删除</a>
+					</td>
+				</tr>
 
 			</table>
 			<p>
