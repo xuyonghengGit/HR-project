@@ -1,5 +1,8 @@
 package com.ck.entity;
-
+/**
+ * 刘伟
+ * 26.简历管理表
+ */
 public class Engage_resume {
     private int res_id;
     private String human_name;
