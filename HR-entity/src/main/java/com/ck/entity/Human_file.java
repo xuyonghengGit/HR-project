@@ -1,6 +1,7 @@
 package com.ck.entity;
 
-import javax.xml.crypto.Data;
+
+import java.util.Date;
 
 public class Human_file {
     private int hfd_id;
@@ -32,7 +33,7 @@ public class Human_file {
     private String human_party;
     private String human_nationality;
     private String human_race;
-    private Data human_birthday;
+    private Date human_birthday;
     private String human_birthplace;
     private int human_age;
     private String human_educated_degree;
@@ -58,12 +59,12 @@ public class Human_file {
     private String register;
     private String checker;
     private String changer;
-    private Data regist_time;
-    private Data check_time;
-    private Data change_time;
-    private Data lastly_change_time;
-    private Data delete_time;
-    private Data recovery_time;
+    private Date regist_time;
+    private Date check_time;
+    private Date change_time;
+    private Date lastly_change_time;
+    private Date delete_time;
+    private Date recovery_time;
     private int human_file_status;
 
     public int getHfd_id() {
@@ -298,11 +299,11 @@ public class Human_file {
         this.human_race = human_race;
     }
 
-    public Data getHuman_birthday() {
+    public Date getHuman_birthday() {
         return human_birthday;
     }
 
-    public void setHuman_birthday(Data human_birthday) {
+    public void setHuman_birthday(Date human_birthday) {
         this.human_birthday = human_birthday;
     }
 
@@ -506,51 +507,51 @@ public class Human_file {
         this.changer = changer;
     }
 
-    public Data getRegist_time() {
+    public Date getRegist_time() {
         return regist_time;
     }
 
-    public void setRegist_time(Data regist_time) {
+    public void setRegist_time(Date regist_time) {
         this.regist_time = regist_time;
     }
 
-    public Data getCheck_time() {
+    public Date getCheck_time() {
         return check_time;
     }
 
-    public void setCheck_time(Data check_time) {
+    public void setCheck_time(Date check_time) {
         this.check_time = check_time;
     }
 
-    public Data getChange_time() {
+    public Date getChange_time() {
         return change_time;
     }
 
-    public void setChange_time(Data change_time) {
+    public void setChange_time(Date change_time) {
         this.change_time = change_time;
     }
 
-    public Data getLastly_change_time() {
+    public Date getLastly_change_time() {
         return lastly_change_time;
     }
 
-    public void setLastly_change_time(Data lastly_change_time) {
+    public void setLastly_change_time(Date lastly_change_time) {
         this.lastly_change_time = lastly_change_time;
     }
 
-    public Data getDelete_time() {
+    public Date getDelete_time() {
         return delete_time;
     }
 
-    public void setDelete_time(Data delete_time) {
+    public void setDelete_time(Date delete_time) {
         this.delete_time = delete_time;
     }
 
-    public Data getRecovery_time() {
+    public Date getRecovery_time() {
         return recovery_time;
     }
 
-    public void setRecovery_time(Data recovery_time) {
+    public void setRecovery_time(Date recovery_time) {
         this.recovery_time = recovery_time;
     }
 
@@ -562,7 +563,10 @@ public class Human_file {
         this.human_file_status = human_file_status;
     }
 
-    public Human_file(int hfd_id, int human_id, int first_kind_id, String first_kind_name, int second_kind_id, String second_kind_name, int third_kind_id, String third_kind_name, String human_name, String human_address, int human_postcode, String human_pro_designation, int human_major_kind_id, String human_major_kind_name, int human_major_id, String hunma_major_name, String human_telephone, String human_mobilephone, String human_bank, String human_account, int human_qq, String human_email, String human_hobby, String human_speciality, char human_sex, String human_religion, String human_party, String human_nationality, String human_race, Data human_birthday, String human_birthplace, int human_age, String human_educated_degree, double human_educated_years, String human_educated_major, int human_society_security_id, String human_id_card, String remark, int salary_standard_id, String salary_standard_name, double salary_sum, double demand_salaray_sum, double paid_salary_sum, int major_change_amount, int bonus_amount, int training_amount, int file_chang_amount, String human_histroy_records, String human_family_membership, String human_picture, String attachment_name, int check_status, String register, String checker, String changer, Data regist_time, Data check_time, Data change_time, Data lastly_change_time, Data delete_time, Data recovery_time, int human_file_status) {
+    public Human_file() {
+    }
+
+    public Human_file(int hfd_id, int human_id, int first_kind_id, String first_kind_name, int second_kind_id, String second_kind_name, int third_kind_id, String third_kind_name, String human_name, String human_address, int human_postcode, String human_pro_designation, int human_major_kind_id, String human_major_kind_name, int human_major_id, String hunma_major_name, String human_telephone, String human_mobilephone, String human_bank, String human_account, int human_qq, String human_email, String human_hobby, String human_speciality, char human_sex, String human_religion, String human_party, String human_nationality, String human_race, Date human_birthday, String human_birthplace, int human_age, String human_educated_degree, double human_educated_years, String human_educated_major, int human_society_security_id, String human_id_card, String remark, int salary_standard_id, String salary_standard_name, double salary_sum, double demand_salaray_sum, double paid_salary_sum, int major_change_amount, int bonus_amount, int training_amount, int file_chang_amount, String human_histroy_records, String human_family_membership, String human_picture, String attachment_name, int check_status, String register, String checker, String changer, Date regist_time, Date check_time, Date change_time, Date lastly_change_time, Date delete_time, Date recovery_time, int human_file_status) {
         this.hfd_id = hfd_id;
         this.human_id = human_id;
         this.first_kind_id = first_kind_id;
