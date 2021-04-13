@@ -1,6 +1,6 @@
 ﻿<!DOCTYPE html>
 <!--suppress ALL-->
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:c="http://www.w3.org/1999/html">
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<link rel="stylesheet"
@@ -50,7 +50,7 @@
 					</td>
 				</tr>
 				
-				<tr>
+				<tr th:remove="all">
 					<td class="TD_STYLE2">
 						bt201211190711260800
 					</td>
@@ -77,33 +77,32 @@
 					</td>
 				</tr>
 				
-				<tr>
-					<td class="TD_STYLE2">
+				<tr  th:each="s:${fileslist}" th:id="${s.hfd_id}">
+					<td class="TD_STYLE2" th:text="${s.human_id}">
 						bt201211190711160488
 					</td>
-					<td class="TD_STYLE2">
+					<td class="TD_STYLE2" th:text="${s.human_name}">
 						周奥
 					</td>
-					<td class="TD_STYLE2">
+					<td class="TD_STYLE2" th:text="${s.human_sex}">
 						男
 					</td>
-					<td class="TD_STYLE2">
+					<td class="TD_STYLE2" th:text="${s.first_kind_name}">
 						总部
 					</td>
-					<td class="TD_STYLE2">
+					<td class="TD_STYLE2" th:text="${s.second_kind_name}">
 						湖南分校区
 					</td>
-					<td class="TD_STYLE2">
+					<td class="TD_STYLE2" th:text="${s.third_kind_name}">
 						长沙分校区1
 					</td>
-					<td class="TD_STYLE2">
+					<td class="TD_STYLE2" th:text="${s.human_pro_designation}">
 						工程师
 					</td>
 					<td class="TD_STYLE2">
 						<a href="human_check.html">复核</a>
 					</td>
 				</tr>
-				
 			</table>
 			<p style="text-align: center;">
 				

@@ -3,6 +3,10 @@ package com.ck.entity;
 
 import java.util.Date;
 
+/**
+ * 12.Human_file:人力资源档案
+ */
+
 public class Human_file {
     private int hfd_id;
     private int human_id;
