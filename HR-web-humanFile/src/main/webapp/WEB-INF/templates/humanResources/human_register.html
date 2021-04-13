@@ -31,6 +31,74 @@
 		<script type="text/javascript"
 			src="javascript/human_input_check.js">
 		</script>
+		<script src="javascript/jquery-1.7.2.js"></script>
+		<script>
+			$(function () {
+				$.ajax({
+					//获取查询的路径
+					url:'queryAllFirstFile',
+					//查询到的东西
+					success: function(date){
+						//#firstKind下拉框的id,拿到下拉框
+						let selectfirst = $("#firstKind");
+						//通过循环获得查询到的集合里面的值
+						for (let i=0;i<date.length;i++){
+							//通过循环一条一条的把查询到的值注入到下拉框里面
+							//date[i].first_kind_id下拉框获得的ID
+							//date[i].first_kind_name下拉框里面的内容，获得对应的ID的内容
+							selectfirst.append("<option value='"+date[i].first_kind_id+"'>"+date[i].first_kind_name+"</option>");
+						}
+					}
+				})
+
+				$("#firstKind").change(function () {
+					//#firstKind下拉框的id，获得下拉框的values
+					let selectfirst = $("#firstKind").val();
+
+					if (selectfirst!='0'){
+						$.ajax({
+							url:'querysecondkind?first_kind_id='+selectfirst,
+							success: function(sb) {
+								let secondKind = $("#secondKind");
+								secondKind.text("");
+								secondKind.append("<option value='0'>请选择</option>");
+								for (let i=0;i<sb.length;i++){
+									secondKind.append("<option value='"+sb[i].second_kind_id+"'>"+sb[i].second_kind_name+"</option>")
+								}
+							}
+						});
+					}else{
+						let secondKind = $("#secondKind");
+						secondKind.text("");
+						secondKind.append("<option value='0'>请选择</option>");
+						let thirdKind = $("#thirdKind");
+						thirdKind.text("");
+						thirdKind.append("<option value='0'>请选择</option>");
+					}
+				});
+				$("#secondKind").change(function () {
+					let secondKind = $("#secondKind").val();
+					if (secondKind!=0){
+						$.ajax({
+							url:'querythird?second_kind_id='+secondKind,
+							success: function (hengchusheng) {
+								let thirdKind = $("#thirdKind");
+								thirdKind.text("");
+								thirdKind.append("<option value='0'>请选择</option>");
+								for (let i=0;i<hengchusheng.length;i++){
+									thirdKind.append("<option value='"+hengchusheng[i].third_kind_id+"'>"+hengchusheng[i].third_kind_name+"</option>")
+								}
+							}
+						})
+					}else {
+
+						let thirdKind = $("#thirdKind");
+						thirdKind.text("");
+						thirdKind.append("<option value='0'>请选择</option>");
+					}
+				})
+			})
+		</script>
 	</head>
 
 	<body>
@@ -58,7 +126,7 @@
 					<td width="14%" class="TD_STYLE2">
 						<select name="humanFile.firstKindId" class="SELECT_STYLE1" id="firstKind">
 							<option value="0">请选择</option>
-							<option>集团</option>
+							<option th:remove="all">集团</option>
 						</select>
 						<input type="hidden" name="humanFile.firstKindName"/>
 					</td>
