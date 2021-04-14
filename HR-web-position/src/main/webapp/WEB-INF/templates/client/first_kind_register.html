@@ -11,7 +11,7 @@
 	</head>
 	<body>
 		<form name="configfilefirstkindForm" method="post"
-			action="first_kind_register_success.html">
+			action="insertsOrganization1">
 			<table width="100%">
 				<tr>
 					<td>
@@ -23,7 +23,7 @@
 					<td align="right">
 						<input type="submit" value="提交" class="BUTTON_STYLE1">
 						<input type="button" value="返回" class="BUTTON_STYLE1"
-							onclick="history.back();">
+							onclick="window.location.href='queryOrganization1'">
 					</td>
 				</tr>
 			</table>
@@ -35,14 +35,17 @@
 					<td width="19%" class="TD_STYLE1">
 						I级机构编号
 					</td>
-					<td width="81%" class="TD_STYLE2"></td>
+					<td width="81%" class="TD_STYLE2">
+						<input type="text" name="first_kind_id" value=""
+							   class="INPUT_STYLE1">
+					</td>
 				</tr>
 				<tr>
 					<td class="TD_STYLE1">
 						I级机构名称
 					</td>
 					<td class="TD_STYLE2">
-						<input type="text" name="cffk.firstKindName" value=""
+						<input type="text" name="first_kind_name" value=""
 							class="INPUT_STYLE1">
 					</td>
 				</tr>
@@ -51,7 +54,7 @@
 						薪酬发放责任人编号（多个编号之间请用"半角逗号"加"一个空格"隔开，如", "）
 					</td>
 					<td class="TD_STYLE2">
-						<textarea name="cffk.firstKindSalaryId" rows="4"
+						<textarea name="first_kind_salary_id" rows="4"
 							class="TEXTAREA_STYLE1"></textarea>
 					</td>
 				</tr>
@@ -60,7 +63,7 @@
 						销售责任人编号（多个编号之间请用"半角逗号"加"一个空格"隔开，如", "）
 					</td>
 					<td class="TD_STYLE2">
-						<textarea name="cffk.firstKindSaleId" rows="4"
+						<textarea name="first_kind_sale_id" rows="4"
 							class="TEXTAREA_STYLE1"></textarea>
 					</td>
 				</tr>

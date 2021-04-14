@@ -16,4 +16,24 @@ public class Iconfig_file_first_kindServiceImpl implements Iconfig_file_first_ki
     public List<Config_file_first_kind> queryAll() {
         return kindDao.queryAll();
     }
+
+    @Override
+    public Config_file_first_kind queryById(int id) {
+        return kindDao.queryById(id);
+    }
+
+    @Override
+    public void updateById(Config_file_first_kind file) {
+        kindDao.updateById(file);
+    }
+
+    @Override
+    public void deleteById(int id) {
+        kindDao.deleteById(id);
+    }
+
+    @Override
+    public void insets(Config_file_first_kind first) {
+        kindDao.insets(first);
+    }
 }
