@@ -16,4 +16,11 @@ public class Iconfig_file_second_kindServiceImpl implements Iconfig_file_second_
     public List<Config_file_second_kind> querysecond(int first_kind_id) {
         return kindDao.querysecond(first_kind_id);
     }
+
+
+    //查询二级机构中所有数据
+    @Override
+    public List<Config_file_second_kind> queryAllConfig_file_second_kind() {
+        return kindDao.queryAllConfig_file_second_kind();
+    }
 }

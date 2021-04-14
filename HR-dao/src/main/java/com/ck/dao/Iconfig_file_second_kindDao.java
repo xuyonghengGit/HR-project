@@ -22,4 +22,8 @@ public interface Iconfig_file_second_kindDao {
             @Result(column = "second_sale_id",property = "second_sale_id")
     })
     public List<Config_file_second_kind> querysecond(int first_kind_id);
+
+    //查询表所有二级机构
+    @Select("SELECT * FROM Config_file_second_kind")
+    public List<Config_file_second_kind> queryAllConfig_file_second_kind();
 }
