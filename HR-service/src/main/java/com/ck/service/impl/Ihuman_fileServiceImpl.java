@@ -17,4 +17,12 @@ public class Ihuman_fileServiceImpl implements Ihuman_fileService {
     public List<Human_file> queryreviewer() {
         return iHuman_fileDao.queryreviewer();
     }
+
+    @Override
+    //人力资源档案登记复核查询
+    public Human_file queryreviewer02(int human_id) {
+        return iHuman_fileDao.queryreviewer02(human_id);
+    }
+
+
 }
