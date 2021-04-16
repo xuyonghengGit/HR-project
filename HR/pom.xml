@@ -16,6 +16,8 @@
     <module>../HR-web-transfer</module>
     <module>../HR-web-humanFile</module>
     <module>../HR-web-position</module>
+    <module>../HR-web-login</module>
+      <module>../HR-web-power</module>
   </modules>
   <packaging>pom</packaging>
 

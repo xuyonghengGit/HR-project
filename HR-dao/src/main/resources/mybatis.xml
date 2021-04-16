@@ -29,5 +29,6 @@
         <mapper resource="mappers/Config_major_kindDaoMapper.xml"/>
         <mapper resource="mappers/Human_fileDaoMapper.xml"></mapper>
         <mapper class="com.ck.dao.Iconfig_file_first_kindDao"></mapper>
+        <mapper class="com.ck.dao.IuserDao"></mapper>
     </mappers>
 </configuration>

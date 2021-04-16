@@ -8,7 +8,8 @@ public class Indexcontroller {
     //主页
     @RequestMapping("/")
     public  String logo(){
-        return "index";
+        return "login";
+        //return "index";
     }
     //页面跳转
     @RequestMapping("topage")
