@@ -5,29 +5,64 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<title>My JSP 'valid-resume.jsp' starting page</title>
 		<link rel="stylesheet"
-			href="../../../css/table.css" type="text/css">
+			href="css/table.css" type="text/css">
 		<link rel="stylesheet"
-			href="../../../css/cwcalendar.css" type="text/css">
-		<script type="text/javascript"
-			src="../../../javascript/comm/comm.js">
+			href="css/cwcalendar.css" type="text/css">
+		<script src="javascript/jquery-1.7.2.js"></script>
+		<script>
+			$(function () {
+				$.ajax({
+					url: 'queryBymfk',
+					success: function (config_major_kinds) {
+						let select = $("#selectone");
+						for (let i = 0; i < config_major_kinds.length; i++) {
+							if (i == 0) {
+								select.append("<option selected='selected' value='" + config_major_kinds[i].mfk_id + "'>" + config_major_kinds[i].major_kind_name + "</option>")
+							} else {
+								select.append("<option value='" + config_major_kinds[i].mfk_id + "'>" + config_major_kinds[i].major_kind_name + "</option>")
+							}
+						}
+					}
+				});
+				$("#selectone").change(function () {
+					let mkf_id = $("#selectone").val();
+					$.ajax({
+						url: 'queryBymajorkindid?mfk_id=' + mkf_id,
+						success: function (config_majors) {
+							let select = $("#selecttwo");
+							select.text("");
+							for (let i = 0; i < config_majors.length; i++) {
+								if (i == 0) {
+									select.append("<option selected='selected' value='" + config_majors[i].mak_id + "'>" + config_majors[i].major_name + "</option>")
+								} else {
+									select.append("<option value='" + config_majors[i].mak_id + "'>" + config_majors[i].major_name + "</option>")
+								}
+							}
+						}
+					});
+				})
+			})
 		</script>
 		<script type="text/javascript"
-			src="../../../javascript/comm/list.js">
+			src="javascript/comm/comm.js">
 		</script>
 		<script type="text/javascript"
-			src="../../../javascript/calendar-ch.js">
+			src="javascript/comm/list.js">
 		</script>
 		<script type="text/javascript"
-			src="../../../javascript/jquery-1.7.2.js">
+			src="javascript/calendar-ch.js">
 		</script>
 		<script type="text/javascript"
-			src="../../../javascript/locate.js">
+			src="javascript/jquery-1.7.2.js">
 		</script>
 		<script type="text/javascript"
-			src="../../../javascript/select.js">
+			src="javascript/locate.js">
+		</script>
+		<script type="text/javascript"
+			src="javascript/select.js">
 		</script>
      	<script type="text/javascript"
-			src="../../../javascript/comm/time.js">
+			src="javascript/comm/time.js">
 		</script>
 <script type="text/javascript">
 function search(){ 
@@ -38,7 +73,7 @@ function search(){
 	</head>
 
 	<body>
-		<form id="recruitAction!findEngageResume?a=valid" name="humanfileForm" action="/HR_Fist/recruit/recruitAction!findEngageResume?a=valid" method="post">
+		<form id="recruitAction!findEngageResume?a=valid" name="humanfileForm" action="queryByvalid" method="post">
 			<input type="hidden" name="engageResume.humanMajorKindName"
 				id="majorKindName" />
 			<input type="hidden" name="engageResume.humanMajorName"
@@ -68,21 +103,21 @@ function search(){
 						请选择职位分类
 					</td>
 					<td class="TD_STYLE2" width="30%">
-						<select name="engageResume.humanMajorKindId" multiple="multiple" style="width: 290;height: 100"
-							 id="majorKindId"  class="SELECT_STYLE2"> 
-						<option value="0">--请选择--</option>
+						<select name="human_major_kind_id" multiple="multiple" style="width: 290;height: 100"
+							 id="selectone"  class="SELECT_STYLE2" >
+						<option value="">--请选择--</option>
 					
-					<option value="01">销售</option>
-					
-					<option value="02">软件开发</option>
-					
-					<option value="03">人力资源</option>
-					
-					<option value="04">生产部</option>
+<!--					<option value="01">销售</option>-->
+<!--					-->
+<!--					<option value="02">软件开发</option>-->
+<!--					-->
+<!--					<option value="03">人力资源</option>-->
+<!--					-->
+<!--					<option value="04">生产部</option>-->
 					
 					 </select>
-						<select name="engageResume.humanMajorId"  multiple="multiple"  style="width: 290;height: 100"
-							 id="majorId" size="5"
+						<select name="human_major_id"  multiple="multiple"  style="width: 290;height: 100"
+							 id="selecttwo" size="5"
 							class="SELECT_STYLE2">
 							<option>
 								--请选择--
@@ -97,7 +132,7 @@ function search(){
 						请输入关键字
 					</td>
 					<td width="84%">
-						<input type="text" name="utilBean.primarKey" value="" class="INPUT_STYLE2"/>
+						<input type="text" name="keyword" value="" class="INPUT_STYLE2"/>
 					</td>
 				</tr>
 
@@ -108,10 +143,10 @@ function search(){
 					<td width="84%" class="TD_STYLE2">
 					<input type="hidden" name="utilBean.datePropertyName" value="registTime"/>
 						 
-					<input type="text" name="utilBean.startDate"   onclick="aa('utilBean.startDate')" 
+					<input type="text" name="min"   onclick="aa('utilBean.startDate')"
 							style="width: 14%" class="INPUT_STYLE2">
 						至
-						<input type="text" name="utilBean.endDate" 
+						<input type="text" name="max"
 							style="width: 14%" class="INPUT_STYLE2" onclick="aa('utilBean.endDate')">
 						（YYYY-MM-DD）
 					</td>

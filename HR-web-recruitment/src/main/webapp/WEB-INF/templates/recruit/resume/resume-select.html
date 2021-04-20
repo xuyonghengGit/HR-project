@@ -5,26 +5,26 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>My JSP 'resume-select.jsp' starting page</title>
 		<link rel="stylesheet"
-			href="../../../css/table.css" type="text/css">
+			href="css/table.css" type="text/css">
 		<link rel="stylesheet"
-			href="../../../css/cwcalendar.css" type="text/css">
+			href="css/cwcalendar.css" type="text/css">
 		<script type="text/javascript"
-			src="../../../javascript/comm/comm.js">
+			src="javascript/comm/comm.js">
 		</script>
 		<script type="text/javascript"
-			src="../../../javascript/comm/list.js">
+			src="javascript/comm/list.js">
 		</script>
 		<script type="text/javascript"
-			src="../../../javascript/calendar-ch.js">
+			src="javascript/calendar-ch.js">
 		</script>
 		<script type="text/javascript"
-			src="../../../javascript/jquery-1.7.2.js">
+			src="javascript/jquery-1.7.2.js">
 		</script>
 		<script type="text/javascript"
-			src="../../../javascript/locate.js">
+			src="javascript/locate.js">
 		</script>
 		<script type="text/javascript"
-			src="../../../javascript/select.js">
+			src="javascript/select.js">
 		</script>
 		<script type="text/javascript">
 function toCheck(id)
@@ -58,9 +58,9 @@ function toCheck(id)
 					</td>
 					<td class="TD_STYLE2">
 
-						<select name="engageResume.humanMajorKindId">
+						<select name="engageResume.humanMajorKindId" >
 							<option
-								value="02">
+									th:value="${engage_resume.human_major_kind_id}" th:text="${engage_resume.human_major_kind_name}">
 								&#36719;&#20214;&#24320;&#21457;
 							</option>
 						</select>
@@ -71,7 +71,7 @@ function toCheck(id)
 					<td class="TD_STYLE2" width="20%">
 						<select name="engageResume.majorId">
 							<option
-								value="">
+									th:value="${engage_resume.human_major_id}" th:text="${engage_resume.human_major_id}">
 								&#31243;&#24207;&#21592;
 							</option>
 						</select>
@@ -82,7 +82,7 @@ function toCheck(id)
 					<td class="TD_STYLE2" colspan="2">
 						<select name="engageResume.engageType" class="SELECT_STYLE1">
 							<option
-								value="&#26657;&#22253;&#25307;&#32856;">
+									th:value="${engage_resume.engage_type}" th:text="${engage_resume.engage_type}">
 								&#26657;&#22253;&#25307;&#32856;
 							</option>
 						</select>
@@ -97,7 +97,7 @@ function toCheck(id)
 					</td>
 					<td class="TD_STYLE2">
 						<input type="text"
-							value="&#24352;&#39122;"
+							   th:value="${engage_resume.human_name}"
 							name="engageResume.humanName" class="INPUT_STYLE2" readonly="readonly"/>
 					</td>
 					<td class="TD_STYLE1">
@@ -106,7 +106,7 @@ function toCheck(id)
 					<td class="TD_STYLE2">
 						<select name="engageResume.humanName" class="SELECT_STYLE1">
 							<option
-								value="&#30007;">
+									th:value="${engage_resume.human_sex}"  th:text="${engage_resume.human_sex}">
 								&#30007;
 							</option>
 						</select>
@@ -116,7 +116,7 @@ function toCheck(id)
 					</td>
 					<td colspan="2" class="TD_STYLE2">
 						<input type="text" name="engageResume.humanEmail"
-							value="123@.com"
+							   th:value="${engage_resume.human_email}"
 							class="INPUT_STYLE2" readonly="readonly">
 					</td>
 				</tr>
@@ -126,7 +126,7 @@ function toCheck(id)
 					</td>
 					<td class="TD_STYLE2">
 						<input type="text" name="engageResume.humanTelephone"
-							value="84802802"
+							   th:value="${engage_resume.human_telephone}"
 							class="INPUT_STYLE2" readonly="readonly">
 					</td>
 					<td class="TD_STYLE1">
@@ -134,7 +134,7 @@ function toCheck(id)
 					</td>
 					<td class="TD_STYLE2">
 						<input type="text" name="engageResume.humanHomephone"
-							value="123@.com"
+							   th:value="${engage_resume.human_homephone}"
 							class="INPUT_STYLE2" readonly="readonly">
 					</td>
 					<td class="TD_STYLE1">
@@ -142,7 +142,7 @@ function toCheck(id)
 					</td>
 					<td colspan="2" class="TD_STYLE2">
 						<input type="text" name="engageResume.humanMobilephone"
-							value="123@.com"
+							   th:value="${engage_resume.human_mobilephone}"
 							class="INPUT_STYLE2" readonly="readonly">
 					</td>
 				</tr>
@@ -152,7 +152,7 @@ function toCheck(id)
 					</td>
 					<td colspan="3" class="TD_STYLE2">
 						<input type="text" name="engageResume.humanAddress"
-							value="&#28246;&#21335;&#38271;&#27801;"
+							   th:value="${engage_resume.human_address}"
 							class="INPUT_STYLE2" readonly="readonly">
 					</td>
 
@@ -161,7 +161,7 @@ function toCheck(id)
 					</td>
 					<td colspan="2" class="TD_STYLE2">
 						<input type="text" name="engageResume.humanPostcode"
-							value="410000"
+							   th:value="${engage_resume.human_postcode}"
 							class="INPUT_STYLE2" readonly="readonly">
 					</td>
 				</tr>
@@ -173,7 +173,8 @@ function toCheck(id)
 					<td class="TD_STYLE2">
 						<select name="engageResume.humanNationality" class="SELECT_STYLE1">
 							<option
-								value="&#20013;&#22269;">
+									th:value="${engage_resume.human_nationality}"
+									th:text="${engage_resume.human_nationality}">
 								&#20013;&#22269;
 							</option>
 						</select>
@@ -183,7 +184,7 @@ function toCheck(id)
 					</td>
 					<td class="TD_STYLE2">
 						<input type="text" name="engageResume.humanBirthplace"
-							value=""
+							   th:value="${engage_resume.human_birthplace}"
 							class="INPUT_STYLE2" readonly="readonly">
 					</td>
 					<td class="TD_STYLE1">
@@ -191,7 +192,7 @@ function toCheck(id)
 					</td>
 					<td width="13%" colspan="2" class="TD_STYLE2">
 						<input type="text" name="engageResume.humanBirthday"
-							value="92-2-2 12:00:00.000"
+							   th:value="${engage_resume.human_birthday}"
 							class="INPUT_STYLE2" id="date_start" readonly="readonly">
 					</td>
 
@@ -203,7 +204,8 @@ function toCheck(id)
 					<td class="TD_STYLE2" width="14%">
 						<select name="engageResume.humanRace" class="SELECT_STYLE1">
 							<option
-								value="&#27721;&#26063;">
+									th:value="${engage_resume.human_race}"
+									th:text="${engage_resume.human_race}">
 								&#27721;&#26063;
 							</option>
 						</select>
@@ -214,7 +216,8 @@ function toCheck(id)
 					<td class="TD_STYLE2">
 						<select name="engageResume.humanReligion" class="SELECT_STYLE1">
 							<option
-								value="&#26080;">
+									th:value="${engage_resume.human_religion}"
+									th:text="${engage_resume.human_religion}">
 								&#26080;
 							</option>
 						</select>
@@ -225,7 +228,8 @@ function toCheck(id)
 					<td class="TD_STYLE2" colspan="2">
 						<select name="engageResume.humanParty" class="SELECT_STYLE1">
 							<option
-								value="">
+									th:value="${engage_resume.human_party}"
+									th:text="${engage_resume.human_party}">
 								
 							</option>
 						</select>
@@ -239,7 +243,7 @@ function toCheck(id)
 					</td>
 					<td class="TD_STYLE2">
 						<input type="text" name="engageResume.humanIdcard"
-							value="430121199202022323"
+							   th:value="${engage_resume.human_idcard}"
 							class="INPUT_STYLE2" readonly="readonly">
 					</td>
 					<td class="TD_STYLE1">
@@ -247,7 +251,7 @@ function toCheck(id)
 					</td>
 					<td class="TD_STYLE2">
 						<input type="text" name="engageResume.humanAge"
-							value="20"
+							   th:value="${engage_resume.human_age}"
 							class="INPUT_STYLE2" readonly="readonly">
 					</td>
 					<td class="TD_STYLE1">
@@ -255,7 +259,7 @@ function toCheck(id)
 					</td>
 					<td class="TD_STYLE2">
 						<input type="text" name="engageResume.humanCollege"
-							value="&#38271;&#27801;&#29702;&#24037;"
+							   th:value="${engage_resume.human_college}"
 							class="INPUT_STYLE2" readonly="readonly"/>
 					</td>
 
@@ -266,7 +270,8 @@ function toCheck(id)
 						<select name="engageResume.humanEducatedDegree"
 							class="SELECT_STYLE1">
 							<option
-								value="&#22823;&#19987;">
+									th:value="${engage_resume.human_educated_degree}"
+									th:text="${engage_resume.human_educated_degree}">
 								&#22823;&#19987;
 							</option>
 						</select>
@@ -281,7 +286,8 @@ function toCheck(id)
 						<select name="engageResume.humanEducatedYears"
 							class="SELECT_STYLE1">
 							<option
-								value="12">
+									th:value="${engage_resume.human_educated_years}"
+									th:text="${engage_resume.human_educated_years}">
 								12
 							</option>
 						</select>
@@ -293,7 +299,8 @@ function toCheck(id)
 						<select name="engageResume.humanEducatedMajor"
 							class="SELECT_STYLE1">
 							<option
-								value="&#35745;&#31639;&#26426;">
+									th:value="${engage_resume.human_educated_major}"
+									th:text="${engage_resume.human_educated_major}">
 								&#35745;&#31639;&#26426;
 							</option>
 						</select>
@@ -304,14 +311,17 @@ function toCheck(id)
 					</td>
 					<td class="TD_STYLE2">
 						<input type="text" name="engageResume.demandSalaryStandard"
-							value="6000.0"
+							   th:value="${engage_resume.demand_salary_standard}"
 							class="INPUT_STYLE2" readonly="readonly" />
 					</td>
 					<td class="TD_STYLE1">
 						注册时间
 					</td>
 					<td class="TD_STYLE2">
-						12-11-25 13:50:30.000
+						<input type="text"
+							   th:value="${engage_resume.regist_time}"
+							   th:text="${engage_resume.regist_time}"
+							   readonly="readonly">
 					</td>
 
 				</tr>
@@ -323,7 +333,8 @@ function toCheck(id)
 					<td class="TD_STYLE2">
 						<select name="engageResume.humanSpecility" class="SELECT_STYLE1">
 							<option
-								value="java">
+									th:value="${engage_resume.human_specility}"
+									th:text="${engage_resume.human_specility}">
 								java
 							</option>
 						</select>
@@ -334,7 +345,8 @@ function toCheck(id)
 					<td class="TD_STYLE2">
 						<select name="engageResume.humanHobby" class="SELECT_STYLE1">
 							<option
-								value="&#31726;&#29699;">
+									th:value="${engage_resume.human_hobby}"
+									th:text="${engage_resume.human_hobby}">
 								&#31726;&#29699;
 							</option>
 						</select>
@@ -344,7 +356,7 @@ function toCheck(id)
 					</td>
 					<td class="TD_STYLE2">
 						<input type="text" name="engageResume.passChecker"
-							value="zhangsan, zhangsan"
+							   th:text="${engage_resume.register}"
 							class="INPUT_STYLE2" readonly="readonly"/>
 
 					</td>
@@ -352,7 +364,8 @@ function toCheck(id)
 						推荐时间
 					</td>
 					<td class="TD_STYLE2">
-						12-11-25 13:51:18.000
+						<input type="text" readonly="readonly" th:value="${engage_resume.regist_time}">
+<!--						12-11-25 13:51:18.000-->
 					</td>
 				</tr>
 				<tr>
@@ -361,7 +374,9 @@ function toCheck(id)
 					</td>
 					<td colspan="7" class="TD_STYLE2">
 						<textarea name="engageResume.humanHistoryRecords" rows="4" readonly="readonly"
-							class="TEXTAREA_STYLE1"> &#20010;&#20154;&#23653;&#21382;
+								  th:value="${engage_resume.human_history_records}"
+								  class="TEXTAREA_STYLE1"> &#20010;&#20154;&#23653;&#21382;
+
 						
 						</textarea>
 					</td>
@@ -373,7 +388,8 @@ function toCheck(id)
 					</td>
 					<td colspan="7" class="TD_STYLE2">
 						<textarea name="engageResume.remark" rows="4" readonly="readonly"
-							class="TEXTAREA_STYLE1"> &#22791;&#27880;
+								  th:value="${engage_resume.remark}"
+								  class="TEXTAREA_STYLE1"> &#22791;&#27880;
 						
 						</textarea>
 					</td>
@@ -384,6 +400,7 @@ function toCheck(id)
 					</td>
 					<td colspan="7" class="TD_STYLE2">
 						<textarea name="engageResume.recomandation" rows="4" readonly="readonly"
+								  th:value="${engage_resume.recomandation}"
 							class="TEXTAREA_STYLE1"> &#25512;&#33616;						
 						</textarea>
 					</td>

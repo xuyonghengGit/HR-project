@@ -2,4 +2,119 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ck.dao.Iengage_resumeDao">
 
+    <select id="queryByif" resultMap="Engage_resumeMap" parameterType="map">
+        SELECT * FROM Engage_resume
+        <where>
+        <if test="human_name != ''">
+           or ( human_name LIKE '%${keyword}%'
+        </if>
+         <if test="human_telephone != ''">
+            or  human_telephone LIKE '%${keyword}%'
+         </if>
+            <if test="human_idcard != ''">
+                or  human_idcard LIKE '%${keyword}%'
+            </if>
+            <if test="human_history_records != ''">
+                or  human_history_records LIKE '%${keyword}%')
+            </if>
+            <if test="min != ''">
+                AND pass_regist_time >= #{min}
+            </if>
+            <if test="max != ''">
+                <![CDATA[and pass_regist_time <= #{max}]]>
+            </if>
+            <if test="human_major_id !=''">
+                AND human_major_id = #{human_major_id}
+            </if>
+            <if test="human_major_kind_id !=''">
+                AND human_major_kind_id = #{human_major_kind_id}
+            </if>
+        </where>
+        AND pass_check_status = 0;
+    </select>
+
+    <select id="queryByvalid" resultMap="Engage_resumeMap" parameterType="map">
+        SELECT * FROM Engage_resume
+        <where>
+            <if test="human_name != ''">
+                or ( human_name LIKE '%${keyword}%'
+            </if>
+            <if test="human_telephone != ''">
+                or  human_telephone LIKE '%${keyword}%'
+            </if>
+            <if test="human_idcard != ''">
+                or  human_idcard LIKE '%${keyword}%'
+            </if>
+            <if test="human_history_records != ''">
+                or  human_history_records LIKE '%${keyword}%')
+            </if>
+            <if test="min != ''">
+                AND pass_regist_time >= #{min}
+            </if>
+            <if test="max != ''">
+                <![CDATA[and pass_regist_time <= #{max}]]>
+            </if>
+            <if test="human_major_id !=''">
+                AND human_major_id = #{human_major_id}
+            </if>
+            <if test="human_major_kind_id !=''">
+                AND human_major_kind_id = #{human_major_kind_id}
+            </if>
+        </where>
+        AND pass_check_status = 1;
+    </select>
+
+    <resultMap id="Engage_resumeMap" type="com.ck.entity.Engage_resume">
+        <result column="res_id" property="res_id"></result>
+        <result column="human_name" property="human_name"></result>
+        <result column="engage_type" property="engage_type"></result>
+        <result column="human_address" property="human_address"></result>
+        <result column="human_postcode" property="human_postcode"></result>
+        <result column="human_major_kind_id" property="human_major_kind_id"></result>
+        <result column="human_major_kind_name" property="human_major_kind_name"></result>
+        <result column="human_major_id" property="human_major_id"></result>
+        <result column="human_major_name" property="human_major_name"></result>
+        <result column="human_telephone" property="human_telephone"></result>
+        <result column="human_homephone" property="human_homephone"></result>
+        <result column="human_mobilephone" property="human_mobilephone"></result>
+        <result column="human_email" property="human_email"></result>
+        <result column="human_hobby" property="human_hobby"></result>
+        <result column="human_specility" property="human_specility"></result>
+        <result column="human_sex" property="human_sex"></result>
+        <result column="human_religion" property="human_religion"></result>
+        <result column="human_party" property="human_party"></result>
+        <result column="human_nationality" property="human_nationality"></result>
+        <result column="human_race" property="human_race"></result>
+        <result column="human_birthday" property="human_birthday"></result>
+        <result column="human_age" property="human_age"></result>
+        <result column="human_educated_degree" property="human_educated_degree"></result>
+        <result column="human_educated_years" property="human_educated_years"></result>
+        <result column="human_educated_major" property="human_educated_major"></result>
+        <result column="human_college" property="human_college"></result>
+        <result column="human_idcard" property="human_idcard"></result>
+        <result column="human_birthplace" property="human_birthplace"></result>
+        <result column="demand_salary_standard" property="demand_salary_standard"></result>
+        <result column="human_history_records" property="human_history_records"></result>
+        <result column="remark" property="remark"></result>
+        <result column="recomandation" property="recomandation"></result>
+        <result column="human_picture" property="human_picture"></result>
+        <result column="attachment_name" property="attachment_name"></result>
+        <result column="check_status" property="check_status"></result>
+        <result column="register" property="register"></result>
+        <result column="regist_time" property="regist_time"></result>
+        <result column="checker" property="checker"></result>
+        <result column="check_time" property="check_time"></result>
+        <result column="interview_status" property="interview_status"></result>
+        <result column="total_points" property="total_points"></result>
+        <result column="test_amount" property="test_amount"></result>
+        <result column="test_checker" property="test_checker"></result>
+        <result column="test_check_time" property="test_check_time"></result>
+        <result column="pass_register" property="pass_register"></result>
+        <result column="pass_regist_time" property="pass_regist_time"></result>
+        <result column="pass_checker" property="pass_checker"></result>
+        <result column="pass_check_time" property="pass_check_time"></result>
+        <result column="pass_check_status" property="pass_check_status"></result>
+        <result column="pass_checkComment" property="pass_checkComment"></result>
+        <result column="pass_passComment" property="pass_passComment"></result>
+    </resultMap>
 </mapper>
