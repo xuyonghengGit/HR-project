@@ -16,6 +16,34 @@ public class IuserServiceImpl implements IuserService {
     private IuserDao dao;
     @Override
     public User login(Map map) {
+        //登录
         return dao.login(map);
+    }
+
+    @Override
+    public List<User> queryAll() {
+        //查询所有
+        return dao.queryAll();
+    }
+
+    @Override
+    public void adduser(User u) {
+        //添加用户
+        dao.adduser(u);
+    }
+
+    @Override
+    public User queryuseredit(int id) {
+        return dao.queryuseredit(id);
+    }
+
+    @Override
+    public void useredit(User u) {
+        dao.useredit(u);
+    }
+
+    @Override
+    public void deluser(int id) {
+        dao.deluser(id);
     }
 }

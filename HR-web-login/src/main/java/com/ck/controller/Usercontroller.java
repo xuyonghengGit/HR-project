@@ -1,6 +1,8 @@
 package com.ck.controller;
 
 import com.ck.entity.User;
+import com.ck.entity.rights_control;
+import com.ck.service.Irights_controlService;
 import com.ck.service.IuserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -22,6 +24,9 @@ public class Usercontroller {
     //自动注入service
     @Autowired
     private IuserService dao;
+
+    @Autowired
+    private Irights_controlService rightscontroldao;
     //自动注入属性文件中的加密盐值
     @Value("${md5_solt}")
     private String md5str;
@@ -41,8 +46,16 @@ public class Usercontroller {
         }else{
             //把用户信息保存到session中
             session.setAttribute("userLoginSucceed",login);
+            int id = login.getUser_type();
+            rights_control rights_control = rightscontroldao.queryByid(id);
+            session.setAttribute("rights",rights_control);
             return "succeed";
         }
+    }
+    @RequestMapping("quituser")
+    public String quituser(HttpSession session){
+        session.removeAttribute("userLoginSucceed");
+        return "redirect:/";
     }
 
 }

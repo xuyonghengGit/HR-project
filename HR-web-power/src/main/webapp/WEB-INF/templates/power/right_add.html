@@ -5,14 +5,14 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<title>添加角色</title>
 		<link rel="stylesheet"
-			href="../../css/table.css" type="text/css"/>
-		<script type="text/javascript" src="../../javascript/jquery-1.7.2.js"></script>
+			href="css/table.css" type="text/css"/>
+		<script type="text/javascript" src="javascript/jquery-1.7.2.js"></script>
 		<script type="text/javascript"
-			src="../../javascript/jquery.messager.js"></script>
-		<script type="text/javascript" src="../../javascript/right_add.js"></script>
+			src="javascript/jquery.messager.js"></script>
+		<script type="text/javascript" src="javascript/right_add.js"></script>
 	</head>
 	<body>
-		<form method="post" action="success.html">
+		<form method="post" action="addrights">
 			<table width="100%">
 				<tr>
 					<td>
@@ -33,19 +33,19 @@
 				<tr>
 					<td class="TD_STYLE1">角色名称</td>
 					<td class="TD_STYLE2">
-						<input type="text" id="roleName" name="sysRole.roleName"/>
+						<input type="text" id="roleName" name="r_name"/>
 					</td>
 					<td class="TD_STYLE1">角色说明</td>
 					<td class="TD_STYLE2">
-						<input type="text" name="sysRole.roleDesc"/>
+						<input type="text" name="r_explain"/>
 					</td>
 				</tr>
 				<tr>
 					<td class="TD_STYLE1">角色是否可用</td>
 					<td colspan="3" class="TD_STYLE2">
-						<select name="sysRole.roleFlag">
-							<option value="true">是</option>
-							<option value="false">否</option>
+						<select name="r_type">
+							<option value="1">是</option>
+							<option value="0">否</option>
 						</select>
 					</td>
 				</tr>

@@ -5,14 +5,28 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<title>添加用户</title>
 		<link rel="stylesheet"
-			href="../../css/table.css" type="text/css"/>
-		<script type="text/javascript" src="../../javascript/jquery-1.7.2.js"></script>
+			href="css/table.css" type="text/css"/>
+		<script type="text/javascript" src="javascript/jquery-1.7.2.js"></script>
 		<script type="text/javascript"
-			src="../../javascript/jquery.messager.js"></script>
-		<script type="text/javascript" src="../../javascript/user_add.js"></script>
+			src="javascript/jquery.messager.js"></script>
+		<script type="text/javascript" src="javascript/user_add.js"></script>
+		<script>
+			$(function () {
+				$.ajax({
+					url:'queryrightsAllajax',
+					success:function (date) {
+						let rights = $("#rights");
+						rights.text("");
+						for (let i = 0;i<date.length;i++){
+							rights.append("<option value='"+date[i].r_id+"'>"+date[i].r_name+"</option>");
+						}
+					}
+				});
+			});
+		</script>
 	</head>
 	<body>
-		<form method="post" action="success.html">
+		<form method="post" action="adduser">
 			<table width="100%">
 				<tr>
 					<td>
@@ -33,21 +47,21 @@
 				<tr>
 					<td class="TD_STYLE1">用户名称</td>
 					<td class="TD_STYLE2">
-						<input type="text" id="userName" name="users.userName"/>
+						<input type="text" id="userName" name="user_name"/>
 					</td>
 					<td class="TD_STYLE1">用户密码</td>
 					<td class="TD_STYLE2">
-						<input type="password" id="userPassword" name="users.userPassword"/>
+						<input type="password" id="userPassword" name="user_password"/>
 					</td>
 				</tr>
 				<tr>
 					<td class="TD_STYLE1">真实姓名</td>
 					<td class="TD_STYLE2">
-						<input type="text" id="userTrueName" name="users.userTrueName"/>
+						<input type="text" id="userTrueName" name="user_true_name"/>
 					</td>
 					<td class="TD_STYLE1">用户身份</td>
 					<td class="TD_STYLE2">
-						<select name="users.sysRole.roleId">
+						<select id="rights" name="user_type">
 							
 								<option value="1">人事专员</option>
 							

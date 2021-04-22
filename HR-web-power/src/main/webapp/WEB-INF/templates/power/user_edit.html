@@ -5,14 +5,28 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<title>编辑用户</title>
 		<link rel="stylesheet"
-			href="../../css/table.css" type="text/css"/>
-		<script type="text/javascript" src="../../javascript/jquery-1.7.2.js"></script>
+			href="css/table.css" type="text/css"/>
+		<script type="text/javascript" src="javascript/jquery-1.7.2.js"></script>
+		<script>
+			$(function () {
+				$("#userPassword").click(function () {
+					$("#userPassword").val("");
+				})
+				$("#userPassword").blur(function(){
+					let pwd = $("#userPassword");
+					if(pwd.val() == ''){
+						pwd.val("******");
+					}
+				});
+			});
+		</script>
 		<script type="text/javascript"
-			src="../../javascript/jquery.messager.js"></script>
-		<script type="text/javascript" src="../../javascript/user_add.js"></script>
+			src="javascript/jquery.messager.js"></script>
+		<script type="text/javascript" src="javascript/user_add.js"></script>
+
 	</head>
 	<body>
-		<form id="powerAction!doModifyUser" name="powerAction!doModifyUser" action="success.html" method="post">
+		<form id="powerAction!doModifyUser" name="powerAction!doModifyUser" action="useredit" method="post">
 			<table width="100%">
 				<tr>
 					<td>
@@ -34,41 +48,38 @@
 				<tr>
 					<td class="TD_STYLE1">用户名称</td>
 					<td class="TD_STYLE2">
-						<input type="text" value="xiepeng" id="userName" name="users.userName"/>
-						<input type="hidden" name="users.userId" value="1015"/>
+						<input type="text" th:value="${useredit.user_name}" id="userName" name="user_name"/>
+						<input type="hidden" name="user_id" th:value="${useredit.user_id}"/>
 					</td>
 					<td class="TD_STYLE1">用户密码</td>
 					<td class="TD_STYLE2">
-						<input type="password" value="123456" id="userPassword" name="users.userPassword"/>
+						<input type="text" value="******" id="userPassword" name="user_password"/>
+						<input type="hidden" th:value="${useredit.user_password}" name="oldpwd">
 					</td>
 				</tr>
 				<tr>
 					<td class="TD_STYLE1">真实姓名</td>
 					<td class="TD_STYLE2">
-						<input type="text" value="谢鹏" id="userTrueName" name="users.userTrueName"/>
+						<input type="text" th:value="${useredit.user_true_name}" id="userTrueName" name="user_true_name"/>
 					</td>
 					<td class="TD_STYLE1">用户身份</td>
 					<td class="TD_STYLE2">
-						<select name="users.sysRole.roleId" id="powerAction!doModifyUser_users_sysRole_roleId">
-    <option value="1">人事专员</option>
-    <option value="2" selected="selected">人事经理</option>
-    <option value="3">薪酬专员</option>
-    <option value="4">薪酬经理</option>
-    <option value="5">招聘专员</option>
-    <option value="6">招聘经理</option>
-    <option value="7">应聘者</option>
-    <option value="8">系统管理员</option>
-
-
-</select>
-
+						<select disabled th:if="${useredit.user_type == 0}">
+							<option value="0">超级管理员</option>
+						</select>
+						<select name="user_type" th:if="${useredit.user_type != 0}">
+							<option th:each="r:${rights}" th:value="${r.r_id}" th:text="${r.r_name}" th:selected="${r.r_id == useredit.user_type}" value="1">人事专员</option>
+							<option th:remove="all" value="2">人事经理</option>
+							<option th:remove="all" value="3">薪酬专员</option>
+							<option th:remove="all" value="4">薪酬经理</option>
+							<option th:remove="all" value="5">招聘专员</option>
+							<option th:remove="all" value="6">招聘经理</option>
+							<option th:remove="all" value="7">应聘者</option>
+							<option th:remove="all" value="8">系统管理员</option>
+						</select>
 					</td>
 				</tr>
 			</table>
 		</form>
-
-
-
-
 	</body>
 </html>

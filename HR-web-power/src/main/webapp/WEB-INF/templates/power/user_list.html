@@ -5,13 +5,23 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<title>用户管理</title>
 		<link rel="stylesheet"
-			href="../../css/table.css" type="text/css"/>
+			href="css/table.css" type="text/css"/>
+		<script type="text/javascript" src="javascript/jquery-1.7.2.js"></script>
 		<script type="text/javascript">
-			function doDelete(id) {
-				if (confirm("确定删除此用户吗？")) {
-					location.href = "success.html?users.userId=" + id;
+			function doDelete(name,id) {
+				if (confirm("确定删除此["+name+"]用户吗？")) {
+					location.href = "deluser?id=" + id;
 				}
 			}
+
+		</script>
+
+		<script>
+			$(function () {
+				$(".edit").click(function () {
+					location.href="queryuseredit?id="+$(this).attr("id");
+				})
+			});
 		</script>
 	</head>
 	<body>
@@ -28,7 +38,7 @@
 			</tr>
 			<tr>
 				<td align="right">
-					<input type="button" value="添加用户" class="BUTTON_STYLE1" onclick="location.href='user_add.html'">
+					<input type="button" value="添加用户" class="BUTTON_STYLE1" onclick="location.href='topage?page=power/user_add'">
 				</td>
 			</tr>
 		</table>
@@ -56,29 +66,33 @@
 				</td>
 			</tr>
 			
-				<tr class="TR_STYLE2">
-					<td class="TD_STYLE2">
+				<tr class="TR_STYLE2" th:each="u:${usersAll}">
+					<td class="TD_STYLE2" th:text="${u.user_id}">
 						9
 					</td>
-					<td class="TD_STYLE2">
+					<td class="TD_STYLE2" th:text="${u.user_name}">
 						better_admin
 					</td>
-					<td class="TD_STYLE2">
+					<td class="TD_STYLE2" th:text="${u.user_true_name}">
 						zhangsan
 					</td>
 					<td class="TD_STYLE2">
-						123123
+						******
+					</td>
+					<td class="TD_STYLE2" th:if="${u.user_type == 0}">
+						超级管理员
+					</td>
+					<td class="TD_STYLE2" th:each="r:${rightsAll}" th:if="${r.r_id == u.user_type}">
+						<span th:text="${r.r_name}">系统管理员</span>
 					</td>
 					<td class="TD_STYLE2">
-						系统管理员
-					</td>
-					<td class="TD_STYLE2">
-						<img src="../../images/bt_edit.gif" title="编辑" style="cursor:pointer;" onclick="location.href='user_edit.html'"/>
-						<img src="../../images/bt_del.gif" title="删除" style="cursor:pointer;" onclick="doDelete(9)"/>
+						<img src="images/bt_edit.gif" title="编辑" style="cursor:pointer;" th:id="${u.user_id}" class="edit"/>
+						<img th:if="${u.user_type != 0}" src="images/bt_del.gif" title="删除" style="cursor:pointer;" th:onclick="doDelete([[${u.user_true_name}]],[[${u.user_id}]])"/>
+						<span th:if="${u.user_type == 0}">不可删除</span>
 					</td>
 				</tr>
 			
-				<tr class="TR_STYLE2">
+				<tr class="TR_STYLE2" th:remove="all">
 					<td class="TD_STYLE2">
 						1026
 					</td>
@@ -95,12 +109,12 @@
 						人事专员
 					</td>
 					<td class="TD_STYLE2">
-						<img src="../../images/bt_edit.gif" title="编辑" style="cursor:pointer;" onclick="location.href='user_edit.html'"/>
-						<img src="../../images/bt_del.gif" title="删除" style="cursor:pointer;" onclick="doDelete(1026)"/>
+						<img src="images/bt_edit.gif" title="编辑" style="cursor:pointer;" onclick="location.href='user_edit.html'"/>
+						<img src="images/bt_del.gif" title="删除" style="cursor:pointer;" onclick="doDelete(1026)"/>
 					</td>
 				</tr>
 			
-				<tr class="TR_STYLE2">
+				<tr class="TR_STYLE2" th:remove="all">
 					<td class="TD_STYLE2">
 						1015
 					</td>
@@ -117,12 +131,12 @@
 						人事经理
 					</td>
 					<td class="TD_STYLE2">
-						<img src="../../images/bt_edit.gif" title="编辑" style="cursor:pointer;" onclick="location.href='user_edit.html'"/>
-						<img src="../../images/bt_del.gif" title="删除" style="cursor:pointer;" onclick="doDelete(1015)"/>
+						<img src="images/bt_edit.gif" title="编辑" style="cursor:pointer;" onclick="location.href='user_edit.html'"/>
+						<img src="images/bt_del.gif" title="删除" style="cursor:pointer;" onclick="doDelete(1015)"/>
 					</td>
 				</tr>
 			
-				<tr class="TR_STYLE2">
+				<tr class="TR_STYLE2" th:remove="all">
 					<td class="TD_STYLE2">
 						1178
 					</td>
@@ -139,12 +153,12 @@
 						人事专员
 					</td>
 					<td class="TD_STYLE2">
-						<img src="../../images/bt_edit.gif" title="编辑" style="cursor:pointer;" onclick="location.href='user_edit.html'"/>
-						<img src="../../images/bt_del.gif" title="删除" style="cursor:pointer;" onclick="doDelete(1178)"/>
+						<img src="images/bt_edit.gif" title="编辑" style="cursor:pointer;" onclick="location.href='user_edit.html'"/>
+						<img src="images/bt_del.gif" title="删除" style="cursor:pointer;" onclick="doDelete(1178)"/>
 					</td>
 				</tr>
 			
-				<tr class="TR_STYLE2">
+				<tr class="TR_STYLE2" th:remove="all">
 					<td class="TD_STYLE2">
 						10
 					</td>
@@ -161,12 +175,12 @@
 						系统管理员
 					</td>
 					<td class="TD_STYLE2">
-						<img src="../../images/bt_edit.gif" title="编辑" style="cursor:pointer;" onclick="location.href='user_edit.html'"/>
-						<img src="../../images/bt_del.gif" title="删除" style="cursor:pointer;" onclick="doDelete(10)"/>
+						<img src="images/bt_edit.gif" title="编辑" style="cursor:pointer;" onclick="location.href='user_edit.html'"/>
+						<img src="images/bt_del.gif" title="删除" style="cursor:pointer;" onclick="doDelete(10)"/>
 					</td>
 				</tr>
 			
-				<tr class="TR_STYLE2">
+				<tr class="TR_STYLE2" th:remove="all">
 					<td class="TD_STYLE2">
 						1177
 					</td>
@@ -183,8 +197,8 @@
 						人事专员
 					</td>
 					<td class="TD_STYLE2">
-						<img src="../../images/bt_edit.gif" title="编辑" style="cursor:pointer;" onclick="location.href='user_edit.html'"/>
-						<img src="../../images/bt_del.gif" title="删除" style="cursor:pointer;" onclick="doDelete(1177)"/>
+						<img src="images/bt_edit.gif" title="编辑" style="cursor:pointer;" onclick="location.href='user_edit.html'"/>
+						<img src="images/bt_del.gif" title="删除" style="cursor:pointer;" onclick="doDelete(1177)"/>
 					</td>
 				</tr>
 			

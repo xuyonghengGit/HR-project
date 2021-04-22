@@ -1,5 +1,6 @@
 $(function() {
 	$("form:first").submit(function() {
+		alert(123);
 		var userName = $("#userName");
 		var userPassword = $("#userPassword");
 		var userTrueName = $("#userTrueName");
