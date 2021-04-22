@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ck.dao.IHuman_fileDao">
-    <resultMap id="reviewerquery" type="com.ck.entity.Human_file">
+    <resultMap id="queryreviewer" type="com.ck.entity.Human_file">
         <result property="hfd_id" column="hfd_id"></result>
         <result property="human_id" column="human_id"></result>
         <result property="human_name" column="human_name"></result>
@@ -11,7 +11,7 @@
         <result property="third_kind_name" column="third_kind_name"></result>
         <result property="human_pro_designation" column="human_pro_designation"></result>
     </resultMap>
-    <resultMap id="reviewerquery02" type="com.ck.entity.Human_file">
+    <resultMap id="queryByidreviewer02" type="com.ck.entity.Human_file">
         <result property="hfd_id" column="hfd_id"></result>
         <result property="human_id" column="human_id"></result>
         <result property="first_kind_id" column="first_kind_id"></result>
@@ -75,4 +75,30 @@
         <result property="recovery_time" column="recovery_time"></result>
         <result property="human_file_status" column="human_file_status"></result>
     </resultMap>
+    <select id="queryhumanlist" parameterType="java.util.Map" resultType="java.util.Map">
+        select * from HumanFile
+        <where>
+            <if test="first_kind_name!=null">
+                and first_kind_name = #{first_kind_name}
+            </if>
+            <if test="second_kind_name!=null">
+                and second_kind_name = #{second_kind_name}
+            </if>
+            <if test="third_kind_name!=null">
+                and third_kind_name = #{third_kind_name}
+            </if>
+            <if test="human_major_kind_name!=null">
+                and human_major_kind_name = #{human_major_kind_name}
+            </if>
+            <if test="hunma_major_name!=null">
+                and hunma_major_name = #{hunma_major_name}
+            </if>
+            <if test="endDate!=null">
+                and regist_time >= #{endDate}
+            </if>
+            <if test="startDate!=null">
+                <![CDATA[ AND regist_time <= #{startDate}]]>
+            </if>
+        </where>
+    </select>
 </mapper>

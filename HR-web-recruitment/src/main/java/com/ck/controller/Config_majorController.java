@@ -18,8 +18,6 @@ public class Config_majorController {
 
     @Autowired
     private Iconfig_majorDao iconfig_majorDao;
-
-
     //根据major_kind_id查询Config_major表
     @RequestMapping("queryBymajorkindid")
     @ResponseBody

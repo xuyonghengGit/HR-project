@@ -28,9 +28,9 @@
 		<script type="text/javascript"
 			src="javascript/human_register.js">
 		</script>
-		<script type="text/javascript"
-			src="javascript/human_input_check.js">
-		</script>
+<!--		<script type="text/javascript"-->
+<!--			src="javascript/human_input_check.js">-->
+<!--		</script>-->
 		<script src="javascript/jquery-1.7.2.js"></script>
 		<script>
 			$(function () {
@@ -47,14 +47,16 @@
 							//date[i].first_kind_id下拉框获得的ID
 							//date[i].first_kind_name下拉框里面的内容，获得对应的ID的内容
 							selectfirst.append("<option value='"+date[i].first_kind_id+"'>"+date[i].first_kind_name+"</option>");
+							// selectfirst.append("<input type='hidden' value="+date[i].first_kind_id+" name='first_kind_id'>");
 						}
 					}
 				})
 
 				$("#firstKind").change(function () {
+					let text = $("#firstKind option:checked").text();
+					$(":input[name='first_kind_name']").val(text);
 					//#firstKind下拉框的id，获得下拉框的values
 					let selectfirst = $("#firstKind").val();
-
 					if (selectfirst!='0'){
 						$.ajax({
 							url:'querysecondkind?first_kind_id='+selectfirst,
@@ -62,8 +64,12 @@
 								let secondKind = $("#secondKind");
 								secondKind.text("");
 								secondKind.append("<option value='0'>请选择</option>");
+								let thirdKind = $("#thirdKind");
+								thirdKind.text("");
+								thirdKind.append("<option value='0'>请选择</option>");
 								for (let i=0;i<sb.length;i++){
 									secondKind.append("<option value='"+sb[i].second_kind_id+"'>"+sb[i].second_kind_name+"</option>")
+									// secondKind.append("<input type='hidden' value="+sb[i].second_kind_id+" name='second_kind_id'>");
 								}
 							}
 						});
@@ -75,8 +81,11 @@
 						thirdKind.text("");
 						thirdKind.append("<option value='0'>请选择</option>");
 					}
-				});
+				})
 				$("#secondKind").change(function () {
+
+					let text01 = $("#secondKind option:checked").text();
+					$(":input[name='second_kind_name']").val(text01);
 					let secondKind = $("#secondKind").val();
 					if (secondKind!=0){
 						$.ajax({
@@ -87,6 +96,7 @@
 								thirdKind.append("<option value='0'>请选择</option>");
 								for (let i=0;i<hengchusheng.length;i++){
 									thirdKind.append("<option value='"+hengchusheng[i].third_kind_id+"'>"+hengchusheng[i].third_kind_name+"</option>")
+									// thirdKind.append("<input type='hidden' value="+hengchusheng[i].third_kind_id+" name='third_kind_id'>");
 								}
 							}
 						})
@@ -97,12 +107,250 @@
 						thirdKind.append("<option value='0'>请选择</option>");
 					}
 				})
+				$("#thirdKind").change(function () {
+					let text02 = $("#thirdKind option:checked").text();
+					$(":input[name='third_kind_name']").val(text02);
+				})
+			})
+			$(function () {
+
+
+				$.ajax({
+					url:'querymajorkind',
+					success:function (date) {
+						let majorKind = $("#majorKind");
+						for (let i=0;i<date.length;i++){
+							majorKind.append("<option value='"+date[i].major_kind_id+"'>"+date[i].major_kind_name+"</option>")
+							// majorKind.append("<input type='hidden' value="+date[i].major_kind_id+" name='human_major_kind_id'>");
+						}
+					}
+				});
+				$("#majorKind").change(function () {
+					let text03 = $("#majorKind option:checked").text();
+					$(":input[name='human_major_kind_name']").val(text03);
+					let majorKind = $("#majorKind").val()
+					$.ajax({
+						url:'querymajor?mfk_id='+majorKind,
+						success:function (date) {
+							let majorName = $('#majorName');
+							majorName.text("")
+							majorName.append("<option value='0'>请选择</option>");
+							for (let i=0;i<date.length;i++){
+								majorName.append("<option value='"+date[i].major_id+"'>"+date[i].major_name+"</option>")
+								// majorKind.append("<input type='hidden' value="+date[i].major_id+" name='human_major_id'>");
+							}
+						}
+					})
+				})
+				$("#majorName").change(function () {
+					let text04 = $("#majorName option:checked").text();
+					$(":input[name='hunma_major_name']").val(text04);
+				})
+				$(function () {
+					$.ajax({
+						url:'querypublicchar',
+						success:function (date) {
+							let zhicheng = $("#zhicheng");
+							for (let i=0;i<date.length;i++){
+								//职务的ajax,==2是等于职务的分类号
+								if (date[i].attribute_kind==2){
+									zhicheng.append("<option value='"+date[i].attribute_name+"'>"+date[i].attribute_name+"</option>")
+								}
+							}
+						}
+					});
+					$.ajax({
+						url:'querypublicchar',
+						success:function (date) {
+							let guoji = $("#guoji");
+							for (let i=0;i<date.length;i++){
+								//国家的ajax,==3是等于国家的分类号
+								if (date[i].attribute_kind==3){
+									guoji.append("<option value='"+date[i].attribute_name+"'>"+date[i].attribute_name+"</option>")
+								}
+							}
+						}
+					});
+					$.ajax({
+						url:'querypublicchar',
+						success:function (date) {
+							let minzu = $("#minzu");
+							for (let i=0;i<date.length;i++){
+								//民族的ajax,==15是等于民族的分类号
+								if (date[i].attribute_kind==15){
+									minzu.append("<option value='"+date[i].attribute_name+"'>"+date[i].attribute_name+"</option>")
+								}
+							}
+						}
+					});
+					$.ajax({
+						url:'querypublicchar',
+						success:function (date) {
+							let jiaopai = $("#jiaopai");
+							for (let i=0;i<date.length;i++){
+								//教派的ajax,==4是等于教派的分类号
+								if (date[i].attribute_kind==4){
+									jiaopai.append("<option value='"+date[i].attribute_name+"'>"+date[i].attribute_name+"</option>")
+								}
+							}
+						}
+					});
+					$.ajax({
+						url:'querypublicchar',
+						success:function (date) {
+							let zhengzhi = $("#zhengzhi");
+							for (let i=0;i<date.length;i++){
+								//政治面貌的ajax,==5是等于政治面貌的分类号
+								if (date[i].attribute_kind==5){
+									zhengzhi.append("<option value='"+date[i].attribute_name+"'>"+date[i].attribute_name+"</option>")
+								}
+							}
+						}
+					});
+					$.ajax({
+						url:'querypublicchar',
+						success:function (date) {
+							let xueli = $("#xueli");
+							for (let i=0;i<date.length;i++){
+								//学历的ajax,==7是等于学历的分类号
+								if (date[i].attribute_kind==7){
+									xueli.append("<option value='"+date[i].attribute_name+"'>"+date[i].attribute_name+"</option>")
+								}
+							}
+						}
+					});
+					$.ajax({
+						url:'querypublicchar',
+						success:function (date) {
+							let jiaoyu = $("#jiaoyu");
+							for (let i=0;i<date.length;i++){
+								//接受教育年数的ajax,==6是等于教育年数的分类号
+								if (date[i].attribute_kind==6){
+									jiaoyu.append("<option value='"+date[i].attribute_name+"'>"+date[i].attribute_name+"</option>")
+								}
+							}
+						}
+					});
+					$.ajax({
+						url:'querypublicchar',
+						success:function (date) {
+							let zhuanye = $("#zhuanye");
+							for (let i=0;i<date.length;i++){
+								//学历专业的ajax,==8是等于学历专业的分类号
+								if (date[i].attribute_kind==8){
+									zhuanye.append("<option value='"+date[i].attribute_name+"'>"+date[i].attribute_name+"</option>")
+								}
+							}
+						}
+					});
+					$.ajax({
+						url:'querypublicchar',
+						success:function (date) {
+							let xinchou = $("#xinchou");
+							for (let i=0;i<date.length;i++){
+								//薪酬的ajax,==1是等于薪酬的分类号
+								if (date[i].attribute_kind==1){
+									xinchou.append("<option value='"+date[i].attribute_name+"'>"+date[i].attribute_name+"</option>")
+								}
+							}
+						}
+					});
+					$.ajax({
+						url:'querypublicchar',
+						success:function (date) {
+							let techang = $("#techang");
+							for (let i=0;i<date.length;i++){
+								//特长的ajax,==1是等于特长的分类号
+								if (date[i].attribute_kind==11){
+									techang.append("<option value='"+date[i].attribute_name+"'>"+date[i].attribute_name+"</option>")
+								}
+							}
+						}
+					});
+					$.ajax({
+						url:'querypublicchar',
+						success:function (date) {
+							let aihao = $("#aihao");
+							for (let i=0;i<date.length;i++){
+								//爱好的ajax,==10是等于爱好的分类号
+								if (date[i].attribute_kind==10){
+									aihao.append("<option value='"+date[i].attribute_name+"'>"+date[i].attribute_name+"</option>")
+								}
+							}
+						}
+					});
+				});
+
+			})
+			$(function () {
+				$("form").submit(function () {
+						var humanName = $("#humanName");
+						var humanIdCard = $("#humanIdCard");
+						var humanAge = $("#humanAge");
+						var humanEmail = $("#humanEmail");
+						var humanTelephone = $("#humanTelephone");
+						var humanQq = $("#humanQq");
+						var humanMobilephone = $("#humanMobilephone");
+						var reg1 = /^\s+/;
+						var reg2 = /\s+$/;
+						var reg3 = /^\d{17}[0-9X]$/;
+						var reg4 = /^\d{1,2}$/;
+						var reg5 = /^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
+						var reg6 = /^\d{3}-\d{8}|\d{4}-\d{7}$/;
+						var reg7 = /^[1-9][0-9]{4,}$/;
+						var reg8 = /^[1-9]{2}\d{9}$/;
+						if ($("#firstKind").val() == "0") {
+							$.messager.show("消息提示", "请选择Ⅰ级机构！", 2000);
+							return false;
+						}
+						if (reg1.test(humanName.val()) || reg2.test(humanName.val())) {
+							$.messager.show("消息提示", "姓名不能以空格开头或结尾！", 2000);
+							humanName[0].select();
+							return false;
+						}
+						if (humanName.val() == "") {
+							$.messager.show("消息提示", "姓名不能为空！", 2000);
+							humanName[0].select();
+							return false;
+						}
+						if (!reg3.test(humanIdCard.val())) {
+							$.messager.show("消息提示", "身份证号码格式不正确！", 2000);
+							humanIdCard[0].select();
+							return false;
+						}
+						if (!reg4.test(humanAge.val()) && humanAge.val() != "") {
+							$.messager.show("消息提示", "年龄格式不正确！", 2000);
+							humanAge[0].select();
+							return false;
+						}
+						if (!reg5.test(humanEmail.val()) && humanEmail.val() != "") {
+							$.messager.show("消息提示", "EMAIL格式不正确！", 2000);
+							humanEmail[0].select();
+							return false;
+						}
+						if (!reg6.test(humanTelephone.val()) && humanTelephone.val() != "") {
+							$.messager.show("消息提示", "电话格式不正确！", 2000);
+							humanTelephone[0].select();
+							return false;
+						}
+						if (!reg7.test(humanQq.val()) && humanQq.val() != "") {
+							$.messager.show("消息提示", "QQ格式不正确！", 2000);
+							humanQq[0].select();
+							return false;
+						}
+						if (!reg8.test(humanMobilephone.val()) && humanMobilephone.val() != "") {
+							$.messager.show("消息提示", "手机格式不正确！", 2000);
+							humanMobilephone[0].select();
+							return false;
+						}
+						return true;
+				});
 			})
 		</script>
 	</head>
 
 	<body>
-		<form method="post" action="register_choose_picture.html">
+		<form method="post" action="addhuman">
 			<table width="100%">
 				<tr>
 					<td>
@@ -124,31 +372,31 @@
 						I级机构
 					</td>
 					<td width="14%" class="TD_STYLE2">
-						<select name="humanFile.firstKindId" class="SELECT_STYLE1" id="firstKind">
+						<select name="first_kind_id" class="SELECT_STYLE1" id="firstKind">
 							<option value="0">请选择</option>
 							<option th:remove="all">集团</option>
 						</select>
-						<input type="hidden" name="humanFile.firstKindName"/>
+						<input type="hidden" name="first_kind_name"/>
 					</td>
 					<td width="11%" class="TD_STYLE1">
 						II级机构
 					</td>
 					<td width="14%" class="TD_STYLE2">
-						<select name="humanFile.secondKindId" class="SELECT_STYLE1" id="secondKind">
+						<select name="second_kind_id" class="SELECT_STYLE1" id="secondKind">
 							<option value="0">请选择</option>
-							<option>湖南分校</option>
+							<option th:remove="all">湖南分校</option>
 						</select>
-						<input type="hidden" name="humanFile.secondKindName"/>
+						<input type="hidden" name="second_kind_name"/>
 					</td>
 					<td width="11%" class="TD_STYLE1">
 						III级机构
 					</td>
 					<td class="TD_STYLE2" colspan="2">
-						<select name="humanFile.thirdKindId" class="SELECT_STYLE1" id="thirdKind">
+						<select name="third_kind_id" class="SELECT_STYLE1" id="thirdKind">
 							<option value="0">请选择</option>
-							<option>长沙华瑞</option>
+							<option th:remove="all">长沙华瑞</option>
 						</select>
-						<input type="hidden" name="humanFile.thirdKindName"/>
+						<input type="hidden" name="third_kind_name"/>
 					</td>
 					<td rowspan="5" style="text-align: center;">
 					</td>
@@ -158,30 +406,33 @@
 						职位分类
 					</td>
 					<td class="TD_STYLE2">
-						<select name="humanFile.humanMajorKindId" class="SELECT_STYLE1" id="majorKind">
-							<option>销售</option>
-							<option>软件开发</option>
+						<select name="human_major_kind_id" class="SELECT_STYLE1" id="majorKind">
+							<option value="0">请选择</option>
+							<option th:remove="all">销售</option>
+							<option th:remove="all">软件开发</option>
 						</select>
-						<input type="hidden" name="humanFile.humanMajorKindName"/>
+						<input type="hidden" name="human_major_kind_name"/>
 					</td>
 					<td class="TD_STYLE1">
 						职位名称
 					</td>
 					<td class="TD_STYLE2">
-						<select name="humanFile.humanMajorId" class="SELECT_STYLE1" id="majorName">
-							<option>区域经理</option>
-							<option>总经理</option>
+						<select name="human_major_id" class="SELECT_STYLE1" id="majorName">
+							<option value="0">请选择</option>
+							<option th:remove="all">区域经理</option>
+							<option th:remove="all">总经理</option>
 						</select>
-						<input type="hidden" name="humanFile.hunmaMajorName"/>
+						<input type="hidden" name="hunma_major_name"/>
 					</td>
 					<td class="TD_STYLE1">
 						职称
 					</td>
 					<td colspan="2" class="TD_STYLE2">
-						<select name="humanFile.humanProDesignation" class="SELECT_STYLE1">
-							<option>工程师</option>
-							<option>助理</option>
-							<option>经理</option>
+						<select name="human_pro_designation" class="SELECT_STYLE1" id="zhicheng">
+							<option value="0">请选择</option>
+							<option th:remove="all">工程师</option>
+							<option th:remove="all">助理</option>
+							<option th:remove="all">经理</option>
 						</select>
 					</td>
 				</tr>
@@ -190,19 +441,20 @@
 						姓名
 					</td>
 					<td class="TD_STYLE2">
-						<input type="text" id="humanName" name="humanFile.humanName"
+						<input type="text" id="humanName" name="human_name"
 							class="INPUT_STYLE2"/>
 					</td>
 					<td class="TD_STYLE1">
 						性别
 					</td>
 					<td class="TD_STYLE2">
-						<select name="humanFile.humanSex" class="SELECT_STYLE1">
+						<select name="human_sex" class="SELECT_STYLE1">
 							<option value="男" selected="selected">
 								男
 							</option>
 							<option value="女">
 								女
+
 							</option>
 						</select>
 					</td>
@@ -210,7 +462,7 @@
 						EMAIL
 					</td>
 					<td colspan="2" class="TD_STYLE2">
-						<input type="text" name="humanFile.humanEmail" id="humanEmail"
+						<input type="text" name="human_email" id="humanEmail"
 							class="INPUT_STYLE2">
 					</td>
 				</tr>
@@ -219,21 +471,21 @@
 						电话
 					</td>
 					<td class="TD_STYLE2">
-						<input type="text" name="humanFile.humanTelephone" id="humanTelephone"
+						<input type="text" name="human_telephone" id="humanTelephone"
 							class="INPUT_STYLE2">
 					</td>
 					<td class="TD_STYLE1">
 						QQ
 					</td>
 					<td class="TD_STYLE2">
-						<input type="text" name="humanFile.humanQq" id="humanQq"
+						<input type="text" name="human_qq" id="humanQq"
 							class="INPUT_STYLE2">
 					</td>
 					<td class="TD_STYLE1">
 						手机
 					</td>
 					<td colspan="2" class="TD_STYLE2">
-						<input type="text" name="humanFile.humanMobilephone" id="humanMobilephone"
+						<input type="text" name="human_mobilephone" id="humanMobilephone"
 							class="INPUT_STYLE2">
 					</td>
 				</tr>
@@ -242,14 +494,14 @@
 						住址
 					</td>
 					<td colspan="3" class="TD_STYLE2">
-						<input type="text" name="humanFile.humanAddress"
+						<input type="text" name="human_address"
 							class="INPUT_STYLE2">
 					</td>
 					<td class="TD_STYLE1">
 						邮编
 					</td>
 					<td colspan="2" class="TD_STYLE2">
-						<input type="text" name="humanFile.humanPostcode"
+						<input type="text" name="human_postcode"
 							class="INPUT_STYLE2">
 					</td>
 				</tr>
@@ -258,32 +510,34 @@
 						国籍
 					</td>
 					<td class="TD_STYLE2">
-						<select name="humanFile.humanNationality" class="SELECT_STYLE1">
-							<option>中国</option>
-							<option>美国</option>
+						<select name="human_nationality" class="SELECT_STYLE1" id="guoji">
+							<option value="0">请选择</option>
+							<option  th:remove="all">中国</option>
+							<option  th:remove="all">美国</option>
 						</select>
 					</td>
 					<td class="TD_STYLE1">
 						出生地
 					</td>
 					<td class="TD_STYLE2">
-						<input type="text" name="humanFile.humanBirthplace"
+						<input type="text" name="human_birthplace"
 							class="INPUT_STYLE2">
 					</td>
 					<td class="TD_STYLE1">
 						生日
 					</td>
 					<td width="13%" class="TD_STYLE2">
-						<input type="text" name="humanFile.humanBirthday" readonly="readonly"
-							class="INPUT_STYLE2" id="birthday">
+						<input type="date" name="human_birthday"
+							class="INPUT_STYLE2" id="birthday" value="2000/01/01">
 					</td>
 					<td width="11%" class="TD_STYLE1">
 						民族
 					</td>
 					<td class="TD_STYLE2" width="14%">
-						<select name="humanFile.humanRace" class="SELECT_STYLE1">
-							<option>汉族</option>
-							<option>回族</option>
+						<select name="human_race" class="SELECT_STYLE1" id="minzu">
+							<option value="0">请选择</option>
+							<option th:remove="all">汉族</option>
+							<option th:remove="all">回族</option>
 						</select>
 					</td>
 				</tr>
@@ -292,32 +546,33 @@
 						宗教信仰
 					</td>
 					<td class="TD_STYLE2">
-						<select name="humanFile.humanReligion" class="SELECT_STYLE1">
-							<option>无</option>
-							<option>佛教</option>
+						<select name="human_religion" class="SELECT_STYLE1" id="jiaopai">
+							<option th:remove="all">无</option>
+							<option th:remove="all">佛教</option>
 						</select>
 					</td>
 					<td class="TD_STYLE1">
 						政治面貌
 					</td>
 					<td class="TD_STYLE2">
-						<select name="humanFile.humanParty" class="SELECT_STYLE1">
-							<option>群众</option>
-							<option>党员</option>
+						<select name="human_party" class="SELECT_STYLE1" id="zhengzhi">
+							<option value="0">其他</option>
+							<option th:remove="all">群众</option>
+							<option th:remove="all">党员</option>
 						</select>
 					</td>
 					<td class="TD_STYLE1">
 						身份证号码
 					</td>
 					<td class="TD_STYLE2">
-						<input type="text" name="humanFile.humanIdCard" id="humanIdCard"
+						<input type="text" name="human_id_card" id="humanIdCard"
 							class="INPUT_STYLE2">
 					</td>
 					<td class="TD_STYLE1">
 						社会保障号码
 					</td>
 					<td class="TD_STYLE2">
-						<input type="text" name="humanFile.humanSocietySecurityId"
+						<input type="text" name="human_society_security_id"
 							class="INPUT_STYLE2">
 					</td>
 				</tr>
@@ -326,35 +581,38 @@
 						年龄
 					</td>
 					<td class="TD_STYLE2">
-						<input type="text" name="humanFile.humanAge" id="humanAge"
+						<input type="text" name="human_age" id="humanAge"
 							class="INPUT_STYLE2">
 					</td>
 					<td class="TD_STYLE1">
 						学历
 					</td>
 					<td class="TD_STYLE2">
-						<select name="humanFile.humanEducatedDegree" class="SELECT_STYLE1">
-							<option>高中</option>
-							<option>本科</option>
-							<option>大专</option>
+						<select name="human_educated_degree" class="SELECT_STYLE1" id="xueli">
+							<option value="0">请选择</option>
+							<option th:remove="all">高中</option>
+							<option th:remove="all">本科</option>
+							<option th:remove="all">大专</option>
 						</select>
 					</td>
 					<td class="TD_STYLE1">
 						教育年限
 					</td>
 					<td class="TD_STYLE2">
-						<select name="humanFile.humanEducatedYears" class="SELECT_STYLE1">
-							<option>12</option>
-							<option>16</option>
+						<select name="human_educated_years" class="SELECT_STYLE1" id="jiaoyu">
+							<option value="0">请选择</option>
+							<option th:remove="all">12</option>
+							<option th:remove="all">16</option>
 						</select>
 					</td>
 					<td class="TD_STYLE1">
 						学历专业
 					</td>
 					<td class="TD_STYLE2">
-						<select name="humanFile.humanEducatedMajor" class="SELECT_STYLE1">
-							<option>生物工程</option>
-							<option>计算机</option>
+						<select name="human_educated_major" class="SELECT_STYLE1" id="zhuanye">
+							<option value="0">请选择</option>
+							<option th:remove="all">生物工程</option>
+							<option th:remove="all">计算机</option>
 						</select>
 					</td>
 				</tr>
@@ -363,30 +621,31 @@
 						薪酬标准
 					</td>
 					<td class="TD_STYLE2">
-						<select name="humanFile.salaryStandardId" class="SELECT_STYLE1">
-							<option>薪酬标准1</option>
-							<option>薪酬标准2</option>
+						<select name="salary_standard_name" class="SELECT_STYLE1" id="xinchou">
+							<option value="0">请选择</option>
+							<option th:remove="all">薪酬标准1</option>
+							<option th:remove="all">薪酬标准2</option>
 						</select>
 					</td>
 					<td class="TD_STYLE1">
 						开户行
 					</td>
 					<td class="TD_STYLE2">
-						<input type="text" name="humanFile.humanBank"
+						<input type="text" name="human_bank"
 							class="INPUT_STYLE2">
 					</td>
 					<td class="TD_STYLE1">
 						帐号
 					</td>
 					<td class="TD_STYLE2">
-						<input type="text" name="humanFile.humanAccount"
+						<input type="text" name="human_account"
 							class="INPUT_STYLE2">
 					</td>
 					<td class="TD_STYLE1">
 						登记人
 					</td>
 					<td class="TD_STYLE2">
-						<input type="text" name="humanFile.register" value="谢鹏"
+						<input type="text" name="register" th:value="${session.userLoginSucceed.user_true_name}"
 							readonly="readonly" class="INPUT_STYLE2">
 					</td>
 				</tr>
@@ -395,25 +654,27 @@
 						建档时间
 					</td>
 					<td class="TD_STYLE2">
-						<input type="text" name="humanFile.registTime" id="create_time" readonly="readonly"
+						<input type="text" name="regist_time" id="create_time" readonly="readonly"
 							class="INPUT_STYLE2">
 					</td>
 					<td class="TD_STYLE1">
 						特长
 					</td>
 					<td class="TD_STYLE2">
-						<select name="humanFile.humanSpeciality" class="SELECT_STYLE1">
-							<option>java</option>
-							<option>数据库</option>
+						<select name="human_speciality" class="SELECT_STYLE1" id="techang">
+							<option value="0">请选择</option>
+							<option th:remove="all">java</option>
+							<option th:remove="all">数据库</option>
 						</select>
 					</td>
 					<td class="TD_STYLE1">
 						爱好
 					</td>
 					<td class="TD_STYLE2">
-						<select name="humanFile.humanHobby" class="SELECT_STYLE1">
-							<option>篮球</option>
-							<option>跳舞</option>
+						<select name="human_hobby" class="SELECT_STYLE1" id="aihao">
+							<option value="0">请选择</option>
+							<option th:remove="all">篮球</option>
+							<option th:remove="all">跳舞</option>
 						</select>
 					</td>
 					<td class="TD_STYLE1">
@@ -428,7 +689,7 @@
 						个人履历
 					</td>
 					<td colspan="7" class="TD_STYLE2">
-						<textarea name="humanFile.humanHistroyRecords" rows="4"
+						<textarea name="human_histroy_records" rows="4"
 							class="TEXTAREA_STYLE1"></textarea>
 					</td>
 				</tr>
@@ -437,7 +698,7 @@
 						家庭关系信息
 					</td>
 					<td colspan="7" class="TD_STYLE2">
-						<textarea name="humanFile.humanFamilyMembership" rows="4"
+						<textarea name="human_family_membership" rows="4"
 							class="TEXTAREA_STYLE1"></textarea>
 					</td>
 				</tr>
@@ -446,7 +707,7 @@
 						备注
 					</td>
 					<td colspan="7" class="TD_STYLE2">
-						<textarea name="humanFile.remark" rows="4" class="TEXTAREA_STYLE1"></textarea>
+						<textarea name="remark" rows="4" class="TEXTAREA_STYLE1"></textarea>
 					</td>
 				</tr>
 			</table>
