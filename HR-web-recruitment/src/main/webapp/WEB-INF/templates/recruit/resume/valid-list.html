@@ -5,26 +5,26 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>My JSP 'valid-list.jsp' starting page</title>
 		 <link rel="stylesheet"
-			href="../../../css/table.css" type="text/css">
+			href="css/table.css" type="text/css">
 		<link rel="stylesheet"
-			href="../../../css/cwcalendar.css" type="text/css">
+			href="css/cwcalendar.css" type="text/css">
 		<script type="text/javascript"
-			src="../../../javascript/comm/comm.js">
+			src="javascript/comm/comm.js">
 		</script>
 		<script type="text/javascript"
-			src="../../../javascript/comm/list.js">
+			src="javascript/comm/list.js">
 		</script>
 		<script type="text/javascript"
-			src="../../../javascript/calendar-ch.js">
+			src="javascript/calendar-ch.js">
 		</script>
 		<script type="text/javascript"
-			src="../../../javascript/jquery-1.7.2.js">
+			src="javascript/jquery-1.7.2.js">
 		</script>
 		<script type="text/javascript"
-			src="../../../javascript/locate.js">
+			src="javascript/locate.js">
 		</script>
 		<script type="text/javascript"
-			src="../../../javascript/select.js">
+			src="javascript/select.js">
 		</script>
      </head>
 
@@ -48,7 +48,7 @@
 				bordercolorlight=#848284 bordercolordark=#eeeeee
 				class="TABLE_STYLE1">
 				<tr>
-					<td width="15%" class="TD_STYLE1">
+					<td width="15%" class="TD_STYLE1" >
 						档案编号
 					</td>
 					<td width="15%" class="TD_STYLE1">
@@ -66,7 +66,7 @@
 					<td width="10%" class="TD_STYLE1">
 						电话号码
 					</td>
-					<td width="10%" class="TD_STYLE1">
+					<td width="10%" class="TD_STYLE1" >
 						复核状态
 					</td>
 					<td width="10%" class="TD_STYLE1">
@@ -75,36 +75,38 @@
 				</tr>
 				
 				
-					<tr>
-						<td class="TD_STYLE2">
-							<a href="/HR_Fist/recruit/recruitAction!findValidResumeById?a=select&id=542">
+					<tr th:each="engage_resumes:${engage_resume}">
+						<td class="TD_STYLE2" >
+							<a th:href="@{queryByres_id2(res_id=${engage_resumes.res_id})}" th:text="${engage_resumes.res_id}">
 								542</a>
 						</td>
-						<td class="TD_STYLE2">
+						<td class="TD_STYLE2"  th:text="${engage_resumes.human_name}">
 							&#24352;&#39122;
-						</td>
-						<td class="TD_STYLE2">
+						</td >
+						<td class="TD_STYLE2"  th:text="${engage_resumes.human_sex}" >
 							&#30007;
 						</td>
-						<td class="TD_STYLE2">
+						<td class="TD_STYLE2"  th:text="${engage_resumes.human_major_kind_name}">
 						&#36719;&#20214;&#24320;&#21457;
 						</td>
-						<td class="TD_STYLE2">
+						<td class="TD_STYLE2"  th:text="${engage_resumes.human_major_name}">
 						&#31243;&#24207;&#21592;
 						</td>
-						<td class="TD_STYLE2">
+						<td class="TD_STYLE2" th:text="${engage_resumes.human_telephone}">
 						84802802
 						</td>
 						<td class="TD_STYLE2">
-							
 							通过
 						</td>
-						<td class="TD_STYLE2">
-							 待面试 
+						<td class="TD_STYLE2" th:if="${engage_resumes.interview_status == 1}">
+							待面试
+						</td>
+						<td class="TD_STYLE2" th:if="${engage_resumes.interview_status == 2}">
+							已面试
 						</td>
 					</tr>
 					
-					<tr>
+					<tr th:remove="all">
 						<td class="TD_STYLE2">
 							<a href="/HR_Fist/recruit/recruitAction!findValidResumeById?a=select&id=532">
 								532</a>
@@ -125,7 +127,6 @@
 						18493728493
 						</td>
 						<td class="TD_STYLE2">
-							
 							通过
 						</td>
 						<td class="TD_STYLE2">
@@ -133,7 +134,7 @@
 						</td>
 					</tr>
 					
-					<tr>
+					<tr th:remove="all">
 						<td class="TD_STYLE2">
 							<a href="/HR_Fist/recruit/recruitAction!findValidResumeById?a=select&id=533">
 								533</a>
@@ -165,7 +166,7 @@
 			</table>
 			<p>&nbsp;&nbsp;总数：3 例 &nbsp;&nbsp;&nbsp;当前第1 页 /每页显示 10 条 &nbsp;&nbsp;&nbsp;共 1 页 &nbsp;&nbsp;&nbsp;  
 			<a href="javascript:up('0','1')" >上一页</a> &nbsp;&nbsp;&nbsp;
-			<a href="javascript:down('2','1')" >下一页</a> &nbsp;&nbsp;&nbsp;跳到第 <input name=page type=text class=input1 id="currPage" size=1> 页&nbsp;&nbsp;<input type=image src="../../../images/go.bmp" onclick="tj('1')" width=18 height=18 border=0>
+			<a href="javascript:down('2','1')" >下一页</a> &nbsp;&nbsp;&nbsp;跳到第 <input name=page type=text class=input1 id="currPage" size=1> 页&nbsp;&nbsp;<input type=image src="images/go.bmp" onclick="tj('1')" width=18 height=18 border=0>
 		</form>
 		<script type="text/javascript">
 		function up(currPage,row){  

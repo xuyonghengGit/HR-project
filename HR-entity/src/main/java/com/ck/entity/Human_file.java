@@ -28,7 +28,7 @@ public class Human_file {
     private String human_mobilephone;
     private String human_bank;
     private String human_account;
-    private int human_qq;
+    private String human_qq;
     private String human_email;
     private String human_hobby;
     private String human_speciality;
@@ -37,16 +37,16 @@ public class Human_file {
     private String human_party;
     private String human_nationality;
     private String human_race;
-    private Date human_birthday;
+    private String human_birthday;
     private String human_birthplace;
     private int human_age;
     private String human_educated_degree;
     private double human_educated_years;
     private String human_educated_major;
-    private int human_society_security_id;
+    private String human_society_security_id;
     private String human_id_card;
     private String remark;
-    private int salary_standard_id;
+    private String salary_standard_id;
     private String salary_standard_name;
     private double salary_sum;
     private double demand_salaray_sum;
@@ -63,12 +63,12 @@ public class Human_file {
     private String register;
     private String checker;
     private String changer;
-    private Date regist_time;
-    private Date check_time;
-    private Date change_time;
-    private Date lastly_change_time;
-    private Date delete_time;
-    private Date recovery_time;
+    private String regist_time;
+    private String check_time;
+    private String change_time;
+    private String lastly_change_time;
+    private String delete_time;
+    private String recovery_time;
     private int human_file_status;
 
     public int getHfd_id() {
@@ -231,11 +231,11 @@ public class Human_file {
         this.human_account = human_account;
     }
 
-    public int getHuman_qq() {
+    public String getHuman_qq() {
         return human_qq;
     }
 
-    public void setHuman_qq(int human_qq) {
+    public void setHuman_qq(String human_qq) {
         this.human_qq = human_qq;
     }
 
@@ -303,11 +303,11 @@ public class Human_file {
         this.human_race = human_race;
     }
 
-    public Date getHuman_birthday() {
+    public String getHuman_birthday() {
         return human_birthday;
     }
 
-    public void setHuman_birthday(Date human_birthday) {
+    public void setHuman_birthday(String human_birthday) {
         this.human_birthday = human_birthday;
     }
 
@@ -351,11 +351,11 @@ public class Human_file {
         this.human_educated_major = human_educated_major;
     }
 
-    public int getHuman_society_security_id() {
+    public String getHuman_society_security_id() {
         return human_society_security_id;
     }
 
-    public void setHuman_society_security_id(int human_society_security_id) {
+    public void setHuman_society_security_id(String human_society_security_id) {
         this.human_society_security_id = human_society_security_id;
     }
 
@@ -375,11 +375,11 @@ public class Human_file {
         this.remark = remark;
     }
 
-    public int getSalary_standard_id() {
+    public String getSalary_standard_id() {
         return salary_standard_id;
     }
 
-    public void setSalary_standard_id(int salary_standard_id) {
+    public void setSalary_standard_id(String salary_standard_id) {
         this.salary_standard_id = salary_standard_id;
     }
 
@@ -511,51 +511,51 @@ public class Human_file {
         this.changer = changer;
     }
 
-    public Date getRegist_time() {
+    public String getRegist_time() {
         return regist_time;
     }
 
-    public void setRegist_time(Date regist_time) {
+    public void setRegist_time(String regist_time) {
         this.regist_time = regist_time;
     }
 
-    public Date getCheck_time() {
+    public String getCheck_time() {
         return check_time;
     }
 
-    public void setCheck_time(Date check_time) {
+    public void setCheck_time(String check_time) {
         this.check_time = check_time;
     }
 
-    public Date getChange_time() {
+    public String getChange_time() {
         return change_time;
     }
 
-    public void setChange_time(Date change_time) {
+    public void setChange_time(String change_time) {
         this.change_time = change_time;
     }
 
-    public Date getLastly_change_time() {
+    public String getLastly_change_time() {
         return lastly_change_time;
     }
 
-    public void setLastly_change_time(Date lastly_change_time) {
+    public void setLastly_change_time(String lastly_change_time) {
         this.lastly_change_time = lastly_change_time;
     }
 
-    public Date getDelete_time() {
+    public String getDelete_time() {
         return delete_time;
     }
 
-    public void setDelete_time(Date delete_time) {
+    public void setDelete_time(String delete_time) {
         this.delete_time = delete_time;
     }
 
-    public Date getRecovery_time() {
+    public String getRecovery_time() {
         return recovery_time;
     }
 
-    public void setRecovery_time(Date recovery_time) {
+    public void setRecovery_time(String recovery_time) {
         this.recovery_time = recovery_time;
     }
 
@@ -570,7 +570,7 @@ public class Human_file {
     public Human_file() {
     }
 
-    public Human_file(int hfd_id, int human_id, int first_kind_id, String first_kind_name, int second_kind_id, String second_kind_name, int third_kind_id, String third_kind_name, String human_name, String human_address, int human_postcode, String human_pro_designation, int human_major_kind_id, String human_major_kind_name, int human_major_id, String hunma_major_name, String human_telephone, String human_mobilephone, String human_bank, String human_account, int human_qq, String human_email, String human_hobby, String human_speciality, char human_sex, String human_religion, String human_party, String human_nationality, String human_race, Date human_birthday, String human_birthplace, int human_age, String human_educated_degree, double human_educated_years, String human_educated_major, int human_society_security_id, String human_id_card, String remark, int salary_standard_id, String salary_standard_name, double salary_sum, double demand_salaray_sum, double paid_salary_sum, int major_change_amount, int bonus_amount, int training_amount, int file_chang_amount, String human_histroy_records, String human_family_membership, String human_picture, String attachment_name, int check_status, String register, String checker, String changer, Date regist_time, Date check_time, Date change_time, Date lastly_change_time, Date delete_time, Date recovery_time, int human_file_status) {
+    public Human_file(int hfd_id, int human_id, int first_kind_id, String first_kind_name, int second_kind_id, String second_kind_name, int third_kind_id, String third_kind_name, String human_name, String human_address, int human_postcode, String human_pro_designation, int human_major_kind_id, String human_major_kind_name, int human_major_id, String hunma_major_name, String human_telephone, String human_mobilephone, String human_bank, String human_account, String human_qq, String human_email, String human_hobby, String human_speciality, char human_sex, String human_religion, String human_party, String human_nationality, String human_race, String human_birthday, String human_birthplace, int human_age, String human_educated_degree, double human_educated_years, String human_educated_major, String human_society_security_id, String human_id_card, String remark, String salary_standard_id, String salary_standard_name, double salary_sum, double demand_salaray_sum, double paid_salary_sum, int major_change_amount, int bonus_amount, int training_amount, int file_chang_amount, String human_histroy_records, String human_family_membership, String human_picture, String attachment_name, int check_status, String register, String checker, String changer, String regist_time, String check_time, String change_time, String lastly_change_time, String delete_time, String recovery_time, int human_file_status) {
         this.hfd_id = hfd_id;
         this.human_id = human_id;
         this.first_kind_id = first_kind_id;
@@ -658,7 +658,7 @@ public class Human_file {
                 ", human_mobilephone='" + human_mobilephone + '\'' +
                 ", human_bank='" + human_bank + '\'' +
                 ", human_account='" + human_account + '\'' +
-                ", human_qq=" + human_qq +
+                ", human_qq='" + human_qq + '\'' +
                 ", human_email='" + human_email + '\'' +
                 ", human_hobby='" + human_hobby + '\'' +
                 ", human_speciality='" + human_speciality + '\'' +
@@ -667,16 +667,16 @@ public class Human_file {
                 ", human_party='" + human_party + '\'' +
                 ", human_nationality='" + human_nationality + '\'' +
                 ", human_race='" + human_race + '\'' +
-                ", human_birthday=" + human_birthday +
+                ", human_birthday='" + human_birthday + '\'' +
                 ", human_birthplace='" + human_birthplace + '\'' +
                 ", human_age=" + human_age +
                 ", human_educated_degree='" + human_educated_degree + '\'' +
                 ", human_educated_years=" + human_educated_years +
                 ", human_educated_major='" + human_educated_major + '\'' +
-                ", human_society_security_id=" + human_society_security_id +
+                ", human_society_security_id='" + human_society_security_id + '\'' +
                 ", human_id_card='" + human_id_card + '\'' +
                 ", remark='" + remark + '\'' +
-                ", salary_standard_id=" + salary_standard_id +
+                ", salary_standard_id='" + salary_standard_id + '\'' +
                 ", salary_standard_name='" + salary_standard_name + '\'' +
                 ", salary_sum=" + salary_sum +
                 ", demand_salaray_sum=" + demand_salaray_sum +
@@ -693,12 +693,12 @@ public class Human_file {
                 ", register='" + register + '\'' +
                 ", checker='" + checker + '\'' +
                 ", changer='" + changer + '\'' +
-                ", regist_time=" + regist_time +
-                ", check_time=" + check_time +
-                ", change_time=" + change_time +
-                ", lastly_change_time=" + lastly_change_time +
-                ", delete_time=" + delete_time +
-                ", recovery_time=" + recovery_time +
+                ", regist_time='" + regist_time + '\'' +
+                ", check_time='" + check_time + '\'' +
+                ", change_time='" + change_time + '\'' +
+                ", lastly_change_time='" + lastly_change_time + '\'' +
+                ", delete_time='" + delete_time + '\'' +
+                ", recovery_time='" + recovery_time + '\'' +
                 ", human_file_status=" + human_file_status +
                 '}';
     }

@@ -41,6 +41,8 @@
     <orderEntry type="module" module-name="HR-web-transfer" />
     <orderEntry type="module" module-name="HR-web-position" />
     <orderEntry type="module" module-name="HR-web-recruitment" />
+    <orderEntry type="module" module-name="HR-web-login" />
+    <orderEntry type="module" module-name="HR-web-power" />
     <orderEntry type="library" scope="TEST" name="Maven: junit:junit:4.11" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.hamcrest:hamcrest-core:1.3" level="project" />
     <orderEntry type="library" name="Maven: mysql:mysql-connector-java:8.0.23" level="project" />

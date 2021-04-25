@@ -1,0 +1,224 @@
+﻿<!DOCTYPE html>
+<!--suppress ALL-->
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>角色管理</title>
+		<link rel="stylesheet"
+			href="css/table.css" type="text/css"/>
+		<script src="javascript/jquery-1.7.2.js"></script>
+		<script type="text/javascript">
+				function doDelete(id) {
+					if (confirm("确定删除此角色吗？")) {
+						location.href = "success.html?sysRole.roleId=" + id;
+					}
+				}
+				function queryByid(id) {
+					location.href = "queryrightAndcontrol?id="+id;
+				}
+		</script>
+
+	</head>
+	<body>
+		<table width="100%">
+			<tr>
+				<td>
+					<font color="black">您正在做的业务是：人力资源--权限管理--角色管理 </font>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					当前角色总数：8例
+				</td>
+			</tr>
+			<tr>
+				<td align="right">
+					<input type="button" value="添加角色" class="BUTTON_STYLE1" onclick="location.href='topage?page=power/right_add'">
+				</td>
+			</tr>
+		</table>
+		<table width="100%" border="1" cellpadding=5 cellspacing=1
+				bordercolorlight=#848284 bordercolordark=#eeeeee
+				class="TABLE_STYLE1">
+			<tr class="TR_STYLE1">
+				<td class="TD_STYLE1">
+					角色编号
+				</td>
+				<td class="TD_STYLE1">
+					角色名称
+				</td>
+				<td class="TD_STYLE1">
+					角色说明
+				</td>
+				<td class="TD_STYLE1">
+					是否可用
+				</td>
+				<td class="TD_STYLE1">
+					操作
+				</td>
+			</tr>
+			
+				<tr class="TR_STYLE2" th:each="r:${rightspage}">
+					<td class="TD_STYLE2" th:text="${r.r_id}">
+						1
+					</td>
+					<td class="TD_STYLE2" th:text="${r.r_name}">
+						人事专员
+					</td>
+					<td class="TD_STYLE2" th:text="${r.r_explain}">
+						
+					</td>
+					<td class="TD_STYLE2" th:if="${r.r_type == 1}">
+						是
+						
+					</td>
+					<td class="TD_STYLE2" th:if="${r.r_type == 0}">
+						否
+
+					</td>
+					<td class="TD_STYLE2">
+						<img src="images/bt_edit.gif" title="编辑" style="cursor:pointer;"  th:onclick="'queryByid('+${r.r_id}+')'"/>
+						<img src="images/bt_del.gif" title="删除" style="cursor:pointer;" onclick="doDelete(1)"/>
+					</td>
+				</tr>
+			
+				<tr class="TR_STYLE2" th:remove="all">
+					<td class="TD_STYLE2">
+						2
+					</td>
+					<td class="TD_STYLE2">
+						人事经理
+					</td>
+					<td class="TD_STYLE2">
+						
+					</td>
+					<td class="TD_STYLE2">
+						是
+						
+					</td>
+					<td class="TD_STYLE2">
+						<img src="images/bt_edit.gif" title="编辑" style="cursor:pointer;" onclick="location.href='right_list_information.html'"/>
+						<img src="images/bt_del.gif" title="删除" style="cursor:pointer;" onclick="doDelete(2)"/>
+					</td>
+				</tr>
+			
+				<tr class="TR_STYLE2" th:remove="all">
+					<td class="TD_STYLE2">
+						3
+					</td>
+					<td class="TD_STYLE2">
+						薪酬专员
+					</td>
+					<td class="TD_STYLE2">
+						
+					</td>
+					<td class="TD_STYLE2">
+						是
+						
+					</td>
+					<td class="TD_STYLE2">
+						<img src="images/bt_edit.gif" title="编辑" style="cursor:pointer;" onclick="location.href='right_list_information.html'"/>
+						<img src="images/bt_del.gif" title="删除" style="cursor:pointer;" onclick="doDelete(3)"/>
+					</td>
+				</tr>
+			
+				<tr class="TR_STYLE2" th:remove="all">
+					<td class="TD_STYLE2">
+						4
+					</td>
+					<td class="TD_STYLE2">
+						薪酬经理
+					</td>
+					<td class="TD_STYLE2">
+						
+					</td>
+					<td class="TD_STYLE2">
+						是
+						
+					</td>
+					<td class="TD_STYLE2" >
+						<img src="images/bt_edit.gif" title="编辑" style="cursor:pointer;" onclick="location.href='right_list_information.html'"/>
+						<img src="images/bt_del.gif" title="删除" style="cursor:pointer;" onclick="doDelete(4)"/>
+					</td>
+				</tr>
+			
+				<tr class="TR_STYLE2" th:remove="all">
+					<td class="TD_STYLE2">
+						5
+					</td>
+					<td class="TD_STYLE2">
+						招聘专员
+					</td>
+					<td class="TD_STYLE2">
+						
+					</td>
+					<td class="TD_STYLE2">
+						是
+						
+					</td>
+					<td class="TD_STYLE2">
+						<img src="images/bt_edit.gif" title="编辑" style="cursor:pointer;" onclick="location.href='right_list_information.html'"/>
+						<img src="images/bt_del.gif" title="删除" style="cursor:pointer;" onclick="doDelete(5)"/>
+					</td>
+				</tr>
+			
+				<tr class="TR_STYLE2" th:remove="all">
+					<td class="TD_STYLE2">
+						6
+					</td>
+					<td class="TD_STYLE2">
+						招聘经理
+					</td>
+					<td class="TD_STYLE2">
+						
+					</td>
+					<td class="TD_STYLE2">
+						是
+						
+					</td>
+					<td class="TD_STYLE2">
+						<img src="images/bt_edit.gif" title="编辑" style="cursor:pointer;" onclick="location.href='right_list_information.html'"/>
+						<img src="images/bt_del.gif" title="删除" style="cursor:pointer;" onclick="doDelete(6)"/>
+					</td>
+				</tr>
+			
+				<tr class="TR_STYLE2" th:remove="all">
+					<td class="TD_STYLE2">
+						7
+					</td>
+					<td class="TD_STYLE2">
+						应聘者
+					</td>
+					<td class="TD_STYLE2">
+						
+					</td>
+					<td class="TD_STYLE2">
+						
+						否
+					</td>
+					<td class="TD_STYLE2">
+						<img src="images/bt_edit.gif" title="编辑" style="cursor:pointer;" onclick="location.href='right_list_information.html'"/>
+						<img src="images/bt_del.gif" title="删除" style="cursor:pointer;" onclick="doDelete(7)"/>
+					</td>
+				</tr>
+			
+		</table>
+		<p style="text-align:center;">
+			
+				<a href="queryrightsAllpage?pageNum=1" style="color:black;">首页</a>
+				<a th:if="${PageNum != 1}" th:href="@{queryrightsAllpage(pageNum=${PageNum - 1})}" style="color:black;" >上一页</a>
+
+
+				<span th:each="i:${#numbers.sequence(1,Pages)} ">
+					<font color="red" th:if="${PageNum == i}" th:text="${i}">1</font>
+					<a th:href="@{queryrightsAllpage(pageNum=${i})}" th:if="${PageNum != i}" style="color:black;" th:text="${i}">2</a>
+				</span>
+
+
+				<a th:if="${PageNum != Pages}" th:href="@{queryrightsAllpage(pageNum=${PageNum + 1})}" style="color:black;">下一页</a>
+	     		<a th:href="@{queryrightsAllpage(pageNum=${Pages})}" style="color:black;">尾页</a>
+	     	
+		</p>
+	</body>
+	
+</html>

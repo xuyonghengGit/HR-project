@@ -1,0 +1,223 @@
+﻿<!DOCTYPE html>
+<!--suppress ALL-->
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>用户管理</title>
+		<link rel="stylesheet"
+			href="css/table.css" type="text/css"/>
+		<script type="text/javascript" src="javascript/jquery-1.7.2.js"></script>
+		<script type="text/javascript">
+			function doDelete(name,id) {
+				if (confirm("确定删除此["+name+"]用户吗？")) {
+					location.href = "deluser?id=" + id;
+				}
+			}
+
+		</script>
+
+		<script>
+			$(function () {
+				$(".edit").click(function () {
+					location.href="queryuseredit?id="+$(this).attr("id");
+				})
+			});
+		</script>
+	</head>
+	<body>
+		<table width="100%">
+			<tr>
+				<td>
+					<font color="black">您正在做的业务是：人力资源--权限管理--用户管理 </font>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					当前角色总数：6例
+				</td>
+			</tr>
+			<tr>
+				<td align="right">
+					<input type="button" value="添加用户" class="BUTTON_STYLE1" onclick="location.href='topage?page=power/user_add'">
+				</td>
+			</tr>
+		</table>
+		<table width="100%" border="1" cellpadding=5 cellspacing=1
+				bordercolorlight=#848284 bordercolordark=#eeeeee
+				class="TABLE_STYLE1">
+			<tr class="TR_STYLE1">
+				<td class="TD_STYLE1">
+					用户编号
+				</td>
+				<td class="TD_STYLE1">
+					用户名称
+				</td>
+				<td class="TD_STYLE1">
+					真实姓名
+				</td>
+				<td class="TD_STYLE1">
+					用户密码
+				</td>
+				<td class="TD_STYLE1">
+					用户身份
+				</td>
+				<td class="TD_STYLE1">
+					操作
+				</td>
+			</tr>
+			
+				<tr class="TR_STYLE2" th:each="u:${usersAll}">
+					<td class="TD_STYLE2" th:text="${u.user_id}">
+						9
+					</td>
+					<td class="TD_STYLE2" th:text="${u.user_name}">
+						better_admin
+					</td>
+					<td class="TD_STYLE2" th:text="${u.user_true_name}">
+						zhangsan
+					</td>
+					<td class="TD_STYLE2">
+						******
+					</td>
+					<td class="TD_STYLE2" th:if="${u.user_type == 0}">
+						超级管理员
+					</td>
+					<td class="TD_STYLE2" th:each="r:${rightsAll}" th:if="${r.r_id == u.user_type}">
+						<span th:text="${r.r_name}">系统管理员</span>
+					</td>
+					<td class="TD_STYLE2">
+						<img src="images/bt_edit.gif" title="编辑" style="cursor:pointer;" th:id="${u.user_id}" class="edit"/>
+						<img th:if="${u.user_type != 0}" src="images/bt_del.gif" title="删除" style="cursor:pointer;" th:onclick="doDelete([[${u.user_true_name}]],[[${u.user_id}]])"/>
+						<span th:if="${u.user_type == 0}">不可删除</span>
+					</td>
+				</tr>
+			
+				<tr class="TR_STYLE2" th:remove="all">
+					<td class="TD_STYLE2">
+						1026
+					</td>
+					<td class="TD_STYLE2">
+						xiaojianjian
+					</td>
+					<td class="TD_STYLE2">
+						姜凯
+					</td>
+					<td class="TD_STYLE2">
+						123456
+					</td>
+					<td class="TD_STYLE2">
+						人事专员
+					</td>
+					<td class="TD_STYLE2">
+						<img src="images/bt_edit.gif" title="编辑" style="cursor:pointer;" onclick="location.href='user_edit.html'"/>
+						<img src="images/bt_del.gif" title="删除" style="cursor:pointer;" onclick="doDelete(1026)"/>
+					</td>
+				</tr>
+			
+				<tr class="TR_STYLE2" th:remove="all">
+					<td class="TD_STYLE2">
+						1015
+					</td>
+					<td class="TD_STYLE2">
+						xiepeng
+					</td>
+					<td class="TD_STYLE2">
+						谢鹏
+					</td>
+					<td class="TD_STYLE2">
+						123456
+					</td>
+					<td class="TD_STYLE2">
+						人事经理
+					</td>
+					<td class="TD_STYLE2">
+						<img src="images/bt_edit.gif" title="编辑" style="cursor:pointer;" onclick="location.href='user_edit.html'"/>
+						<img src="images/bt_del.gif" title="删除" style="cursor:pointer;" onclick="doDelete(1015)"/>
+					</td>
+				</tr>
+			
+				<tr class="TR_STYLE2" th:remove="all">
+					<td class="TD_STYLE2">
+						1178
+					</td>
+					<td class="TD_STYLE2">
+						yangyang
+					</td>
+					<td class="TD_STYLE2">
+						杨阳
+					</td>
+					<td class="TD_STYLE2">
+						123123
+					</td>
+					<td class="TD_STYLE2">
+						人事专员
+					</td>
+					<td class="TD_STYLE2">
+						<img src="images/bt_edit.gif" title="编辑" style="cursor:pointer;" onclick="location.href='user_edit.html'"/>
+						<img src="images/bt_del.gif" title="删除" style="cursor:pointer;" onclick="doDelete(1178)"/>
+					</td>
+				</tr>
+			
+				<tr class="TR_STYLE2" th:remove="all">
+					<td class="TD_STYLE2">
+						10
+					</td>
+					<td class="TD_STYLE2">
+						manager
+					</td>
+					<td class="TD_STYLE2">
+						杨阳
+					</td>
+					<td class="TD_STYLE2">
+						123123
+					</td>
+					<td class="TD_STYLE2">
+						系统管理员
+					</td>
+					<td class="TD_STYLE2">
+						<img src="images/bt_edit.gif" title="编辑" style="cursor:pointer;" onclick="location.href='user_edit.html'"/>
+						<img src="images/bt_del.gif" title="删除" style="cursor:pointer;" onclick="doDelete(10)"/>
+					</td>
+				</tr>
+			
+				<tr class="TR_STYLE2" th:remove="all">
+					<td class="TD_STYLE2">
+						1177
+					</td>
+					<td class="TD_STYLE2">
+						xiaojianjian
+					</td>
+					<td class="TD_STYLE2">
+						姜凯
+					</td>
+					<td class="TD_STYLE2">
+						123123
+					</td>
+					<td class="TD_STYLE2">
+						人事专员
+					</td>
+					<td class="TD_STYLE2">
+						<img src="images/bt_edit.gif" title="编辑" style="cursor:pointer;" onclick="location.href='user_edit.html'"/>
+						<img src="images/bt_del.gif" title="删除" style="cursor:pointer;" onclick="doDelete(1177)"/>
+					</td>
+				</tr>
+			
+		</table>
+		<p style="text-align:center;">
+			
+				<a href="user_list.html" style="color:black;">首页</a>
+				
+				
+					 
+						 
+						    <font color="red">1</font> 
+						 
+						 
+					 
+				
+				 
+	     		<a href="user_list.html" style="color:black;">尾页</a> 
+	     	
+		</p>
+	</body>
+</html>

@@ -1,0 +1,145 @@
+﻿<!DOCTYPE html>
+<!--suppress ALL-->
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<style type=text/css>
+		body {
+			font-size: 12px;
+			color: #ffffff;
+			font-family: 宋体
+		}
+		
+		td {
+			font-size: 12px;
+			color: #ffffff;
+			font-family: 宋体
+		}
+		</style>
+		<script type="text/javascript"
+			src="javascript/jquery-1.7.2.js">
+		</script>
+		<script type="text/javascript"
+			src="javascript/jquery.messager.js">
+		</script>
+		<script type="text/javascript"
+			src="javascript/login.js">
+		</script>
+		<script>
+			$(function() {
+				$(":button").click(function() {
+
+					doLogin();
+					//验证成功开始登录
+					login();
+				});
+				$("html").die().live("keydown", function(event) {
+					if (event.keyCode == 13) {
+						doLogin();
+					}
+				});
+			});
+
+			function doLogin() {
+				var userName = $("#userName");
+				var userPassword = $("#userPassword");
+				var reg = /^\S{6,}$/;
+				if (!reg.test(userName.val())) {
+					userName[0].select();
+					$.messager.show("消息提示", "登录名格式不正确！长度必须大于6位且不能有空格！", 2000);
+					return false;
+				}
+				if (!reg.test(userPassword.val())) {
+					userPassword[0].select();
+					$.messager.show("消息提示", "登录密码格式不正确！长度必须大于6位且不能有空格！", 2000);
+					return false;
+				}
+			}
+			function login() {
+				//输入正确
+				let user = $("#userName");
+				let pwd = $("#userPassword");
+				$.ajax({
+					url:'userlogin?user='+user.val()+'&pwd='+pwd.val(),
+					success:function (date) {
+						if(date=="succeed"){
+							//登录成功
+							location.href = "topage?page=index";
+						}else {
+							alert("账号或者密码错误！");
+							pwd.val('');
+						}
+					}
+				});
+			}
+		</script>
+	</head>
+	<body>
+		<form action="" method="post" id="loginform">
+			<div>
+				<table cellspacing=0 cellpadding=0 width=900 align=center border=0>
+					<tbody>
+						<tr>
+							<td style="height: 105px">
+								<img src="images/login_11.gif" border=0>
+							</td>
+						</tr>
+						<tr>
+							<td background=images/login_22.jpg height=300>
+								<table height=300 cellpadding=0 width=900 border=0>
+									<tbody>
+										<tr>
+											<td colspan=2 height=35></td>
+										</tr>
+										<tr>
+											<td width=360></td>
+											<td>
+												<table cellspacing=0 cellpadding=2 border=0>
+													<tbody>
+														<tr>
+															<td style="height: 28px" width=80>
+																登 录 名：
+															</td>
+															<td style="height: 28px" width=150>
+																<input  id="userName" style="width: 130px"/>
+															</td>
+														</tr>
+														<tr>
+															<td style="height: 28px">
+																登录密码：
+															</td>
+															<td style="height: 28px">
+																<input id="userPassword" style="width: 130px" type="password"/>
+															</td>
+														</tr>
+
+														<tr>
+															<td style="height: 18px"></td>
+															<td style="height: 18px"></td>
+															<td style="height: 18px"></td>
+														</tr>
+														<tr>
+
+															<td>
+																<input type="button" value="登录" style="cursor: pointer;" />
+															</td>
+														</tr>
+													</tbody>
+												</table>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<img src="images/login_33.jpg" border=0>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</form>
+	</body>
+</html>

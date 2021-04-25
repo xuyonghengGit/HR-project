@@ -13,86 +13,86 @@
 	</head>
 	<body >
 		<ul id="tt1" class="easyui-tree" animate="true">
-				<li>
+				<li th:if="${session.rights.A == 1}">
 					<span>招聘管理</span>
 					<ul>
-								<li state="closed">
+								<li state="closed" th:if="${session.rights.A_1 == 1}">
 									<span>
 										职位发布管理
 									</span>
 									<ul>
-												<li>
+												<li th:if="${session.rights.A_1_a == 1}">
 													<span>
 														<a href="recruit/position/position_register.html" target="mainFrame" style="color:black;">职位发布登记</a>
 													</span>
 												</li>
-												<li>
+												<li th:if="${session.rights.A_1_b == 1}">
 													<span>
 														<a href="recruit/position/position_change_update.html" target="mainFrame" style="color:black;">职位发布变更</a>
 													</span>
 												</li>
-												<li>
+												<li th:if="${session.rights.A_1_c == 1}">
 													<span>
 														<a href="recruit/position/position_release_search.html" target="mainFrame" style="color:black;">职位发布查询</a>
 													</span>
 												</li>
 									</ul>
 								</li>
-								<li state="closed">
+								<li state="closed" th:if="${session.rights.A_2 == 1}">
 									<span>
 										简历管理
 									</span>
 									<ul>
-												<li>
+												<li th:if="${session.rights.A_2_a == 1}">
 													<span>
 														<a href="topage?page=recruit/resume/register" target="mainFrame" style="color:black;">简历登记</a>
 													</span>
 												</li>
-												<li>
+												<li th:if="${session.rights.A_2_b == 1}">
 													<span>
-														<a href="recruit/resume/resume-choose.html" target="mainFrame" style="color:black;">简历筛选</a>
+														<a href="topage?page=recruit/resume/resume-choose" target="mainFrame" style="color:black;">简历筛选</a>
 													</span>
 												</li>
-												<li>
+												<li th:if="${session.rights.A_2_c == 1}">
 													<span>
-														<a href="recruit/resume/valid-resume.html" target="mainFrame" style="color:black;">有效简历查询</a>
+														<a href="topage?page=recruit/resume/valid-resume" target="mainFrame" style="color:black;">有效简历查询</a>
 													</span>
 												</li>
 									</ul>
 								</li>
-								<li state="closed">
+								<li state="closed" th:if="${session.rights.A_3 == 1}">
 									<span>
 										面试管理
 									</span>
 									<ul>
-												<li>
+												<li th:if="${session.rights.A_3_a == 1}">
 													<span>
 														<a href="recruit/interview/interview-list.html" target="mainFrame" style="color:black;">面试结果登记</a>
 													</span>
 												</li>
-												<li>
+												<li th:if="${session.rights.A_3_b == 1}">
 													<span>
 														<a href="recruit/interview/sift-list.html" target="mainFrame" style="color:black;">面试筛选</a>
 													</span>
 												</li>
 									</ul>
 								</li>
-								<li state="closed">
+								<li state="closed" th:if="${session.rights.A_6 == 1}">
 									<span>
 										录用管理
 									</span>
 									<ul>
-												<li>
+												<li th:if="${session.rights.A_6_a == 1}">
 													<span>
 														<a href="recruit/employ/register_list.html" target="mainFrame" style="color:black;">录用申请</a>
 													</span>
 												</li>
-												<li>
+												<li th:if="${session.rights.A_6_b == 1}">
 													<span>
 														<a href="recruit/employ/check_list.html" target="mainFrame" style="color:black;">录用审批</a>
 													</span>
 												</li>
-												<li>
+												<li th:if="${session.rights.A_6_c == 1}">
 													<span>
 														<a href="recruit/employ/list.html" target="mainFrame" style="color:black;">录用查询</a>
 													</span>
@@ -101,45 +101,45 @@
 								</li>
 					</ul>
 				</li>
-				<li>
+				<li th:if="${session.rights.B == 1}">
 					<span>人力资源档案管理</span>
 					<ul>
-								<li>
+								<li th:if="${session.rights.B_1 == 1}">
 									<span>
 											<a href="topage?page=humanResources/human_register" target="mainFrame" style="color:black;">人力资源档案登记</a>
 									</span>
 								</li>
-								<li>
+								<li th:if="${session.rights.B_2 == 1}">
 									<span>
 											<a href="queryreviewer" target="mainFrame" style="color:black;">人力资源档案登记复核</a>
 									</span>
 								</li>
-								<li>
+								<li th:if="${session.rights.B_3 == 1}">
 									<span>
 											<a href="topage?page=humanResources/query_locate.html" target="mainFrame" style="color:black;">人力资源档案查询</a>
 									</span>
 								</li>
-								<li>
+								<li th:if="${session.rights.B_4 == 1}">
 									<span>
 											<a href="topage?page=humanResources/change_locate.html" target="mainFrame" style="color:black;">人力资源档案变更</a>
 									</span>
 								</li>
-								<li state="closed">
+								<li state="closed" th:if="${session.rights.B_5 == 1}">
 									<span>
 										人力资源档案删除管理
 									</span>
 									<ul>
-												<li>
+												<li th:if="${session.rights.B_5_a == 1}">
 													<span>
 															<a href="topage?page=humanResources/delete_locate.html" target="mainFrame" style="color:black;">人力资源档案删除</a>
 													</span>
 												</li>
-												<li>
+												<li th:if="${session.rights.B_5_b == 1}">
 													<span>
 															<a href="topage?page=humanResources/recovery_locate.html" target="mainFrame" style="color:black;">档案删除恢复</a>
 													</span>
 												</li>
-												<li>
+												<li th:if="${session.rights.B_5_c == 1}">
 													<span>
 															<a href="topage?page=humanResources/delete_forever_list.html" target="mainFrame" style="color:black;">人力资源档案永久删除</a>
 													</span>
@@ -148,139 +148,139 @@
 								</li>
 					</ul>
 				</li>
-				<li>
+				<li th:if="${session.rights.C == 1}">
 					<span>薪酬标准管理</span>
 					<ul>
-								<li>
+								<li th:if="${session.rights.C_1 == 1}">
 									<span>
 										<a href="salaryCriterion/salarystandard_register.html" target="mainFrame" style="color:black;">薪酬标准登记</a>
 									</span>
 								</li>
-								<li>
+								<li th:if="${session.rights.C_2 == 1}">
 									<span>
 										<a href="salaryCriterion/salarystandard_check_list.html" target="mainFrame" style="color:black;">薪酬标准登记复核</a>
 									</span>
 								</li>
-								<li>
+								<li th:if="${session.rights.C_3 == 1}">
 									<span>
 										<a href="salaryCriterion/salarystandard_query_locate.html" target="mainFrame" style="color:black;">薪酬标准查询</a>
 									</span>
 								</li>
-								<li>
+								<li th:if="${session.rights.C_4 == 1}">
 									<span>
 										<a href="salaryCriterion/salarystandard_change_locate.html" target="mainFrame" style="color:black;">薪酬标准变更</a>
 									</span>
 								</li>
 					</ul>
 				</li>
-				<li>
+				<li th:if="${session.rights.D == 1}">
 					<span>薪酬发放管理</span>
 					<ul>
-								<li>
+								<li th:if="${session.rights.D_1 == 1}">
 									<span>
 										<a href="salaryGrant/register_locate.html" target="mainFrame" style="color:black;">薪酬发放登记</a>
 									</span>
 								</li>
-								<li>
+								<li th:if="${session.rights.D_2 == 1}">
 									<span>
 										<a href="salaryGrant/check_list.html" target="mainFrame" style="color:black;">薪酬发放登记复核</a>
 									</span>
 								</li>
-								<li>
+								<li th:if="${session.rights.D_3 == 1}">
 									<span>
 										<a href="salaryGrant/query_locate.html" target="mainFrame" style="color:black;">薪酬发放查询</a>
 									</span>
 								</li>
 					</ul>
 				</li>
-				<li>
+				<li th:if="${session.rights.E == 1}">
 					<span>调动管理</span>
 					<ul>
-								<li>
+								<li th:if="${session.rights.E_1 == 1}">
 									<span>
 										<a href="topage?page=transfer/register_locate" target="mainFrame" style="color:black;">调动登记</a>
 									</span>
 								</li>
-								<li>
+								<li th:if="${session.rights.E_2 == 1}">
 									<span>
 										<a href="topage?page=transfer/check_list.html" target="mainFrame" style="color:black;">调动审核</a>
 									</span>
 								</li>
-								<li>
+								<li th:if="${session.rights.E_3 == 1}">
 									<span>
 										<a href="topage?page=transfer/locate.html" target="mainFrame" style="color:black;">调动查询</a>
 									</span>
 								</li>
 					</ul>
 				</li>
-				<li>
+				<li th:if="${session.rights.F == 1}">
 					<span>客户化设置</span>
 					<ul>
-								<li state="closed">
+								<li state="closed" th:if="${session.rights.F_1 == 1}">
 									<span>
 										人力资源档案管理设置
 									</span>
 									<ul>
-												<li>
+												<li th:if="${session.rights.F_1_a == 1}">
 													<span>
 														<a href="queryOrganization1" target="mainFrame" style="color:black;">Ⅰ级机构设置</a>
 													</span>
 												</li>
-												<li>
+												<li th:if="${session.rights.F_1_b == 1}">
 													<span>
 														<a href="topage?page=client/second_kind" target="mainFrame" style="color:black;">Ⅱ级机构设置</a>
 													</span>
 												</li>
-												<li>
+												<li th:if="${session.rights.F_1_c == 1}">
 													<span>
 														<a href="topage?page=client/third_kind" target="mainFrame" style="color:black;">Ⅲ级机构设置</a>
 													</span>
 												</li>
-												<li>
+												<li th:if="${session.rights.F_1_d == 1}">
 													<span>
 														<a href="topage?page=client/profession_design" target="mainFrame" style="color:black;">职称设置</a>
 													</span>
 												</li>
-												<li>
+												<li th:if="${session.rights.F_1_e == 1}">
 													<span>
 														<a href="topage?page=client/major_kind" target="mainFrame" style="color:black;">职位分类设置</a>
 													</span>
 												</li>
-												<li>
+												<li th:if="${session.rights.F_1_f == 1}">
 													<span>
 														<a href="topage?page=client/major" target="mainFrame" style="color:black;">职位设置</a>
 													</span>
 												</li>
-												<li>
+												<li th:if="${session.rights.F_1_g == 1}">
 													<span>
 														<a href="topage?page=client/public_char" target="mainFrame" style="color:black;">公共属性设置</a>
 													</span>
 												</li>
 									</ul>
 								</li>
-								<li state="closed">
+								<li state="closed" th:if="${session.rights.F_2 == 1}">
 									<span>
 										薪酬管理设置
 									</span>
 									<ul>
-												<li>
+												<li th:if="${session.rights.F_2_a == 1}">
 													<span>
 														<a href="topage?page=client/salary_item" target="mainFrame" style="color:black;">薪酬项目设置</a>
 													</span>
 												</li>
-												<li>
+												<li th:if="${session.rights.F_2_b == 1}">
 													<span>
 														<a href="topage?page=client/salary_grant_mode" target="mainFrame" style="color:black;">薪酬发放方式设置</a>
 													</span>
 												</li>
 									</ul>
 								</li>
-								<li state="closed">
+								<li state="closed" th:if="${session.rights.F_4 == 1}">
 									<span>
 										其他设置
 									</span>
 									<ul>
-												<li>
+												<li th:if="${session.rights.F_4_a == 1}">
 													<span>
 														<a href="client/primary_key.html" target="mainFrame" style="color:black;">关键字查询设置</a>
 													</span>
@@ -289,37 +289,37 @@
 								</li>
 					</ul>
 				</li>
-				<li>
+				<li th:if="${session.rights.G == 1}">
 					<span>标准数据报表</span>
 					<ul>
-								<li>
+								<li th:if="${session.rights.G_1 == 1}">
 									<span>
 											<a href="criterionData/excel_locate.html" target="mainFrame" style="color:black;">Excel标准数据报表</a>
 									</span>
 								</li>
-								<li>
+								<li th:if="${session.rights.G_2 == 1}">
 									<span>
 											<a href="criterionData/pdf_locate.html" target="mainFrame" style="color:black;">Pdf标准数据报表</a>
 									</span>
 								</li>
-								<li>
+								<li th:if="${session.rights.G_3 == 1}">
 									<span>
 											<a href="criterionData/xml_locate.html" target="mainFrame" style="color:black;">Xml标准数据报表</a>
 									</span>
 								</li>
 						</ul>
 				</li>
-				<li>
+				<li th:if="${session.rights.H == 1}">
 						<span>权限管理</span>
 						<ul>
-								<li>
+								<li th:if="${session.rights.H_1 == 1}">
 									<span>
-											<a href="power/user_list.html" target="mainFrame" style="color:black;">用户管理</a>
+											<a href="queryUserAll" target="mainFrame" style="color:black;">用户管理</a>
 									</span>
 								</li>
-								<li>
+								<li th:if="${session.rights.H_2 == 1}">
 									<span>
-											<a href="power/right_list.html" target="mainFrame" style="color:black;">角色管理</a>
+											<a href="queryrightsAllpage" target="mainFrame" style="color:black;">角色管理</a>
 									</span>
 								</li>
 						</ul>

@@ -22,7 +22,7 @@ public class Engage_resume {
     private String human_sex;
     private String human_religion;
     private String human_party;
-    private String  human_nationality;
+    private String human_nationality;
     private String human_race;
     private String human_birthday;
     private int human_age;
