@@ -130,7 +130,7 @@
 						<a th:href="'queryByIdOrganization1?id='+${list.ffk_id}">变更</a>
 					</td>
 					<td class="TD_STYLE2">
-						<a th:href="'deleteByIdOrganization1?id='+${list.ffk_id}">删除</a>
+						<a th:href="'deleteByIdOrganization1?id='+${list.ffk_id}" onclick="return confirm('确定将此记录删除?')">删除</a>
 <!--						<a href="javascript:if(window.confirm('是否？')){window.location.href='test1.html'}">删除</a>-->
 <!--						<a href="javascript: if(window.confirm('是否删除？')){window.location.href='deleteByIdOrganization1?id=${list.ffk_id}'}" >删除</a>-->
 					</td>

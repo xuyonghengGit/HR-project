@@ -272,7 +272,7 @@
 						<a th:href="'queryByidkindService?id='+${t.fsk_id}">变更</a>
 					</td>
 					<td class="TD_STYLE2">
-						<a th:href="'deletekindService1?id='+${t.fsk_id}">删除</a>
+						<a th:href="'deletekindService1?id='+${t.fsk_id}" onclick="return confirm('确定将此记录删除?')">删除</a>
 					</td>
 				</tr>
 					
