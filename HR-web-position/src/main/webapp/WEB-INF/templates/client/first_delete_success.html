@@ -10,7 +10,22 @@
 		</script>
 		
 	</head>
-	
+	<script type="text/javascript">
+		var c=5;
+		var t;
+		window.onload=timedCount;
+		function timedCount()
+		{
+			document.getElementById('auto').innerText=c;
+			c=c-1;
+			if(c==-1){
+				// alert("删除返回");
+				window.location.href='queryOrganization1';
+				return;
+			}
+			t=setTimeout("timedCount()",1000)
+		}
+	</script>
 	<body>
 	<form action="../customiz/customizAction!findFirstKind" method="post">
 		<table width="100%">
@@ -22,7 +37,7 @@
 			</tr>
 			<tr>
 				<td width="49%">
-					删除成功，请返回。
+					删除成功，<span id="auto"></span>秒后自动返回。
 				</td>
 				<td width="51%" align="right">
 					<input type="button" value="返回" class="BUTTON_STYLE1" onclick="window.location.href='queryOrganization1'" />
