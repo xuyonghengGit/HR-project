@@ -29,7 +29,7 @@
 	
 	
 	<body>
-		<form action="third_kind_change_success.html" method="post">
+		<form action="updatethird_kindService1" method="post">
 			<table width="100%">
 				<tr>
 					<td>
@@ -54,8 +54,12 @@
 					<td width="19%" class="TD_STYLE1">
 						I级机构名称
 					</td>
+<!--					隐藏单位-->
+					<input type="hidden" th:value="${Config_file_third_kindQueryByid.ftk_id}" name="ftk_id">
+					<input type="hidden" th:value="${Config_file_third_kindQueryByid.first_kind_id}" name="first_kind_id">
+					<input type="hidden" th:value="${Config_file_third_kindQueryByid.second_kind_id}" name="second_kind_id">
 					<td width="81%" class="TD_STYLE2">
-						<input type="text" readonly="readonly" class="INPUT_STYLE1" name="cftk.firstKindName" value="集团"/>
+						<input type="text" th:value="${Config_file_third_kindQueryByid.first_kind_name}" readonly="readonly" class="INPUT_STYLE1" name="first_kind_name" value="集团"/>
 					</td>
 				</tr>
 				<tr>
@@ -63,7 +67,7 @@
 						II级机构名称
 					</td>
 					<td width="81%" class="TD_STYLE2">
-						<input type="text" readonly="readonly" class="INPUT_STYLE1" name="cftk.secondKindName" value="软件公司"/>
+						<input type="text" th:value="${Config_file_third_kindQueryByid.second_kind_name}" readonly="readonly" class="INPUT_STYLE1" name="second_kind_name" value="软件公司"/>
 					</td>
 				</tr>
 				<tr>
@@ -71,7 +75,7 @@
 						III级机构编号
 					</td>
 					<td width="81%" class="TD_STYLE2">
-						<input type="text" readonly="readonly" class="INPUT_STYLE1" name="cftk.thirdKindId" value="1353815416978"/>
+						<input type="text" th:value="${Config_file_third_kindQueryByid.third_kind_id}" readonly="readonly" class="INPUT_STYLE1" name="third_kind_id" value="1353815416978"/>
 					</td>
 				</tr>
 				<tr>
@@ -79,7 +83,7 @@
 						III级机构名称
 					</td>
 					<td class="TD_STYLE2">
-						<input type="text" readonly="readonly" class="INPUT_STYLE1" name="cftk.thirdKindName" value="三级公司"/>
+						<input type="text" th:value="${Config_file_third_kindQueryByid.third_kind_name}" readonly="readonly" class="INPUT_STYLE1" name="third_kind_name" value="三级公司"/>
 					</td>
 				</tr>
 				<tr>
@@ -87,7 +91,7 @@
 						销售责任人编号（多个编号之间请用"半角逗号"加"一个空格"隔开，如", "）
 					</td>
 					<td class="TD_STYLE2">
-						<textarea rows="4" cols="120" class="TEXTAREA_STYLE1" name="cftk.thirdKindSaleId">1</textarea>
+						<textarea rows="4" th:field="${Config_file_third_kindQueryByid.third_kind_sale_id}"  cols="120" class="TEXTAREA_STYLE1" name="third_kind_sale_id">1</textarea>
 					</td>
 				</tr>
 				<tr>
@@ -95,9 +99,9 @@
 						是否为零售店（是/否）
 					</td>
 					<td class="TD_STYLE2">
-					<select name="cftk.thirdKindIsRetail">
-						<option selected="selected">是</option>
-						<option>否</option>
+					<select name="third_kind_is_retail">
+						<option th:selected="${Config_file_third_kindQueryByid.third_kind_is_retail == 1}" value="1">是</option>
+						<option th:selected="${Config_file_third_kindQueryByid.third_kind_is_retail == 2}" value="2">否</option>
 					</select>
 			 	</td>
 				</tr>

@@ -40,7 +40,7 @@
 				<tr>
 					<td align="right">
 						<input type="button" value="添加" class="BUTTON_STYLE1"
-							onclick="window.location.href='major_add.html';">
+							onclick="window.location.href='topage?page=client/major_add';">
 					</td>
 				</tr>
 			</table>
@@ -66,7 +66,26 @@
 				</tr>
 
 				
-				<tr>
+				<tr th:each="l:${queryAllConfig_majorT}">
+					<td class="TD_STYLE2" th:text="${l.major_kind_id}">
+						01
+					</td>
+					<td class="TD_STYLE2" th:text="${l.major_kind_name}">
+						销售
+					</td>
+					<td class="TD_STYLE2" th:text="${l.major_id}">
+						01
+					</td>
+					<td class="TD_STYLE2" th:text="${l.major_name}">
+						区域经理
+					</td>
+					<td class="TD_STYLE2">
+						<a th:href="'deleteByIdConfig_majorTController?id='+${l.mak_id}" onclick="return confirm('确定将此记录删除?')">删除</a>
+					</td>
+				</tr>
+
+
+				<tr th:remove="all">
 					<td class="TD_STYLE2">
 						01
 					</td>
@@ -83,8 +102,8 @@
 						<a href="#">删除</a>
 					</td>
 				</tr>
-				
-				<tr>
+
+				<tr th:remove="all">
 					<td class="TD_STYLE2">
 						01
 					</td>
@@ -102,7 +121,7 @@
 					</td>
 				</tr>
 				
-				<tr>
+				<tr th:remove="all">
 					<td class="TD_STYLE2">
 						02
 					</td>
@@ -120,7 +139,7 @@
 					</td>
 				</tr>
 				
-				<tr>
+				<tr th:remove="all">
 					<td class="TD_STYLE2">
 						02
 					</td>
@@ -138,7 +157,7 @@
 					</td>
 				</tr>
 				
-				<tr>
+				<tr th:remove="all">
 					<td class="TD_STYLE2">
 						03
 					</td>
@@ -156,7 +175,7 @@
 					</td>
 				</tr>
 				
-				<tr>
+				<tr th:remove="all">
 					<td class="TD_STYLE2">
 						03
 					</td>
@@ -174,7 +193,7 @@
 					</td>
 				</tr>
 				
-				<tr>
+				<tr th:remove="all">
 					<td class="TD_STYLE2">
 						04
 					</td>
@@ -192,7 +211,7 @@
 					</td>
 				</tr>
 				
-				<tr>
+				<tr th:remove="all">
 					<td class="TD_STYLE2">
 						04
 					</td>

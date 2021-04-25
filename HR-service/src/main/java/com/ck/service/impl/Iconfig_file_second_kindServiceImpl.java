@@ -23,4 +23,24 @@ public class Iconfig_file_second_kindServiceImpl implements Iconfig_file_second_
     public List<Config_file_second_kind> queryAllConfig_file_second_kind() {
         return kindDao.queryAllConfig_file_second_kind();
     }
+
+    @Override
+    public void updateById(Config_file_second_kind second) {
+        kindDao.updateById(second);
+    }
+
+    @Override
+    public Config_file_second_kind queryByidConfig_file_second_kind(int fsk_id) {
+        return kindDao.queryByidConfig_file_second_kind(fsk_id);
+    }
+
+    @Override
+    public void deleteById(int id) {
+        kindDao.deleteById(id);
+    }
+
+    @Override
+    public void insertConfig_file_second_kind(Config_file_second_kind second) {
+        kindDao.insertConfig_file_second_kind(second);
+    }
 }

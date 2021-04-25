@@ -18,4 +18,19 @@ public class Iconfig_majorServiceImpl implements Iconfig_majorService {
     public List<Config_major> queryBymajorkindid(int mfk_id) {
         return iconfig_majorDao.queryBymajorkindid(mfk_id);
     }
+
+    @Override
+    public List<Config_major> queryAll() {
+        return iconfig_majorDao.queryAll();
+    }
+
+    @Override
+    public void deleteById(int id) {
+        iconfig_majorDao.deleteById(id);
+    }
+
+    @Override
+    public void insert(Config_major config_major) {
+        iconfig_majorDao.insert(config_major);
+    }
 }

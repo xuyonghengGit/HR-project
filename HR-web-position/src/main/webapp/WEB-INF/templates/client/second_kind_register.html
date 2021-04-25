@@ -36,9 +36,37 @@
 		
 		}	
 </script>
+
+
+	<script src="javascript/jquery-1.7.2.js"></script>
+	<script>
+		$(function () {
+			$.ajax({
+				//获取查询的路径
+				url:'queryAjaxConfig_file_first_kind',
+				//查询到的东西
+				success: function(date){
+					//#firstKind下拉框的id,拿到下拉框
+					let selectfirst = $("#firstKindId");
+					//通过循环获得查询到的集合里面的值
+					for (let i=0;i<date.length;i++){
+						//通过循环一条一条的把查询到的值注入到下拉框里面
+						//date[i].first_kind_id下拉框获得的ID
+						//date[i].first_kind_name下拉框里面的内容，获得对应的ID的内容
+						selectfirst.append("<option value='"+date[i].first_kind_id+"'>"+date[i].first_kind_name+"</option>");
+						// selectfirst.append("<input type='hidden' value="+date[i].first_kind_id+" name='first_kind_id'>");
+					}
+				}
+			})
+			$("#firstKindId").change(function () {
+				let text = $("#firstKindId option:checked").text();
+				$(":input[name='first_kind_name']").val(text);
+			})
+		})
+	</script>
 	<body>
-		<form action="second_kind_register_success.html" method="post">
-					<input type="hidden" id="firstKindName" name="cfsk.firstKindName">
+		<form action="insertkindService1" method="post">
+<!--					<input type="hidden" id="firstKindName" name="cfsk.firstKindName">-->
 			<table width="100%">
 				<tr>
 					<td>
@@ -59,20 +87,22 @@
 			<table width="100%" border="1" cellpadding=0 cellspacing=1
 				bordercolorlight=#848284 bordercolordark=#eeeeee
 				class="TABLE_STYLE1">
+<!--				隐藏框-->
+				<input type="hidden" name="first_kind_name">
 				<tr>
 					<td width="19%" class="TD_STYLE1">
 						I级机构名称
 					</td>
 					<td width="81%" class="TD_STYLE2">
-					<select name="cfsk.firstKindId" id="firstKindId" onchange="change()">
-						<option>请选择I级机构名称...</option>
-						
-						<option value="1353318953319">Ⅰ级结构</option>
-						
-						<option value="1353318929919">集团</option>
-						
-						<option value="1353318937391">总部</option>
-						
+					<select name="first_kind_id" id="firstKindId" onchange="change()">
+<!--						<option>请选择I级机构名称...</option>-->
+<!--						-->
+<!--						<option value="1353318953319">Ⅰ级结构</option>-->
+<!--						-->
+<!--						<option value="1353318929919">集团</option>-->
+<!--						-->
+<!--						<option value="1353318937391">总部</option>-->
+<!--						ajax-->
 					</select>
 					</td>
 				</tr>
@@ -81,6 +111,7 @@
 						II级机构编号
 					</td>
 					<td width="81%" class="TD_STYLE2">
+						<input type="text" class="INPUT_STYLE1" name="second_kind_id" value=""/>
 					</td>
 				</tr>
 				<tr>
@@ -88,7 +119,7 @@
 						II级机构名称
 					</td>
 					<td class="TD_STYLE2">
-						<input type="text" class="INPUT_STYLE1" name="cfsk.secondKindName" value=""/>
+						<input type="text" class="INPUT_STYLE1" name="second_kind_name" value=""/>
 					</td>
 				</tr>
 				<tr>
@@ -96,7 +127,7 @@
 						薪酬发放责任人编号（多个编号之间请用"半角逗号"加"一个空格"隔开，如", "）
 					</td>
 					<td class="TD_STYLE2">
-						<textarea rows="4" cols="" class="TEXTAREA_STYLE1" name="cfsk.secondSalaryId"></textarea>
+						<textarea rows="4" cols="" class="TEXTAREA_STYLE1" name="second_salary_id"></textarea>
 					</td>
 				</tr>
 				<tr>
@@ -104,7 +135,7 @@
 						销售责任人编号（多个编号之间请用"半角逗号"加"一个空格"隔开，如", "）
 					</td>
 					<td class="TD_STYLE2">
-						<textarea rows="4" cols="" class="TEXTAREA_STYLE1" name="cfsk.secondSaleId" ></textarea>
+						<textarea rows="4" cols="" class="TEXTAREA_STYLE1" name="second_sale_id" ></textarea>
 					</td>
 				</tr>
 			</table>

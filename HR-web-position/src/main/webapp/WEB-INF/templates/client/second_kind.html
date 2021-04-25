@@ -35,7 +35,7 @@
 				<tr>
 					<td align="right">
 						<input type="button" value="添加" class="BUTTON_STYLE1"
-							onclick="window.location.href='second_kind_register.html'" />
+							onclick="window.location.href='topage?page=client/second_kind_register'" />
 					</td>
 				</tr>
 			</table>
@@ -66,7 +66,7 @@
 					</td>
 				</tr>
 					
-					<tr>
+					<tr th:remove="all">
 						<td class="TD_STYLE2">Ⅰ级结构
 						</td>
 						<td class="TD_STYLE2">1353318983380
@@ -85,7 +85,7 @@
 						</td>
 					</tr>
 					
-					<tr>
+					<tr th:remove="all">
 						<td class="TD_STYLE2">Ⅰ级结构
 						</td>
 						<td class="TD_STYLE2">1353318986625
@@ -104,7 +104,7 @@
 						</td>
 					</tr>
 					
-					<tr>
+					<tr th:remove="all">
 						<td class="TD_STYLE2">Ⅰ级结构
 						</td>
 						<td class="TD_STYLE2">1353318990197
@@ -123,7 +123,7 @@
 						</td>
 					</tr>
 					
-					<tr>
+					<tr th:remove="all">
 						<td class="TD_STYLE2">Ⅰ级结构
 						</td>
 						<td class="TD_STYLE2">1353318995252
@@ -142,7 +142,7 @@
 						</td>
 					</tr>
 					
-					<tr>
+					<tr th:remove="all">
 						<td class="TD_STYLE2">集团
 						</td>
 						<td class="TD_STYLE2">1353319004705
@@ -161,7 +161,7 @@
 						</td>
 					</tr>
 					
-					<tr>
+					<tr th:remove="all">
 						<td class="TD_STYLE2">集团
 						</td>
 						<td class="TD_STYLE2">1353319016546
@@ -180,7 +180,7 @@
 						</td>
 					</tr>
 					
-					<tr>
+					<tr th:remove="all">
 						<td class="TD_STYLE2">总部
 						</td>
 						<td class="TD_STYLE2">1353319033409
@@ -199,7 +199,7 @@
 						</td>
 					</tr>
 					
-					<tr>
+					<tr th:remove="all">
 						<td class="TD_STYLE2">总部
 						</td>
 						<td class="TD_STYLE2">1353319038682
@@ -218,7 +218,7 @@
 						</td>
 					</tr>
 					
-					<tr>
+					<tr th:remove="all">
 						<td class="TD_STYLE2">总部
 						</td>
 						<td class="TD_STYLE2">1353319043830
@@ -237,7 +237,7 @@
 						</td>
 					</tr>
 					
-					<tr>
+					<tr th:remove="all">
 						<td class="TD_STYLE2">Ⅰ级结构
 						</td>
 						<td class="TD_STYLE2">1353318979558
@@ -255,6 +255,26 @@
 							<a href="second_delete_success.html">删除</a>
 						</td>
 					</tr>
+
+				<tr th:each="t:${Config_file_second_kindQueryAll}">
+					<td class="TD_STYLE2" th:text="${t.first_kind_name}">Ⅰ级结构
+					</td>
+					<td class="TD_STYLE2" th:text="${t.first_kind_id}">1353318979558
+					</td>
+					<td class="TD_STYLE2" th:text="${t.second_kind_name}">Ⅱ级结构1
+					</td>
+					<td class="TD_STYLE2" th:text="${t.second_salary_id}">3
+					</td>
+					<td class="TD_STYLE2" th:text="${t.second_sale_id}">3
+					</td>
+					<td class="TD_STYLE2">
+<!--						<a href="topage?page=second_kind_change">变更</a>-->
+						<a th:href="'queryByidkindService?id='+${t.fsk_id}">变更</a>
+					</td>
+					<td class="TD_STYLE2">
+						<a th:href="'deletekindService1?id='+${t.fsk_id}">删除</a>
+					</td>
+				</tr>
 					
 			</table>
 			<br><br>

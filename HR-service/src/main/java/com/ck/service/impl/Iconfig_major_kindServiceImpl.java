@@ -19,4 +19,15 @@ private Iconfig_major_kindDao iconfig_major_kindDao;
     public List<Config_major_kind> queryBymkf() {
         return iconfig_major_kindDao.queryBymfk();
     }
+
+    //根据id做删除
+    @Override
+    public void deleteById(int id) {
+        iconfig_major_kindDao.deleteById(id);
+    }
+
+    @Override
+    public void insert(Config_major_kind major_kind) {
+        iconfig_major_kindDao.insert(major_kind);
+    }
 }

@@ -12,17 +12,17 @@
 		
 		<script type="text/javascript">
 			$(function() {
-				$("#firstKind").change(function() {
-					$.post("/jquery5/test/TestAction!doSecondChange", {"firstId" : $("#firstKind").val()}, function(data) {
-						var items = $(data).find("item");
-						var secondKind = $("#secondKind");
-						secondKind.html("<option value=''>请选择</option>");
-						items.each(function(i) {
-							var option = $("<option></option>");
-							option.val($(items[i]).attr("id")).html($(items[i]).attr("value")).appendTo(secondKind);
-						});
-					}, "text");
-				});
+				// $("#firstKind").change(function() {
+				// 	$.post("/jquery5/test/TestAction!doSecondChange", {"firstId" : $("#firstKind").val()}, function(data) {
+				// 		var items = $(data).find("item");
+				// 		var secondKind = $("#secondKind");
+				// 		secondKind.html("<option value=''>请选择</option>");
+				// 		items.each(function(i) {
+				// 			var option = $("<option></option>");
+				// 			option.val($(items[i]).attr("id")).html($(items[i]).attr("value")).appendTo(secondKind);
+				// 		});
+				// 	}, "text");
+				// });
 			});
 			
 		function change1(){
@@ -41,31 +41,87 @@
 		</script>
 	</head>
 	<script type="text/javascript"> 
-			$(function() {
-			var first=$("#firstKindId");
-			var second= $("#secondKindId");
-	 		 first.change(function(){
-	 		 	$.post('/HR_Fist/transfer/transferAction!findtwo.action',{ 'configThird.firstKindId' : $('#firstKindId option:selected').val() },
-		  			function(data){
-		  			 
-		  			 second.css("width",first.width());
-		  			second.empty();
-		  			second.append("<option value='0' >-----请选择-----</option>");
-		  		var items = $(data).find("item");
-		  		items.each(function(i){
-		  				var id = $(items[i]).attr("id");
-		  				var name = $(items[i]).attr("name");	
-		  				second.append("<option value='"+id+"'>"+name+"</option>");
-		  		
-		  		
-		  		});
-					},'xml');
-	 		 	third.val('0');
-	 		 }); });
+			// $(function() {
+			// var first=$("#firstKindId");
+			// var second= $("#secondKindId");
+	 		//  first.change(function(){
+	 		//  	$.post('/HR_Fist/transfer/transferAction!findtwo.action',{ 'configThird.firstKindId' : $('#firstKindId option:selected').val() },
+		  	// 		function(data){
+		  	//
+		  	// 		 second.css("width",first.width());
+		  	// 		second.empty();
+		  	// 		second.append("<option value='0' >-----请选择-----</option>");
+		  	// 	var items = $(data).find("item");
+		  	// 	items.each(function(i){
+		  	// 			var id = $(items[i]).attr("id");
+		  	// 			var name = $(items[i]).attr("name");
+		  	// 			second.append("<option value='"+id+"'>"+name+"</option>");
+		  	//
+		  	//
+		  	// 	});
+			// 		},'xml');
+	 		//  	third.val('0');
+	 		//  }); });
 </script>
 
+	<script>
+		$(function () {
+			$.ajax({
+				//获取查询的路径
+				url:'queryAjaxConfig_file_first_kind',
+				//查询到的东西
+				success: function(date){
+					//#firstKind下拉框的id,拿到下拉框
+					let selectfirst = $("#firstKindId");
+					//通过循环获得查询到的集合里面的值
+					for (let i=0;i<date.length;i++){
+						//通过循环一条一条的把查询到的值注入到下拉框里面
+						//date[i].first_kind_id下拉框获得的ID
+						//date[i].first_kind_name下拉框里面的内容，获得对应的ID的内容
+						selectfirst.append("<option value='"+date[i].first_kind_id+"'>"+date[i].first_kind_name+"</option>");
+					}
+				}
+			})
+
+
+			$("#firstKindId").change(function () {
+				let text = $("#firstKindId option:checked").text();
+				$(":input[name='first_kind_name']").val(text);
+
+				var id = $("#firstKindId").val();
+				// alert(id);
+				$.ajax({
+					//获取查询的路径
+					url:'queryAjaxTConfig_file_second_kind?id='+id,
+					//查询到的东西
+					success: function(date){
+						//#firstKind下拉框的id,拿到下拉框
+						let select = $("#secondKindId");
+						select.find('option').remove();
+						select.append("<option value=\"0\">请选择II机构名称</option>");
+						//通过循环获得查询到的集合里面的值
+						for (let i=0;i<date.length;i++){
+							//通过循环一条一条的把查询到的值注入到下拉框里面
+							//date[i].first_kind_id下拉框获得的ID
+							//date[i].first_kind_name下拉框里面的内容，获得对应的ID的内容
+							select.append("<option value='"+date[i].second_kind_id+"'>"+date[i].second_kind_name+"</option>");
+						}
+					}
+				})
+			});
+
+			$("#secondKindId").change(function () {
+				let text = $("#secondKindId option:checked").text();
+				$(":input[name='second_kind_name']").val(text);
+			})
+
+
+
+			// alert("走到方法后");
+		})
+	</script>
 	<body>
-		<form action="third_kind_register_success.html" method="post">
+		<form action="insertTConfig_file_third_kind" method="post">
 			<table width="100%">
 				<tr>
 					<td>
@@ -90,16 +146,20 @@
 						I级机构名称
 					</td>
 					<td width="81%" class="TD_STYLE2">
-						<select name="cftk.firstKindId" onchange="change1()" id="firstKindId" class="INPUT_STYLE1">
+
+	<!--				隐藏框-->
+						<input type="hidden" name="first_kind_name">
+
+						<select name="first_kind_id" onchange="change1()" id="firstKindId" class="INPUT_STYLE1">
 							<option value="0">
 								请选择I机构名称
 							</option>
 							
-							<option value="1353318953319">Ⅰ级结构</option>
-							
-							<option value="1353318929919">集团</option>
-							
-							<option value="1353318937391">总部</option>
+<!--							<option value="1353318953319">Ⅰ级结构</option>-->
+<!--							-->
+<!--							<option value="1353318929919">集团</option>-->
+<!--							-->
+<!--							<option value="1353318937391">总部</option>-->
 							
 						</select>
 					</td>
@@ -109,7 +169,9 @@
 						II级机构名称
 					</td>
 					<td width="81%" class="TD_STYLE2">
-						<select name="cftk.secondKindId" onchange="change2()" id="secondKindId" class="INPUT_STYLE1">
+<!--				隐藏框-->
+						<input type="hidden" name="second_kind_name">
+						<select name="second_kind_id" onchange="change2()" id="secondKindId" class="INPUT_STYLE1">
 							<option value="0">
 								请选择II机构名称
 							</option>
@@ -122,6 +184,7 @@
 						III级机构编号
 					</td>
 					<td width="81%" class="TD_STYLE2">
+						<input type="text" class="INPUT_STYLE1" name="third_kind_id" />
 					</td>
 				</tr>
 				<tr>
@@ -129,7 +192,7 @@
 						III级机构名称
 					</td>
 					<td class="TD_STYLE2">
-						<input type="text" class="INPUT_STYLE1" name="cftk.thirdKindName" />
+						<input type="text" class="INPUT_STYLE1" name="third_kind_name" />
 					</td>
 				</tr>
 				<tr>
@@ -137,7 +200,7 @@
 						销售责任人编号（多个编号之间请用"半角逗号"加"一个空格"隔开，如", "）
 					</td>
 					<td class="TD_STYLE2">
-						<textarea rows="4" cols="120" class="TEXTAREA_STYLE1" name="cftk.thirdKindSaleId"></textarea>
+						<textarea rows="4" cols="120" class="TEXTAREA_STYLE1" name="third_kind_sale_id"></textarea>
 					</td>
 				</tr>
 				<tr>
@@ -145,9 +208,9 @@
 						是否为零售店（是/否）
 					</td>
 					<td class="TD_STYLE2">
-					<select name="cftk.thirdKindIsRetail">
-						<option selected="selected">是</option>
-						<option>否</option>
+					<select name="third_kind_is_retail">
+						<option selected="selected" value="1">是</option>
+						<option value="2">否</option>
 					</select>
 						 
 					</td>

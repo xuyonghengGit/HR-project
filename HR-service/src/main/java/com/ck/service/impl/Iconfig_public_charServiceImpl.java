@@ -17,4 +17,19 @@ public class Iconfig_public_charServiceImpl implements Iconfig_public_charServic
     public List<Config_public_char> queryBychar() {
         return iconfig_public_charDao.queryBychar();
     }
+
+    @Override
+    public void dle(int id) {
+        iconfig_public_charDao.dle(id);
+    }
+
+    @Override
+    public void insertT(Config_public_char config) {
+        iconfig_public_charDao.insertT(config);
+    }
+
+    @Override
+    public List<Config_public_char> queryByID2(int id) {
+        return iconfig_public_charDao.queryByID2(id);
+    }
 }

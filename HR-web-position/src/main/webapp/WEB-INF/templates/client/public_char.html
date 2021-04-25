@@ -38,7 +38,7 @@
 				<tr>
 					<td align="right">
 						<input type="button" value="添加" class="BUTTON_STYLE1"
-							onclick="window.location.href='public_char_add.html';">
+							onclick="window.location.href='topage?page=client/public_char_add';">
 					</td>
 				</tr>
 			</table>
@@ -58,19 +58,31 @@
 				</tr>
 				
 				
-				<tr>
+				<tr th:each="l:${queryAllConfig_public_charTController}">
+					<td class="TD_STYLE2" th:text="${l.attribute_kind}">
+						薪酬发放方式
+					</td>
+					<td class="TD_STYLE2" th:text="${l.attribute_name}">
+						
+					</td>
+					<td class="TD_STYLE2" align="center">
+						<a th:href="'dleByidConfig_majorTController?id='+${l.pbc_id}" onclick="return confirm('确定将此记录删除?')">删除</a>
+					</td>
+				</tr>
+
+				<tr th:remove="all">
 					<td class="TD_STYLE2">
 						薪酬发放方式
 					</td>
 					<td class="TD_STYLE2">
-						
+
 					</td>
 					<td class="TD_STYLE2" align="center">
 						<a href="#">删除</a>
 					</td>
 				</tr>
-				
-				<tr>
+
+				<tr th:remove="all">
 					<td class="TD_STYLE2">
 						国籍
 					</td>
@@ -82,7 +94,7 @@
 					</td>
 				</tr>
 				
-				<tr>
+				<tr th:remove="all">
 					<td class="TD_STYLE2">
 						国籍
 					</td>
@@ -94,7 +106,7 @@
 					</td>
 				</tr>
 				
-				<tr>
+				<tr th:remove="all">
 					<td class="TD_STYLE2">
 						民族
 					</td>
@@ -106,7 +118,7 @@
 					</td>
 				</tr>
 				
-				<tr>
+				<tr th:remove="all">
 					<td class="TD_STYLE2">
 						民族
 					</td>
@@ -118,7 +130,7 @@
 					</td>
 				</tr>
 				
-				<tr>
+				<tr th:remove="all">
 					<td class="TD_STYLE2">
 						宗教信仰
 					</td>
@@ -130,7 +142,7 @@
 					</td>
 				</tr>
 				
-				<tr>
+				<tr th:remove="all">
 					<td class="TD_STYLE2">
 						宗教信仰
 					</td>
@@ -142,7 +154,7 @@
 					</td>
 				</tr>
 				
-				<tr>
+				<tr th:remove="all">
 					<td class="TD_STYLE2">
 						政治面貌
 					</td>
@@ -154,7 +166,7 @@
 					</td>
 				</tr>
 				
-				<tr>
+				<tr th:remove="all">
 					<td class="TD_STYLE2">
 						政治面貌
 					</td>
@@ -166,7 +178,7 @@
 					</td>
 				</tr>
 				
-				<tr>
+				<tr th:remove="all">
 					<td class="TD_STYLE2">
 						教育年限
 					</td>
@@ -178,7 +190,7 @@
 					</td>
 				</tr>
 				
-				<tr>
+				<tr th:remove="all">
 					<td class="TD_STYLE2">
 						教育年限
 					</td>
@@ -190,7 +202,7 @@
 					</td>
 				</tr>
 				
-				<tr>
+				<tr th:remove="all">
 					<td class="TD_STYLE2">
 						学历
 					</td>
@@ -202,7 +214,7 @@
 					</td>
 				</tr>
 				
-				<tr>
+				<tr th:remove="all">
 					<td class="TD_STYLE2">
 						学历
 					</td>
@@ -214,7 +226,7 @@
 					</td>
 				</tr>
 				
-				<tr>
+				<tr th:remove="all">
 					<td class="TD_STYLE2">
 						专业
 					</td>
@@ -226,7 +238,7 @@
 					</td>
 				</tr>
 				
-				<tr>
+				<tr th:remove="all">
 					<td class="TD_STYLE2">
 						专业
 					</td>
@@ -238,7 +250,7 @@
 					</td>
 				</tr>
 				
-				<tr>
+				<tr th:remove="all">
 					<td class="TD_STYLE2">
 						特长
 					</td>
@@ -250,7 +262,7 @@
 					</td>
 				</tr>
 				
-				<tr>
+				<tr th:remove="all">
 					<td class="TD_STYLE2">
 						特长
 					</td>
@@ -262,7 +274,7 @@
 					</td>
 				</tr>
 				
-				<tr>
+				<tr th:remove="all">
 					<td class="TD_STYLE2">
 						爱好
 					</td>
@@ -274,7 +286,7 @@
 					</td>
 				</tr>
 				
-				<tr>
+				<tr th:remove="all">
 					<td class="TD_STYLE2">
 						爱好
 					</td>
@@ -286,7 +298,7 @@
 					</td>
 				</tr>
 				
-				<tr>
+				<tr th:remove="all">
 					<td class="TD_STYLE2">
 						培训项目
 					</td>
@@ -298,7 +310,7 @@
 					</td>
 				</tr>
 				
-				<tr>
+				<tr th:remove="all">
 					<td class="TD_STYLE2">
 						培训项目
 					</td>
@@ -310,7 +322,7 @@
 					</td>
 				</tr>
 				
-				<tr>
+				<tr th:remove="all">
 					<td class="TD_STYLE2">
 						培训成绩
 					</td>
@@ -322,7 +334,7 @@
 					</td>
 				</tr>
 				
-				<tr>
+				<tr th:remove="all">
 					<td class="TD_STYLE2">
 						培训成绩
 					</td>
@@ -334,7 +346,7 @@
 					</td>
 				</tr>
 				
-				<tr>
+				<tr th:remove="all">
 					<td class="TD_STYLE2">
 						奖励项目
 					</td>
@@ -346,7 +358,7 @@
 					</td>
 				</tr>
 				
-				<tr>
+				<tr th:remove="all">
 					<td class="TD_STYLE2">
 						奖励项目
 					</td>
@@ -358,7 +370,7 @@
 					</td>
 				</tr>
 				
-				<tr>
+				<tr th:remove="all">
 					<td class="TD_STYLE2">
 						奖励等级
 					</td>
@@ -370,7 +382,7 @@
 					</td>
 				</tr>
 				
-				<tr>
+				<tr th:remove="all">
 					<td class="TD_STYLE2">
 						奖励等级
 					</td>
@@ -382,7 +394,7 @@
 					</td>
 				</tr>
 				
-				<tr>
+				<tr th:remove="all">
 					<td class="TD_STYLE2">
 						职称
 					</td>
@@ -394,7 +406,7 @@
 					</td>
 				</tr>
 				
-				<tr>
+				<tr th:remove="all">
 					<td class="TD_STYLE2">
 						职称
 					</td>
@@ -406,7 +418,7 @@
 					</td>
 				</tr>
 				
-				<tr>
+				<tr th:remove="all">
 					<td class="TD_STYLE2">
 						职称
 					</td>
@@ -418,7 +430,7 @@
 					</td>
 				</tr>
 				
-				<tr>
+				<tr th:remove="all">
 					<td class="TD_STYLE2">
 						职称
 					</td>
@@ -430,7 +442,7 @@
 					</td>
 				</tr>
 				
-				<tr>
+				<tr th:remove="all">
 					<td class="TD_STYLE2">
 						职称
 					</td>
@@ -442,7 +454,7 @@
 					</td>
 				</tr>
 				
-				<tr>
+				<tr th:remove="all">
 					<td class="TD_STYLE2">
 						职称
 					</td>
@@ -454,7 +466,7 @@
 					</td>
 				</tr>
 				
-				<tr>
+				<tr th:remove="all">
 					<td class="TD_STYLE2">
 						薪酬设置
 					</td>
@@ -466,7 +478,7 @@
 					</td>
 				</tr>
 				
-				<tr>
+				<tr th:remove="all">
 					<td class="TD_STYLE2">
 						薪酬设置
 					</td>
@@ -478,7 +490,7 @@
 					</td>
 				</tr>
 				
-				<tr>
+				<tr th:remove="all">
 					<td class="TD_STYLE2">
 						薪酬设置
 					</td>
@@ -490,7 +502,7 @@
 					</td>
 				</tr>
 				
-				<tr>
+				<tr th:remove="all">
 					<td class="TD_STYLE2">
 						薪酬设置
 					</td>
@@ -502,7 +514,7 @@
 					</td>
 				</tr>
 				
-				<tr>
+				<tr th:remove="all">
 					<td class="TD_STYLE2">
 						薪酬设置
 					</td>
@@ -514,7 +526,7 @@
 					</td>
 				</tr>
 				
-				<tr>
+				<tr th:remove="all">
 					<td class="TD_STYLE2">
 						薪酬设置
 					</td>
@@ -526,7 +538,7 @@
 					</td>
 				</tr>
 				
-				<tr>
+				<tr th:remove="all">
 					<td class="TD_STYLE2">
 						薪酬发放方式
 					</td>
@@ -538,7 +550,7 @@
 					</td>
 				</tr>
 				
-				<tr>
+				<tr th:remove="all">
 					<td class="TD_STYLE2">
 						招聘类型
 					</td>
@@ -550,7 +562,7 @@
 					</td>
 				</tr>
 				
-				<tr>
+				<tr th:remove="all">
 					<td class="TD_STYLE2">
 						招聘类型
 					</td>
@@ -562,7 +574,7 @@
 					</td>
 				</tr>
 				
-				<tr>
+				<tr th:remove="all">
 					<td class="TD_STYLE2">
 						薪酬发放方式
 					</td>
@@ -574,7 +586,7 @@
 					</td>
 				</tr>
 				
-				<tr>
+				<tr th:remove="all">
 					<td class="TD_STYLE2">
 						国籍
 					</td>
