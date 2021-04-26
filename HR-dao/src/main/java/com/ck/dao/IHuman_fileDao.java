@@ -35,7 +35,7 @@ public interface IHuman_fileDao {
             "\t#{regist_time},NULL,NULL,NULL,NULL,\n" +
             "\tNULL,'1')")
     public void addIhmanZeng(Human_file human_file);
-    //人力资源档案多条件查询
+    //人力资源档案多条件查询状态值等于一
     public List<Human_file> queryhumanlist(Map map);
     //编号查询
     @Select("SELECT MAX(human_id) FROM HumanFile")
@@ -49,4 +49,30 @@ public interface IHuman_fileDao {
             "human_bank=#{human_bank},human_account=#{human_account},checker=#{checker},check_time=#{check_time},human_speciality=#{human_speciality},human_hobby=#{human_hobby},\n" +
             "human_histroy_records=#{human_histroy_records},human_family_membership=#{human_family_membership},remark=#{remark},human_file_status='2' WHERE human_id = #{human_id}")
     public void dateIhmanZeng(Human_file human_file);
+    //人力资源档案变更
+    @Update("UPDATE HumanFile SET human_pro_designation=#{human_pro_designation},human_name = #{human_name},human_sex=#{human_sex},\n" +
+            "human_email=#{human_email},human_telephone=#{human_telephone},human_qq=#{human_qq},human_mobilephone=#{human_mobilephone},\n" +
+            "human_birthplace=#{human_birthplace},human_postcode=#{human_postcode},human_nationality=#{human_nationality},human_birthplace=#{human_birthplace},human_birthday=#{human_birthday},\n" +
+            "human_race=#{human_race},human_religion=#{human_religion},human_party=#{human_party},human_id_card=#{human_id_card},human_society_security_id=#{human_society_security_id},\n" +
+            "human_age=#{human_age},human_educated_degree=#{human_educated_degree},human_educated_years=#{human_educated_years},human_educated_major=#{human_educated_major},salary_standard_name=#{salary_standard_name},\n" +
+            "human_bank=#{human_bank},human_account=#{human_account},changer=#{changer},change_time=#{change_time},human_speciality=#{human_speciality},human_hobby=#{human_hobby},\n" +
+            "human_histroy_records=#{human_histroy_records},human_family_membership=#{human_family_membership},remark=#{remark},human_file_status='2' WHERE human_id = #{human_id}")
+    public void dateIhmanZengbg(Human_file human_file);
+    //强制删除操作
+    @Delete("DELETE FROM HumanFile WHERE hfd_id = #{hfd_id}")
+    public int delHumanfile(int hfd_id);
+    //删除操作
+    @Update("UPDATE HumanFile SET human_file_status =3 WHERE human_id = #{human_id}")
+    public int datajiashanchu(int human_id);
+    //人力资源档案多条件查询状态值等于二
+    public List<Human_file> queryhumanlist01(Map map);
+    //人力资源档案多条件查询状态值等于3
+    public List<Human_file> queryhumanlist03(Map map);
+    //回复假删除的操作
+    @Update("UPDATE HumanFile SET human_file_status =2 WHERE human_id = #{human_id}")
+    public int huifudechongqirensheng(int human_id);
+    //已经假山除的查询
+    @Select("SELECT * FROM HumanFile where human_file_status = 3")
+    @ResultMap("queryByidreviewer02")
+    public List<Human_file> queryreviewer01();
 }

@@ -50,34 +50,36 @@
 						职位名称
 					</td>
 				</tr>
-				
-					<tr class="TR_STYLE2">
-						<td width="16%" class="TD_STYLE2">
-							<a href="recovery_list_information.html">bt201211190618510076</a>
-						</td>
-						<td width="13%" class="TD_STYLE2">
-							杨阳
-						</td>
-						<td width="8%" class="TD_STYLE2">
-							男
-						</td>
-						<td width="14%" class="TD_STYLE2">
-							Ⅰ级结构
-						</td>
-						<td width="14%" class="TD_STYLE2">
-							
-						</td>
-						<td width="14%" class="TD_STYLE2">
-							
-						</td>
-						<td width="14%" class="TD_STYLE2">
-							销售
-						</td>
-						<td width="7%" class="TD_STYLE2">
-							区域经理
-						</td>
-					</tr>
-				
+
+
+				<tr class="TR_STYLE2" th:each="s:${queryhumanlist}" th:id="${s.hfd_id}">
+					<td width="16%" class="TD_STYLE2" >
+						<a th:href="'queryByidreviewer06?human_id='+${s.human_id}" th:text="${s.human_id}">bt201211190621400228</a>
+					</td>
+					<td width="13%" class="TD_STYLE2" th:text="${s.human_name}">
+						张人俊萧
+					</td>
+					<td width="8%" class="TD_STYLE2" th:text="${s.human_sex}">
+						男
+					</td>
+					<td width="14%" class="TD_STYLE2" th:text="${s.first_kind_name}">
+						集团
+					</td>
+					<td width="14%" class="TD_STYLE2" th:text="${s.second_kind_name}">
+						软件公司
+					</td>
+					<td width="14%" class="TD_STYLE2" th:text="${s.third_kind_name}">
+						外包公司
+					</td>
+					<td width="14%" class="TD_STYLE2" th:text="${s.human_major_kind_name}">
+						人力资源
+					</td>
+					<td width="7%" class="TD_STYLE2" th:text="${s.hunma_major_name}">
+						总经理
+					</td>
+				</tr>
+
+
 			</table>
 			<p style="text-align: center;">
 				

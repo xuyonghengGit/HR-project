@@ -6,9 +6,9 @@
 		<link rel="stylesheet"
 			href="css/table.css" type="text/css">
 		<script type="text/javascript">
-			function doDelete(id) {
-				if (confirm("确定删除此档案吗？")) {
-					location.href = "success.html?humanFile.hufId=" + id;
+			function doDelete(name,id) {
+				if (confirm("确定删除["+name+"]的档案吗？")) {
+					location.href = "delHumanfile?hfd_id=" + id;
 				}
 			}
 		</script>
@@ -60,8 +60,36 @@
 						永久删除
 					</td>
 				</tr>
-				
-					<tr class="TR_STYLE2">
+				<tr  th:each="s:${fileslist}" th:id="${s.hfd_id}">
+					<td class="TD_STYLE2" th:text="${s.human_id}">
+						bt201211190711160488
+					</td>
+					<td class="TD_STYLE2" th:text="${s.human_name}">
+						周奥
+					</td>
+					<td class="TD_STYLE2" th:text="${s.human_sex}">
+						男
+					</td>
+					<td class="TD_STYLE2" th:text="${s.first_kind_name}">
+						总部
+					</td>
+					<td class="TD_STYLE2" th:text="${s.second_kind_name}">
+						湖南分校区
+					</td>
+					<td class="TD_STYLE2" th:text="${s.third_kind_name}">
+						长沙分校区1
+					</td>
+					<td class="TD_STYLE2" th:text="${s.human_major_kind_name}">
+						工程师
+					</td>
+					<td class="TD_STYLE2" th:text="${s.hunma_major_name}">
+						工程师
+					</td>
+					<td class="TD_STYLE2">
+						<img src="images/bt_del.gif" title="删除" style="cursor:pointer;" th:onclick="doDelete([[${s.human_name}]],[[${s.hfd_id}]])"/>
+					</td>
+				</tr>
+					<tr class="TR_STYLE2" th:remove="all">
 						<td width="14%" height="13" class="TD_STYLE2">
 							bt201211190618510076
 						</td>

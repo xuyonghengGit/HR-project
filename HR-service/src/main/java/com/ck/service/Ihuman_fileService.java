@@ -19,4 +19,18 @@ public interface Ihuman_fileService {
     public int querybybianhao();
     //人力资源档案复核
     public void dateIhmanZeng(Human_file human_file);
+    //人力资源档案变更
+    public void dateIhmanZengbg(Human_file human_file);
+    //完全删除删除操作
+    public int delHumanfile(int hfd_id);
+    //假删除
+    public int datajiashanchu(int human_id);
+    //人力资源档案多条件查询状态值等于二
+    public List<Human_file> queryhumanlist01(Map map);
+    //人力资源档案多条件查询状态值等于三
+    public List<Human_file> queryhumanlist03(Map map);
+    //回复假删除的操作
+    public int huifudechongqirensheng(int human_id);
+    //假删除的查询
+    public List<Human_file> queryreviewer01();
 }
