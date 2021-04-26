@@ -78,27 +78,82 @@
     <select id="queryhumanlist" parameterType="java.util.Map" resultType="java.util.Map">
         select * from HumanFile
         <where>
-            <if test="first_kind_name!=null">
-                and first_kind_name = #{first_kind_name}
+            <if test="first_kind_id !=''">
+                AND first_kind_id = #{first_kind_id}
             </if>
-            <if test="second_kind_name!=null">
-                and second_kind_name = #{second_kind_name}
+            <if test="second_kind_id !=''">
+                AND second_kind_id = #{second_kind_id}
             </if>
-            <if test="third_kind_name!=null">
-                and third_kind_name = #{third_kind_name}
+            <if test="third_kind_id !=''">
+                AND third_kind_id = #{third_kind_id}
             </if>
-            <if test="human_major_kind_name!=null">
-                and human_major_kind_name = #{human_major_kind_name}
+            <if test="human_major_kind_id !=''">
+                AND human_major_kind_id = #{human_major_kind_id}
             </if>
-            <if test="hunma_major_name!=null">
-                and hunma_major_name = #{hunma_major_name}
+            <if test="hunma_major_id !=''">
+                AND human_major_id = #{hunma_major_id}
             </if>
-            <if test="endDate!=null">
-                and regist_time >= #{endDate}
+            <if test="startDate !=''">
+                AND regist_time >= #{startDate}
             </if>
-            <if test="startDate!=null">
-                <![CDATA[ AND regist_time <= #{startDate}]]>
+            <if test="endDate !=''">
+                <![CDATA[ AND regist_time <= #{endDate}]]>
             </if>
+            and human_file_status = 1
+        </where>
+    </select>
+    <select id="queryhumanlist01" parameterType="java.util.Map" resultType="java.util.Map">
+        select * from HumanFile
+        <where>
+            <if test="first_kind_id !=''">
+                AND first_kind_id = #{first_kind_id}
+            </if>
+            <if test="second_kind_id !=''">
+                AND second_kind_id = #{second_kind_id}
+            </if>
+            <if test="third_kind_id !=''">
+                AND third_kind_id = #{third_kind_id}
+            </if>
+            <if test="human_major_kind_id !=''">
+                AND human_major_kind_id = #{human_major_kind_id}
+            </if>
+            <if test="hunma_major_id !=''">
+                AND human_major_id = #{hunma_major_id}
+            </if>
+            <if test="startDate !=''">
+                AND regist_time >= #{startDate}
+            </if>
+                and human_file_status = 2
+            <if test="endDate !=''">
+                <![CDATA[ AND regist_time <= #{endDate}]]>
+            </if>
+        </where>
+    </select>
+    <select id="queryhumanlist03" parameterType="java.util.Map" resultType="java.util.Map">
+        select * from HumanFile
+        <where>
+            <if test="first_kind_id !=''">
+                AND first_kind_id = #{first_kind_id}
+            </if>
+            <if test="second_kind_id !=''">
+                AND second_kind_id = #{second_kind_id}
+            </if>
+            <if test="third_kind_id !=''">
+                AND third_kind_id = #{third_kind_id}
+            </if>
+            <if test="human_major_kind_id !=''">
+                AND human_major_kind_id = #{human_major_kind_id}
+            </if>
+            <if test="hunma_major_id !=''">
+                AND human_major_id = #{hunma_major_id}
+            </if>
+            <if test="startDate !=''">
+                AND regist_time >= #{startDate}
+            </if>
+            <if test="endDate !=''">
+                <![CDATA[ AND regist_time <= #{endDate}]]>
+            </if>
+            and human_file_status = 3
         </where>
     </select>
 </mapper>

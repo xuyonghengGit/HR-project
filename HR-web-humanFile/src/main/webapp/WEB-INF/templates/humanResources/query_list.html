@@ -106,8 +106,8 @@
 					</tr>
 
 					<tr class="TR_STYLE2" th:each="s:${queryhumanlist}" th:id="${s.hfd_id}">
-						<td width="16%" class="TD_STYLE2" th:text="${s.human_id}">
-							<a href="query_list_information.html">bt201211190621400228</a>
+						<td width="16%" class="TD_STYLE2" >
+							<a th:href="'queryByidreviewer03?human_id='+${s.human_id}" th:text="${s.human_id}">bt201211190621400228</a>
 						</td>
 						<td width="13%" class="TD_STYLE2" th:text="${s.human_name}">
 							张人俊萧

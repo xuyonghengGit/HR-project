@@ -48,4 +48,39 @@ public class Ihuman_fileServiceImpl implements Ihuman_fileService {
         iHuman_fileDao.dateIhmanZeng(human_file);
     }
 
+    @Override
+    public void dateIhmanZengbg(Human_file human_file) {
+        iHuman_fileDao.dateIhmanZengbg(human_file);
+    }
+
+    @Override
+    public int delHumanfile(int hfd_id) {
+        return iHuman_fileDao.delHumanfile(hfd_id);
+    }
+
+    @Override
+    public int datajiashanchu(int human_id) {
+        return iHuman_fileDao.datajiashanchu(human_id);
+    }
+
+    @Override
+    public List<Human_file> queryhumanlist01(Map map) {
+        return iHuman_fileDao.queryhumanlist01(map);
+    }
+
+    @Override
+    public List<Human_file> queryhumanlist03(Map map) {
+        return iHuman_fileDao.queryhumanlist03(map);
+    }
+
+    @Override
+    public int huifudechongqirensheng(int human_id) {
+        return iHuman_fileDao.huifudechongqirensheng(human_id);
+    }
+
+    @Override
+    public List<Human_file> queryreviewer01() {
+        return iHuman_fileDao.queryreviewer01();
+    }
+
 }
