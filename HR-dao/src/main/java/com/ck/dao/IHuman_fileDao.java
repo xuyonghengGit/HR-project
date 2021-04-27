@@ -2,6 +2,8 @@ package com.ck.dao;
 
 import com.ck.entity.Config_public_char;
 import com.ck.entity.Human_file;
+import com.ck.entity.Rights;
+import com.github.pagehelper.Page;
 import org.apache.ibatis.annotations.*;
 
 import javax.faces.annotation.RequestMap;
@@ -12,7 +14,7 @@ public interface IHuman_fileDao {
     //人力资源档案登记复核前查询
     @Select("SELECT * FROM HumanFile")
     @ResultMap("queryreviewer")
-    public List<Human_file> queryreviewer();
+    public Page<Rights> queryreviewer();
 
     //人力资源档案登记复核查询
     @Select("SELECT * FROM HumanFile where human_id = #{human_id}")
@@ -30,10 +32,11 @@ public interface IHuman_fileDao {
             "\t#{human_birthplace},#{human_age},#{human_educated_degree},#{human_educated_years},#{human_educated_major},\n" +
             "\t#{human_society_security_id},#{human_id_card},#{remark},'0',#{salary_standard_name},\n" +
             "\t'0','0','0','0','0',\n" +
-            "\t'0','0',#{human_histroy_records},#{human_family_membership},'',\n" +
+            "\t'0','0',#{human_histroy_records},#{human_family_membership},#{human_picture},\n" +
             "\t'','2',#{register},'','',\n" +
             "\t#{regist_time},NULL,NULL,NULL,NULL,\n" +
             "\tNULL,'1')")
+    @SelectKey(statement = "select last_insert_id()",before = false,keyProperty = "hfd_id",keyColumn = "hfd_id",resultType = int.class)
     public void addIhmanZeng(Human_file human_file);
     //人力资源档案多条件查询状态值等于一
     public List<Human_file> queryhumanlist(Map map);
@@ -75,4 +78,7 @@ public interface IHuman_fileDao {
     @Select("SELECT * FROM HumanFile where human_file_status = 3")
     @ResultMap("queryByidreviewer02")
     public List<Human_file> queryreviewer01();
+    //附件上传
+    @Update("UPDATE HumanFile SET attachment_name = #{attachment_name}  WHERE hfd_id = #{hfd_id}")
+    public void datefujianshangchuan(Map m);
 }

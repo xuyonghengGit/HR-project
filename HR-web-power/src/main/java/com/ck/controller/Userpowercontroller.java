@@ -4,14 +4,17 @@ import com.ck.entity.Rights;
 import com.ck.entity.User;
 import com.ck.service.IrightsService;
 import com.ck.service.IuserService;
+import com.github.pagehelper.Page;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.util.DigestUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
+import java.util.Map;
 
 @Controller
 public class Userpowercontroller {
@@ -26,11 +29,14 @@ public class Userpowercontroller {
     private String md5str;
 
     @RequestMapping("queryUserAll")
-    public String queryuserAll(ModelMap map){
+    public String queryuserAll(ModelMap map, @RequestParam(required = false)Map m){
+        int pageNum = 1;
+        if(m.get("pageNum")!=null){
+            pageNum = Integer.parseInt(m.get("pageNum")+"");
+        }
         //查询所有用户
-        List<User> users = dao.queryAll();
-        map.put("usersAll", users);
-
+        Page<User> users = dao.queryAll(pageNum, 6);
+        map.put("page", users);
         return "forward:queryrightsAll";
     }
     @RequestMapping("adduser")

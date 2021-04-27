@@ -32,6 +32,8 @@
 		<property name="suffix" value=".jsp"/>
 	</bean>-->
 
+
+
 	<!--配置thymeleaf的视图解析器-->
 	<bean id="templateResolver" class="org.thymeleaf.spring5.templateresolver.SpringResourceTemplateResolver">
 		<property name="prefix" value="/WEB-INF/templates/"/>
@@ -46,6 +48,24 @@
 		<property name="templateEngine" ref="engine"/>
 		<property name="characterEncoding" value="UTF-8"/>
 	</bean>
+
+
+	<mvc:interceptors>
+		<mvc:interceptor>
+			<mvc:mapping path="/*"/>
+			<bean class="com.ck.interceptor.LoginInterceptor">
+				<property name="url">
+					<list>
+						<value>/</value>
+						<value>/topage?page=login</value>
+						<value>/userlogin</value>
+						<value>/mytest</value>
+					</list>
+				</property>
+			</bean>
+		</mvc:interceptor>
+	</mvc:interceptors>
+
 
 	<!--配置springmvc发送电子邮件的发送者对象-JavaMailSenderImpl-->
 	<!--这个对象能帮助我们发送电子邮件-->

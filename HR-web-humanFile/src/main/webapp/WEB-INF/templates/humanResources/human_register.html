@@ -7,9 +7,7 @@
 			href="css/table.css" type="text/css">
 		<link rel="stylesheet"
 			href="css/cwcalendar.css" type="text/css">
-		<script type="text/javascript"
-			src="javascript/jquery-1.7.2.js">
-		</script>
+		<script src="javascript/jquery-3.1.1.js"></script>
 		<script type="text/javascript"
 			src="javascript/jquery.messager.js">
 		</script>
@@ -31,7 +29,10 @@
 <!--		<script type="text/javascript"-->
 <!--			src="javascript/human_input_check.js">-->
 <!--		</script>-->
-		<script src="javascript/jquery-1.7.2.js"></script>
+		<script src="javascript/jquery-3.1.1.js"></script>
+		<script type="text/javascript"
+				src="javascript/file/jquery.form.js">
+		</script>
 		<script>
 			$(function () {
 				$.ajax({
@@ -346,11 +347,41 @@
 						return true;
 				});
 			})
+
+			//改变图片
+			$(function () {
+				$('#fileimg').on('input',()=>{
+					console.log($('#fileimg')[0].files[0]);
+					var windowURL = window.URL || window.webkitURL;
+					var dataURL = windowURL.createObjectURL($('#fileimg')[0].files[0]);
+					$('#img').attr('src',dataURL)
+				})
+			});
 		</script>
+		<style>
+			.imgfile{
+				width: 100px;
+				height: 133px;
+				position: relative;
+				display: inline-block;
+			}
+			.imgfile img{
+				width: 100%;
+				height: 100%;
+			}
+			.imgfile input{
+				position: absolute;
+				left: 0;
+				top: 0;
+				width: 100%;
+				height: 100%;
+				opacity: 0;
+			}
+		</style>
 	</head>
 
 	<body>
-		<form method="post" action="addhuman">
+		<form method="post" action="addhuman" enctype="multipart/form-data">
 			<table width="100%">
 				<tr>
 					<td>
@@ -399,6 +430,10 @@
 						<input type="hidden" name="third_kind_name"/>
 					</td>
 					<td rowspan="5" style="text-align: center;">
+							<div class="imgfile">
+								<img id="img" src="images/userimg/0.jpg"/>
+								<input id="fileimg" name="fileimg" type="file"/>
+							</div>
 					</td>
 				</tr>
 				<tr>
@@ -528,7 +563,7 @@
 					</td>
 					<td width="13%" class="TD_STYLE2">
 						<input type="date" name="human_birthday"
-							class="INPUT_STYLE2" id="birthday" value="2000/01/01">
+							class="INPUT_STYLE2" id="birthday" value="2000-01-01">
 					</td>
 					<td width="11%" class="TD_STYLE1">
 						民族

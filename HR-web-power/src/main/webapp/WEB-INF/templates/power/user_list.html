@@ -33,7 +33,7 @@
 			</tr>
 			<tr>
 				<td>
-					当前角色总数：6例
+					当前角色总数：<span th:text="${page.total}"></span>例
 				</td>
 			</tr>
 			<tr>
@@ -66,7 +66,7 @@
 				</td>
 			</tr>
 			
-				<tr class="TR_STYLE2" th:each="u:${usersAll}">
+				<tr class="TR_STYLE2" th:each="u:${page.result}">
 					<td class="TD_STYLE2" th:text="${u.user_id}">
 						9
 					</td>
@@ -204,19 +204,19 @@
 			
 		</table>
 		<p style="text-align:center;">
-			
-				<a href="user_list.html" style="color:black;">首页</a>
-				
-				
-					 
-						 
-						    <font color="red">1</font> 
-						 
-						 
-					 
-				
-				 
-	     		<a href="user_list.html" style="color:black;">尾页</a> 
+
+			<a href="queryUserAll?pageNum=1" style="color:black;">首页</a>
+			<a th:if="${page.pageNum != 1}" th:href="@{queryUserAll(pageNum=${page.pageNum - 1})}" style="color:black;" >上一页</a>
+
+
+			<span th:each="i:${#numbers.sequence(1,page.pages)} ">
+					<font color="red" th:if="${page.pageNum == i}" th:text="${i}">1</font>
+					<a th:href="@{queryUserAll(pageNum=${i})}" th:if="${page.pageNum != i}" style="color:black;" th:text="${i}">2</a>
+				</span>
+
+
+			<a th:if="${page.pageNum != page.pages}" th:href="@{queryUserAll(pageNum=${page.pageNum + 1})}" style="color:black;">下一页</a>
+			<a th:href="@{queryUserAll(pageNum=${page.pages})}" style="color:black;">尾页</a>
 	     	
 		</p>
 	</body>

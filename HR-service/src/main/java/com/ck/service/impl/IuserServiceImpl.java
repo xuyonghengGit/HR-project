@@ -3,6 +3,8 @@ package com.ck.service.impl;
 import com.ck.dao.IuserDao;
 import com.ck.entity.User;
 import com.ck.service.IuserService;
+import com.github.pagehelper.Page;
+import com.github.pagehelper.PageHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,9 +23,11 @@ public class IuserServiceImpl implements IuserService {
     }
 
     @Override
-    public List<User> queryAll() {
+    public Page<User> queryAll(int pageNum,int pageSize) {
         //查询所有
-        return dao.queryAll();
+        Page<User> page = PageHelper.startPage(pageNum, pageSize);
+        dao.queryAll();
+        return page;
     }
 
     @Override

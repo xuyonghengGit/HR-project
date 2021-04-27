@@ -42,4 +42,9 @@
     <filter-name>utf8</filter-name>
     <url-pattern>/*</url-pattern>
   </filter-mapping>
+      <!--错误页面跳转-->
+      <error-page>
+          <error-code>500</error-code>
+          <location>/WEB-INF/error/500.html</location>
+      </error-page>
 </web-app>

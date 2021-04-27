@@ -37,19 +37,17 @@ public class Rightcontroller {
     }
     @RequestMapping("queryrightsAllpage")
     public String queryAllpage(ModelMap map,@RequestParam(required = false)  Map m){
+        //当前页 默认为1
         int pageNum = 1;
+        //判断是否为第一次加载
         if (m.get("pageNum")!=null){
+            //不是就获取界面数据，是就为默认1
             pageNum = Integer.parseInt(m.get("pageNum")+"");
         }
+        //分页查询
         Page<Rights> page = dao.queryBypage(pageNum,6);
-        List<Rights> result = page.getResult();
-        int pages = page.getPages();
-        //一页的数据
-        map.put("rightspage",result);
-        //总页数
-        map.put("Pages", pages);
-        //当前页数
-        map.put("PageNum", pageNum);
+        //分页工具实体类
+        map.put("page", page);
         return "power/right_list";
     }
     @RequestMapping("queryrightAndcontrol")

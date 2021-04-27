@@ -105,20 +105,20 @@
 				</tr>
 			</table>
 			<p style="text-align: center;">
-				
-					<a href="check_list.html" style="color:black;">首页</a>
-					
-					
-						 
-							 
-							    <font style="color:red;">1</font> 
-							 
-							 
-						 
-					
-					 
-     				<a href="check_list.html" style="color:black;">尾页</a> 
-				
+
+				<a href="queryreviewer?pageNum=1" style="color:black;">首页</a>
+				<a th:if="${fileslist.pageNum != 1}" th:href="@{queryreviewer(pageNum=${fileslist.pageNum - 1})}" style="color:black;" >上一页</a>
+
+
+				<span th:each="i:${#numbers.sequence(1,fileslist.pages)} ">
+					<font color="red" th:if="${fileslist.pageNum == i}" th:text="${i}">1</font>
+					<a th:href="@{queryreviewer(pageNum=${i})}" th:if="${fileslist.pageNum != i}" style="color:black;" th:text="${i}">2</a>
+				</span>
+
+
+				<a th:if="${fileslist.pageNum != fileslist.pages}" th:href="@{queryreviewer(pageNum=${fileslist.pageNum + 1})}" style="color:black;">下一页</a>
+				<a th:href="@{queryreviewer(pageNum=${fileslist.pages})}" style="color:black;">尾页</a>
+
 			</p>
 		</form>
 	</body>

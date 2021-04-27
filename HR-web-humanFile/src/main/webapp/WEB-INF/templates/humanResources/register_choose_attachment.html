@@ -8,9 +8,14 @@
 		<script type="text/javascript"
 			src="avascript/comm/comm.js">
 		</script>
+		<script>
+			function wanchen() {
+				location.href="topage?page=humanResources/success"
+			}
+		</script>
 	</head>
 	<body>
-		<form method="post" action="success.html" enctype="multipart/form-data">
+		<form method="post" action="fujianshangchuan" enctype="multipart/form-data">
 			<table width="100%">
 				<tr>
 					<td colspan="2">
@@ -22,11 +27,11 @@
 						提交成功，如需上传附件，请选择上传(word文档、txt文档、pdf文档、jpg图片等，最大5.0MB)
 						<input type="file" class="FILE_STYLE1" name="accFile"
 							width="100%">
-						<input type="hidden" name="humanFile.humanId" value="bt201211190646190086"/>
+						<input type="text"  name="hfd_id" th:value="${hfdid}"/>
 					</td>
 					<td width="41%" align="right">
-						<input type="button" value="上传图片" class="BUTTON_STYLE1" onclick="location.href='register_choose_picture.html'"/>
-						<input type="submit" value="完成" class="BUTTON_STYLE1"/>
+						<input type="submit" value="提交附件" class="BUTTON_STYLE1"/>
+						<input type="button" onclick="wanchen()" value="完成添加" class="BUTTON_STYLE1"/>
 					</td>
 				</tr>
 			</table>

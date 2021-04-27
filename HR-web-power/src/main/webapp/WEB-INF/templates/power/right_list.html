@@ -28,7 +28,7 @@
 			</tr>
 			<tr>
 				<td>
-					当前角色总数：8例
+					当前角色总数:<span th:text="${page.total}"></span>例
 				</td>
 			</tr>
 			<tr>
@@ -58,7 +58,7 @@
 				</td>
 			</tr>
 			
-				<tr class="TR_STYLE2" th:each="r:${rightspage}">
+				<tr class="TR_STYLE2" th:each="r:${page.result}">
 					<td class="TD_STYLE2" th:text="${r.r_id}">
 						1
 					</td>
@@ -206,17 +206,17 @@
 		<p style="text-align:center;">
 			
 				<a href="queryrightsAllpage?pageNum=1" style="color:black;">首页</a>
-				<a th:if="${PageNum != 1}" th:href="@{queryrightsAllpage(pageNum=${PageNum - 1})}" style="color:black;" >上一页</a>
+				<a th:if="${page.pageNum != 1}" th:href="@{queryrightsAllpage(pageNum=${page.pageNum - 1})}" style="color:black;" >上一页</a>
 
 
-				<span th:each="i:${#numbers.sequence(1,Pages)} ">
-					<font color="red" th:if="${PageNum == i}" th:text="${i}">1</font>
-					<a th:href="@{queryrightsAllpage(pageNum=${i})}" th:if="${PageNum != i}" style="color:black;" th:text="${i}">2</a>
+				<span th:each="i:${#numbers.sequence(1,page.pages)} ">
+					<font color="red" th:if="${page.pageNum == i}" th:text="${i}">1</font>
+					<a th:href="@{queryrightsAllpage(pageNum=${i})}" th:if="${page.pageNum != i}" style="color:black;" th:text="${i}">2</a>
 				</span>
 
 
-				<a th:if="${PageNum != Pages}" th:href="@{queryrightsAllpage(pageNum=${PageNum + 1})}" style="color:black;">下一页</a>
-	     		<a th:href="@{queryrightsAllpage(pageNum=${Pages})}" style="color:black;">尾页</a>
+				<a th:if="${page.pageNum != page.pages}" th:href="@{queryrightsAllpage(pageNum=${page.pageNum + 1})}" style="color:black;">下一页</a>
+	     		<a th:href="@{queryrightsAllpage(pageNum=${page.pages})}" style="color:black;">尾页</a>
 	     	
 		</p>
 	</body>

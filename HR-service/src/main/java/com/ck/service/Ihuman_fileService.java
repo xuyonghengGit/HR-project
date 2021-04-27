@@ -1,6 +1,8 @@
 package com.ck.service;
 
 import com.ck.entity.Human_file;
+import com.ck.entity.Rights;
+import com.github.pagehelper.Page;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -8,11 +10,11 @@ import java.util.Map;
 
 public interface Ihuman_fileService {
     //人力资源档案登记复核前查询
-    public List<Human_file> queryreviewer();
+    public Page<Human_file> queryreviewer(int pageNum, int pageSize);
     //人力资源档案登记复核查询
     public Human_file queryByidreviewer02(int human_id);
     //人力资源档案登记添加
-    public void addIhmanZeng(Human_file human_file);
+    public int addIhmanZeng(Human_file human_file);
     //人力资源多条件查询
     public List<Human_file> queryhumanlist(Map map);
     //编号查询
@@ -33,4 +35,6 @@ public interface Ihuman_fileService {
     public int huifudechongqirensheng(int human_id);
     //假删除的查询
     public List<Human_file> queryreviewer01();
+    //附件上传
+    public void datefujianshangchuan(Map m);
 }

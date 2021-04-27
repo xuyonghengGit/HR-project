@@ -2,7 +2,10 @@ package com.ck.service.impl;
 
 import com.ck.dao.IHuman_fileDao;
 import com.ck.entity.Human_file;
+import com.ck.entity.Rights;
 import com.ck.service.Ihuman_fileService;
+import com.github.pagehelper.Page;
+import com.github.pagehelper.PageHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,10 +20,11 @@ public class Ihuman_fileServiceImpl implements Ihuman_fileService {
 
     @Override
     //人力资源档案登记复核前查询
-    public List<Human_file> queryreviewer() {
-        return iHuman_fileDao.queryreviewer();
+    public Page<Human_file> queryreviewer(int pageNum, int pageSize) {
+        Page<Human_file> page = PageHelper.startPage(pageNum, pageSize);
+        iHuman_fileDao.queryreviewer();
+        return page;
     }
-
     @Override
     //人力资源档案登记复核查询
     public Human_file queryByidreviewer02(int human_id) {
@@ -29,8 +33,9 @@ public class Ihuman_fileServiceImpl implements Ihuman_fileService {
 
     @Override
     //人力资源档案登记添加
-    public void addIhmanZeng(Human_file human_file) {
+    public int addIhmanZeng(Human_file human_file) {
         iHuman_fileDao.addIhmanZeng(human_file);
+        return human_file.getHfd_id();
     }
 
     @Override
@@ -81,6 +86,11 @@ public class Ihuman_fileServiceImpl implements Ihuman_fileService {
     @Override
     public List<Human_file> queryreviewer01() {
         return iHuman_fileDao.queryreviewer01();
+    }
+
+    @Override
+    public void datefujianshangchuan(Map m) {
+        iHuman_fileDao.datefujianshangchuan(m);
     }
 
 }

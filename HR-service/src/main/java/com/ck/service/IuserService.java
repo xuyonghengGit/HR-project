@@ -1,6 +1,7 @@
 package com.ck.service;
 
 import com.ck.entity.User;
+import com.github.pagehelper.Page;
 
 import java.util.List;
 import java.util.Map;
@@ -9,7 +10,7 @@ public interface IuserService {
     //登录
     public User login(Map map);
     //查询所有用户
-    public List<User> queryAll();
+    public Page<User> queryAll(int pageNum,int pageSize);
     //添加用户
     public void adduser(User u);
     //根据id查询
