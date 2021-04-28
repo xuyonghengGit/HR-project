@@ -1,5 +1,59 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ck.dao.IMajor_changeDao">
+    <!--    多条件查询人力资源档案（一级，二级，三级机构，档案登记时间，档案状态）-->
+    <select id="queryConditiontransferHuman_file"  resultMap="HF">
+        select * from HumanFile
+        <where>
+            <if test="firstKindId > 0">
+                and first_kind_id = #{firstKindId}
+            </if>
+            <if test="secondKindId > 0">
+                and second_kind_id = #{secondKindId}
+            </if>
+            <if test="thirdKindId > 0">
+                and third_kind_id = #{thirdKindId}
+            </if>
+            <if test="startDate!=''" >
+                and regist_time between #{startDate} and '3000-05-05'
+            </if>
+            <if test="endDate!=''" >
+                and regist_time between '1000-05-05' and #{endDate}
+            </if>
+            <if test="1==1">
+                and human_file_status =2
+            </if>
+        </where>
+    </select>
+    <resultMap id="HF" type="com.ck.entity.Human_file"></resultMap>
+
+
+    <select id="queryConditiontransferMajor_change"  resultMap="MC">
+        select * from Major_change
+        <where>
+            <if test="first_kind_id > 0">
+                and new_first_kind_id = #{first_kind_id}
+            </if>
+            <if test="second_kind_id > 0">
+                and new_second_kind_id = #{second_kind_id}
+            </if>
+            <if test="third_kind_id > 0">
+                and new_third_kind_id = #{third_kind_id}
+            </if>
+            <if test="human_major_kind_id >0">
+                and new_major_kind_id =#{human_major_kind_id}
+            </if>
+            <if test="hunma_major_id > 0">
+                and new_major_id =#{hunma_major_id}
+            </if>
+            <if test="startDate!=''" >
+                and regist_time between #{startDate} and '3000-05-05'
+            </if>
+            <if test="endDate!=''" >
+                and regist_time between '1000-05-05' and #{endDate}
+            </if>
+        </where>
+    </select>
+    <resultMap id="MC" type="com.ck.entity.Major_Change"></resultMap>
 
 </mapper>

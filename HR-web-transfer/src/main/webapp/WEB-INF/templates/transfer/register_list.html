@@ -9,13 +9,23 @@
 			</STYLE>
 	</head>
 	<body onload="">
-		<form action="/HR_Fist/transfer/transferAction!findPage" method="post" >
-			<font color="black"> 您在做的业务是-人力资源-调动管理-调动登记列表 </font>
-			<br/><br/><br/>			
-		
+		<form action="topage?page=transfer/register" method="post" >
+			<table width="100%">
+				<tr>
+					<td>
+						<font color="black">您在做的业务是-人力资源-调动管理-调动登记列表 </font>
+					</td>
+				</tr>
+				<tr>
+					<td align="right">
+						<input type="button" class="BUTTON_STYLE1" onclick="javascript:window.history.back();" value="返回">
+					</td>
+				</tr>
+			</table>
 			<table width="100%" border="1" cellpadding=0 cellspacing=1
 				bordercolorlight=#848284 bordercolordark=#eeeeee
 				class="TABLE_STYLE1">
+
 				<tr height="21">
 					<td width="19%" class="TD_STYLE1">
 						I级机构
@@ -34,57 +44,34 @@
 					</td>
 					<td width="5%" class="TD_STYLE1">
 						调动
-
 					</td>
-
 				</tr>
-				
-				
-				<tr height="21">
-						<td class="TD_STYLE2">
-						Ⅰ级结构
-						</td>
-						<td class="TD_STYLE2">
-						Ⅱ级结构3
-						</td>
-						<td class="TD_STYLE2">
-						
-						</td>
-						<td class="TD_STYLE2">
-						经理级别
-						</td>
-						<td class="TD_STYLE2">
-						杨阳
-						</td>
-						<td class="TD_STYLE2">
-							<a href="topage?page=transfer/register">
-							调动</a>
-						</td>
-					</tr>
-				
-				<tr height="21">
-						<td class="TD_STYLE2">
+				<tr height="21" th:each="l:${list_HF}">
+
+						<td class="TD_STYLE2" th:text="${l.first_kind_name}">
+							<input  type="hidden" th:value="${l.hfd_id}">
 						集团
 						</td>
-						<td class="TD_STYLE2">
+						<td class="TD_STYLE2" th:text="${l.second_kind_name}">
 						软件公司
 						</td>
-						<td class="TD_STYLE2">
+						<td class="TD_STYLE2" th:text="${l.third_kind_name}">
 						外包公司
 						</td>
-						<td class="TD_STYLE2">
+						<td class="TD_STYLE2" th:text="${l.salary_standard_name}">
 						经理级别
 						</td>
-						<td class="TD_STYLE2">
+						<td class="TD_STYLE2" th:text="${l.human_name}">
 						罗勇
 						</td>
-						<td class="TD_STYLE2">
-							<a href="register.html">
-							调动</a>
+						<td class="TD_STYLE2" >
+<!--							<a th:href="'queryByHfd_idtransferHuman_file?hfd_id='+${l.hfd_id}">调动</a>-->
+							<a th:href="@{queryByHfd_idtransferHuman_file(hfd_id=${l.hfd_id})}">调动</a>
 						</td>
+
 					</tr>
-				
-				<tr height="21">
+
+				<tr height="21" th:remove="all">
 						<td class="TD_STYLE2">
 						总部
 						</td>
@@ -105,8 +92,8 @@
 							调动</a>
 						</td>
 					</tr>
-				
-				<tr height="21">
+
+				<tr height="21" th:remove="all">
 						<td class="TD_STYLE2">
 						Ⅰ级结构
 						</td>
@@ -114,7 +101,7 @@
 						Ⅱ级结构5
 						</td>
 						<td class="TD_STYLE2">
-						
+
 						</td>
 						<td class="TD_STYLE2">
 						经理级别
@@ -127,8 +114,8 @@
 							调动</a>
 						</td>
 					</tr>
-				
-				<tr height="21">
+
+				<tr height="21" th:remove="all">
 						<td class="TD_STYLE2">
 						集团
 						</td>
@@ -149,8 +136,8 @@
 							调动</a>
 						</td>
 					</tr>
-				
-				<tr height="21">
+
+				<tr height="21" th:remove="all">
 						<td class="TD_STYLE2">
 						总部
 						</td>
@@ -171,16 +158,16 @@
 							调动</a>
 						</td>
 					</tr>
-				
-				<tr height="21">
+
+				<tr height="21" th:remove="all">
 						<td class="TD_STYLE2">
 						Ⅰ级结构
 						</td>
 						<td class="TD_STYLE2">
-						
+
 						</td>
 						<td class="TD_STYLE2">
-						
+
 						</td>
 						<td class="TD_STYLE2">
 						普通员工
@@ -193,16 +180,16 @@
 							调动</a>
 						</td>
 					</tr>
-				
-				<tr height="21">
+
+				<tr height="21" th:remove="all">
 						<td class="TD_STYLE2">
 						集团
 						</td>
 						<td class="TD_STYLE2">
-						
+
 						</td>
 						<td class="TD_STYLE2">
-						
+
 						</td>
 						<td class="TD_STYLE2">
 						普通员工
@@ -215,16 +202,16 @@
 							调动</a>
 						</td>
 					</tr>
-				
-				<tr height="21">
+
+				<tr height="21" th:remove="all">
 						<td class="TD_STYLE2">
 						Ⅰ级结构
 						</td>
 						<td class="TD_STYLE2">
-						
+
 						</td>
 						<td class="TD_STYLE2">
-						
+
 						</td>
 						<td class="TD_STYLE2">
 						董事长
@@ -237,8 +224,8 @@
 							调动</a>
 						</td>
 					</tr>
-				
-				<tr height="21">
+
+				<tr height="21" th:remove="all">
 						<td class="TD_STYLE2">
 						Ⅰ级结构
 						</td>
@@ -259,11 +246,7 @@
 							调动</a>
 						</td>
 					</tr>
-				
-				  
 			</table>
-			
-			
 <html>
   <head>  
   </head>  

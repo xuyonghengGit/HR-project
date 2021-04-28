@@ -371,4 +371,46 @@ public class Major_Change {
     public void setCheck_time(String check_time) {
         this.check_time = check_time;
     }
+
+    @Override
+    public String toString() {
+        return "Major_Change{" +
+                "mch_id=" + mch_id +
+                ", first_kind_id=" + first_kind_id +
+                ", first_kind_name='" + first_kind_name + '\'' +
+                ", second_kind_id=" + second_kind_id +
+                ", second_kind_name='" + second_kind_name + '\'' +
+                ", third_kind_id=" + third_kind_id +
+                ", third_kind_name='" + third_kind_name + '\'' +
+                ", major_kind_id=" + major_kind_id +
+                ", major_kind_name='" + major_kind_name + '\'' +
+                ", major_id=" + major_id +
+                ", major_name='" + major_name + '\'' +
+                ", new_first_kind_id=" + new_first_kind_id +
+                ", new_first_kind_name='" + new_first_kind_name + '\'' +
+                ", new_second_kind_id=" + new_second_kind_id +
+                ", new_second_kind_name='" + new_second_kind_name + '\'' +
+                ", new_third_kind_id=" + new_third_kind_id +
+                ", new_third_kind_name='" + new_third_kind_name + '\'' +
+                ", new_major_kind_id=" + new_major_kind_id +
+                ", new_major_kind_name='" + new_major_kind_name + '\'' +
+                ", new_major_id=" + new_major_id +
+                ", new_major_name='" + new_major_name + '\'' +
+                ", human_id=" + human_id +
+                ", human_name='" + human_name + '\'' +
+                ", salary_standard_id=" + salary_standard_id +
+                ", salary_standard_name='" + salary_standard_name + '\'' +
+                ", salary_sum=" + salary_sum +
+                ", new_salary_standard_id=" + new_salary_standard_id +
+                ", new_salary_standard_name='" + new_salary_standard_name + '\'' +
+                ", new_salary_sum=" + new_salary_sum +
+                ", change_reason='" + change_reason + '\'' +
+                ", check_reason='" + check_reason + '\'' +
+                ", check_status=" + check_status +
+                ", register='" + register + '\'' +
+                ", checker='" + checker + '\'' +
+                ", regist_time='" + regist_time + '\'' +
+                ", check_time='" + check_time + '\'' +
+                '}';
+    }
 }

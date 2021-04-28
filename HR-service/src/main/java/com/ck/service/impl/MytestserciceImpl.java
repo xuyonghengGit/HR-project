@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 @Service
-public class MytestserciceImpl implements Mytestsercice {
+public class  MytestserciceImpl implements Mytestsercice {
     @Autowired
     private ItestDao testdao;
 

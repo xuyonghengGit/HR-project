@@ -22,7 +22,6 @@
         <maven.compiler.source>1.7</maven.compiler.source>
         <maven.compiler.target>1.7</maven.compiler.target>
     </properties>
-
     <dependencies>
         <dependency>
             <groupId>com.ck</groupId>
@@ -31,7 +30,6 @@
             <scope>compile</scope>
         </dependency>
     </dependencies>
-
     <build>
         <finalName>HR-web-transfer</finalName>
         <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->

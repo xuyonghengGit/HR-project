@@ -8,13 +8,23 @@
 			
 	</head>
 	<body >
-		<form action="list.html" method="post" >
-			<font color="black"> 您在做的业务是-人力资源-调动管理-调动查询列表 </font>
-			<br/><br/><br/>			
-
+		<form action="topage?page=transfer/detail" method="post" >
+			<table width="100%">
+				<tr>
+					<td>
+						<font color="black">您在做的业务是-人力资源-调动管理-调动查询列表</font>
+					</td>
+				</tr>
+				<tr>
+					<td align="right">
+						<input type="button" class="BUTTON_STYLE1" onclick="javascript:window.history.back();" value="返回">
+					</td>
+				</tr>
+			</table>
 			<table width="100%" border="1" cellpadding=0 cellspacing=1
 				bordercolorlight=#848284 bordercolordark=#eeeeee
 				class="TABLE_STYLE1">
+
 				<tr height="21">
 					<td width="19%" class="TD_STYLE1">
 						I级机构
@@ -33,35 +43,44 @@
 					</td>
 					<td width="5%" class="TD_STYLE1">
 						查看
-
 					</td>
-
 				</tr>
-				
-				
-					<tr height="21">
-						<td class="TD_STYLE2">
-						Ⅰ级结构
+					<tr height="21" th:each="l:${list_MC}">
+						<td class="TD_STYLE2"  >
+							<input  class="TD_STYLE2"type="text" th:value="${l.first_kind_name}"
+								   value="Ⅰ级结构" readonly="readonly"
+								  >
+
+						</td>
+						<td class="TD_STYLE2" >
+							<input type="text" th:value="${l.second_kind_name}"
+								   value="2级结构" readonly="readonly"
+								   class="TD_STYLE2">
+						</td>
+						<td class="TD_STYLE2" >
+							<input type="text"th:value="${l.third_kind_name}"
+								   value="3级结构" readonly="readonly"
+								   class="TD_STYLE2">
+						</td>
+						<td class="TD_STYLE2" >
+							<input type="text" th:value="${l.salary_standard_name}"
+								   value="经理级别" readonly="readonly"
+								   class="TD_STYLE2">
+
+						</td>
+						<td class="TD_STYLE2" >
+							<input  type="hidden" th:value="${l.mch_id}">
+							<input type="text" th:value="${l.human_name}"
+								   value="杨阳" readonly="readonly"
+								   class="TD_STYLE2">
+
 						</td>
 						<td class="TD_STYLE2">
-						
-						</td>
-						<td class="TD_STYLE2">
-						
-						</td>
-						<td class="TD_STYLE2">
-						经理级别
-						</td>
-						<td class="TD_STYLE2">
-						杨阳
-						</td>
-						<td class="TD_STYLE2">
-							<a href="detail.html">
-							查看</a>
+<!--							<a th:href="@{queryByMch_idTFMajor_change(mch_id=${l.mch_id})}">查看</a>-->
+							<a th:href="'queryByMch_idTFMajor_change?mch_id='+${l.mch_id}">查看</a>
 						</td>
 					</tr>
-						
-					<tr height="21">
+					<tr height="21" th:remove="all">
 						<td class="TD_STYLE2">
 						Ⅰ级结构
 						</td>
@@ -82,13 +101,9 @@
 							查看</a>
 						</td>
 					</tr>
-						
-				  
 			</table>
 			<br>
 			<br>
-	  
-			
 				</form>	
 	</body>
 </html>

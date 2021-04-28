@@ -15,9 +15,126 @@
 		<link rel="stylesheet" href="css/cwcalendar.css" type="text/css"></link>
 	 
 	</head>
+	<script src="javascript/jquery-1.7.2.js"></script>
+	<script>
+		$(function () {
+			$.ajax({
+				//获取查询的路径
+				url:'queryAllFirstFile',
+				//查询到的东西
+				success: function(date){
+					//#firstKind下拉框的id,拿到下拉框
+					let selectfirst = $("#firstKindId");
+					//通过循环获得查询到的集合里面的值
+					for (let i=0;i<date.length;i++){
+						//通过循环一条一条的把查询到的值注入到下拉框里面
+						//date[i].first_kind_id下拉框获得的ID
+						//date[i].first_kind_name下拉框里面的内容，获得对应的ID的内容
+						selectfirst.append("<option value='"+date[i].first_kind_id+"'>"+date[i].first_kind_name+"</option>");
+					}
+				}
+			})
+
+			$("#firstKindId").change(function () {
+				//#firstKind下拉框的id，获得下拉框的values
+				let selectfirst = $("#firstKindId").val();
+
+				if (selectfirst!='0'){
+					$.ajax({
+						url:'querysecondkind?first_kind_id='+selectfirst,
+						success: function(sb) {
+							let secondKind = $("#secondKindId");
+							secondKind.text("");
+							secondKind.append("<option value='0'>请选择</option>");
+							for (let i=0;i<sb.length;i++){
+								secondKind.append("<option value='"+sb[i].second_kind_id+"'>"+sb[i].second_kind_name+"</option>")
+							}
+						}
+					});
+				}else{
+					let secondKind = $("#secondKindId");
+					secondKind.text("");
+					secondKind.append("<option value='0'>请选择</option>");
+					let thirdKind = $("#thirdKind");
+					thirdKind.text("");
+					thirdKind.append("<option value='0'>请选择</option>");
+				}
+			});
+			$("#secondKindId").change(function () {
+				let secondKind = $("#secondKindId").val();
+				if (secondKind!=0){
+					$.ajax({
+						url:'querythird?second_kind_id='+secondKind,
+						success: function (hengchusheng) {
+							let thirdKind = $("#thirdKindId");
+							thirdKind.text("");
+							thirdKind.append("<option value='0'>请选择</option>");
+							for (let i=0;i<hengchusheng.length;i++){
+								thirdKind.append("<option value='"+hengchusheng[i].third_kind_id+"'>"+hengchusheng[i].third_kind_name+"</option>")
+							}
+						}
+					})
+				}else {
+
+					let thirdKind = $("#thirdKindId");
+					thirdKind.text("");
+					thirdKind.append("<option value='0'>请选择</option>");
+				}
+			})
+		})
+	</script>
+	<script type="text/javascript">
+		$(function() {
+
+			var first=$("#firstKindId");
+			var second= $("#secondKindId");
+			var third=$("#thirdKindId");
+
+			second.change(function(){
+				$.post('/HR_Fist/transfer/transferAction!findthree.action',{ 'configThird.firstKindId' : $('#firstKindId option:selected').val(),'configThird.secondKindId' : $('#secondKindId option:selected').val() },
+						function(data){
+							third.css("width",second.width());
+							third.empty();
+							third.append("<option value='0' >-----请选择-----</option>");
+							var items = $(data).find("item");
+							items.each(function(i){
+								var id = $(items[i]).attr("id");
+								var name = $(items[i]).attr("name");
+								third.append("<option value='"+id+"'>"+name+"</option>");
+
+
+							});
+						},'xml');
+
+			});
+
+		});
+	</script>
+	<script type="text/javascript">
+		$(function() {
+			var first=$("#firstKindId");
+			var second= $("#secondKindId");
+			var third=$("#thirdKindId");
+			first.change(function(){
+				$.post('/HR_Fist/transfer/transferAction!findtwo.action',{ 'configThird.firstKindId' : $('#firstKindId option:selected').val() },
+						function(data){
+
+							second.css("width",first.width());
+							second.empty();
+							second.append("<option value='0' >-----请选择-----</option>");
+							var items = $(data).find("item");
+							items.each(function(i){
+								var id = $(items[i]).attr("id");
+								var name = $(items[i]).attr("name");
+								second.append("<option value='"+id+"'>"+name+"</option>");
+							});
+						},'xml');
+				third.val('0');
+			}); });
+	</script>
 
 	<body>
-		<form name="humanfileForm" method="post" action="queryAlltransferMajor_change">
+		<form name="humanfileForm" method="post" action="queryConditiontransferHuman_file">
 			<table width="100%">
 				<tr>
 					<td>
@@ -25,6 +142,9 @@
 					</td>
 				</tr>
 				<tr>
+					<td align="right">
+						<input type="button" class="BUTTON_STYLE1" onclick="javascript:window.history.back();" value="返回">
+					</td>
 					<td align="right">
 						<input type="submit" value="查询"
 							class="BUTTON_STYLE1" >
@@ -36,76 +156,28 @@
 				bordercolorlight=#848284 bordercolordark=#eeeeee
 				class="TABLE_STYLE1">
 				<tr class="TR_STYLE1">
-					<td width="13%" class="TD_STYLE1">
+					<td width="13%" class="TD_STYLE1" >
 						请选择员工所在I级机构					</td>
 				  <td width="29%" class="TD_STYLE2">
-						<script type="text/javascript"> 
-			$(function() {
-			var first=$("#firstKindId");
-			var second= $("#secondKindId");
-			var third=$("#thirdKindId");
-	 		 first.change(function(){
-	 		 	$.post('/HR_Fist/transfer/transferAction!findtwo.action',{ 'configThird.firstKindId' : $('#firstKindId option:selected').val() },
-		  			function(data){
-		  			 
-		  			 second.css("width",first.width());
-		  			second.empty();
-		  			second.append("<option value='0' >-----请选择-----</option>");
-		  		var items = $(data).find("item");
-		  		items.each(function(i){
-		  				var id = $(items[i]).attr("id");
-		  				var name = $(items[i]).attr("name");	
-		  				second.append("<option value='"+id+"'>"+name+"</option>");
-		  		
-		  		
-		  		});
-					},'xml');
-	 		 	third.val('0');
-	 		 }); });
-</script>
+
+
    
-   <select style="width:160px" name="configThird.firstKindId" id="firstKindId" size="1" class="SELECT_STYLE2">						
-								<option value="0">-----请选择-----</option>					
+   <select style="width:160px" name="firstKindId" id="firstKindId" size="1" class="SELECT_STYLE2">
+								<option value="0" >-----请选择-----</option>
 					  			
-					  				<option  value="1353318953319">Ⅰ级结构</option>	
+					  				<option  value="1353318953319" th:remove="all">Ⅰ级结构</option>
 					  			
-					  				<option  value="1353318929919">集团</option>	
+					  				<option  value="1353318929919" th:remove="all">集团</option>
 					  			
-					  				<option  value="1353318937391">总部</option>	
+					  				<option  value="1353318937391" th:remove="all">总部</option>
 					  			
 					  </select>
 				  </td>
 					<td width="13%" class="TD_STYLE1">
 						请选择员工所在II级机构					</td>
 				  <td width="45%" class="TD_STYLE2">
-						 <script type="text/javascript"> 
-			$(function() {
-			 
-			var first=$("#firstKindId");
-			var second= $("#secondKindId");
-			var third=$("#thirdKindId");
-	 		 
-	 		 second.change(function(){
-	 		 	$.post('/HR_Fist/transfer/transferAction!findthree.action',{ 'configThird.firstKindId' : $('#firstKindId option:selected').val(),'configThird.secondKindId' : $('#secondKindId option:selected').val() },
-		  			function(data){
-		  			 third.css("width",second.width());
-		  			third.empty();
-		  			third.append("<option value='0' >-----请选择-----</option>");
-		  		var items = $(data).find("item");
-		  		items.each(function(i){
-		  				var id = $(items[i]).attr("id");
-		  				var name = $(items[i]).attr("name");	
-		  				third.append("<option value='"+id+"'>"+name+"</option>");
-		  		
-		  		
-		  		});
-					},'xml');
-	 		 
-	 		 });
-			
-			  });
-</script>
-   <select style="width:160px" name="configThird.secondKindId" id="secondKindId" size="1" class="SELECT_STYLE2">						
+
+   <select style="width:160px" name="secondKindId" id="secondKindId" size="1" class="SELECT_STYLE2">
 								<option value="0">-----请选择-----</option>						
 					 		
 					  </select>
@@ -116,16 +188,17 @@
 					<td width="13%" class="TD_STYLE1">
 						请选择员工所在III级机构					</td>
 					<td width="29%" class="TD_STYLE2">
-					 <select style="width:160px" name="configThird.thirdKindId" id="thirdKindId" size="1" class="SELECT_STYLE2">		
+					 <select style="width:160px" name="thirdKindId" id="thirdKindId" size="1" class="SELECT_STYLE2">
 								<option value="0">-----请选择-----</option>						
 					   </select>
 				  </td>
 					<td height="18" class="TD_STYLE1">
 						请输入建档时间					</td>
 					<td width="45%" class="TD_STYLE2">
-						<input name="utilbean.startDate" onclick="aa('utilbean.startDate')" type="text" class="INPUT_STYLE2" id="date_start" style="width:24% " value="" size="30">
-						至<input type="text" name="utilbean.endDate" onclick="aa('utilbean.endDate')" value="" style="width:24% " class="INPUT_STYLE2" id="date_end">
+						<input name="startDate" onclick="aa('utilbean.startDate')" type="date" class="INPUT_STYLE2" id="date_start" style="width:24% " value="" size="30">
+						至<input type="date" name="endDate" onclick="aa('utilbean.endDate')" value="" style="width:24% " class="INPUT_STYLE2" id="date_end">
 						（YYYY-MM-DD）
+
 				  </td>
 				</tr>
 		  </table>
